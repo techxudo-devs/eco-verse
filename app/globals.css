@@ -19,6 +19,11 @@
   --font-sans: var(--font-inter);
 }
 
+@theme {
+  --font-clash: var(--font-clash), sans-serif;
+  --font-beni: var(--font-beni), sans-serif;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -27,7 +32,7 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  /* font-family: var(--font-inter), sans-serif; */
 }
 
 html.lenis {

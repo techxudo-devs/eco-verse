@@ -32,8 +32,8 @@ const items: CardItem[] = [
     baseY: 10,
     baseRot: -2,
     z: 10,
-    width: 220,
-    height: 320,
+    width: 200,
+    height: 300,
     floatingItems: [
       { src: "💻 ⚡ 🎧", left: "-40px", bottom: "80px", rotation: -5 }
     ]
@@ -58,8 +58,8 @@ const items: CardItem[] = [
     baseY: 10,
     baseRot: 2,
     z: 10,
-    width: 220,
-    height: 320,
+    width: 200,
+    height: 300,
     floatingItems: [
       { src: "🎥 ⚡ 🤜", right: "-80px", top: "160px", rotation: 5 }
     ]
@@ -123,7 +123,7 @@ const Cards = () => {
         if (dist < maxDist) {
           const force = Math.pow((maxDist - dist) / maxDist, 2);
           // Hover movement increased (pushFactor: 80 -> 130)
-          const pushFactor = 150;
+          const pushFactor = 120;
           pushX = (dx / dist) * force * pushFactor;
           pushY = (dy / dist) * force * pushFactor;
         }

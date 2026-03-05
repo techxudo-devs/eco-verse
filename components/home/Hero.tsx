@@ -12,7 +12,8 @@ const logos = [
 
 const Hero = () => {
   return (
-    <section className="relative overflow-visible pt-8">
+    <section className="relative overflow-visible pt-8 min-h-[600px]">
+      {/* Logos Container */}
       <div className="relative z-10 mx-auto flex w-full items-center justify-center">
         {logos.map((logo) => (
           <Image
@@ -26,6 +27,21 @@ const Hero = () => {
           />
         ))}
       </div>
+
+      {/* Main Text Content (Left Side) */}
+      {/* Is container ko humne absolute rakha hai taake ye image ke upar exact position ho sake */}
+      <div className="absolute left-10 bottom-[3%] z-40 flex flex-col pointer-events-none">
+        {/* Agence text: weight bold aur position thodi closer */}
+        <p className="font-clash text-[1.1rem] font-bold text-orange-300 opacity-90 mb-1">
+          Agence social média
+        </p>
+        {/* Main Heading: line-height (leading) ko tight kiya hai for closer look */}
+        <h1 className="font-beni text-[80px] md:text-[130px] font-black leading-[0.68] text-orange-500 uppercase">
+          HUMAN <br /> <span className="text-orange-300">SOCIAL CLUB</span>
+        </h1>
+      </div>
+
+      {/* Cards Container */}
       <div className="absolute left-0 right-0 top-0 z-30 px-4 md:top-0">
         <Cards />
       </div>
