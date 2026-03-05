@@ -29,3 +29,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
 }
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
