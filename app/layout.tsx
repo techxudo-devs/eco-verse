@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import QueryProvider from "@/lib/providers/QueryProvider";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <SmoothScroll>{children}</SmoothScroll>
+        <QueryProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </QueryProvider>
       </body>
     </html>
   );
