@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { Check, Edit2, EyeOff, NotebookPen, RotateCcw, Save, SquarePen, Trash2 } from "lucide-react";
 import {
@@ -11,6 +11,8 @@ import {
   useUpdateBlog,
 } from "@/lib/hooks/useBlogs";
 import type { BlogCreateInput, BlogUpdateInput } from "@/lib/schemas/blogSchema";
+import { uploadImageToCloudinary } from "@/lib/utils/cloudinary";
+import type { ChangeEvent } from "react";
 
 type BlogFormState = {
   title: string;
@@ -49,6 +51,8 @@ export default function BlogsManager() {
   const [panelOpen, setPanelOpen] = useState(false);
   const [formState, setFormState] = useState<BlogFormState>(defaultBlogForm);
   const [formError, setFormError] = useState("");
+  const [isUploadingCover, setIsUploadingCover] = useState(false);
+  const coverFileInputRef = useRef<HTMLInputElement | null>(null);
 
   const blogs = useMemo(() => data ?? [], [data]);
   const editingBlog = useMemo(
@@ -60,6 +64,7 @@ export default function BlogsManager() {
 
   const isBusy =
     createBlog.isPending || updateBlog.isPending || deleteBlog.isPending;
+  const isFormBusy = isBusy || isUploadingCover;
 
   const resetPanel = () => {
     setEditingId(null);
@@ -149,6 +154,28 @@ export default function BlogsManager() {
       tags: ((editingBlog.tags as string[]) ?? []).join(", "),
       categoryName: editingBlog.category?.name ?? "General",
     });
+  };
+
+  const onCoverUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    try {
+      setIsUploadingCover(true);
+      setFormError("");
+      const secureUrl = await uploadImageToCloudinary(file);
+      setFormState((previous) => ({
+        ...previous,
+        coverImage: secureUrl,
+      }));
+    } catch {
+      setFormError("Image upload failed. Please check Cloudinary configuration.");
+    } finally {
+      setIsUploadingCover(false);
+      event.target.value = "";
+    }
   };
 
   return (
@@ -369,17 +396,34 @@ export default function BlogsManager() {
 
             <label className="grid gap-1 text-sm">
               <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Cover Image</span>
-              <input
-                value={formState.coverImage}
-                onChange={(event) =>
-                  setFormState((previous) => ({
-                    ...previous,
-                    coverImage: event.target.value,
-                  }))
-                }
-                className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
-                placeholder="https://..."
-              />
+              <div className="flex gap-2">
+                <input
+                  value={formState.coverImage}
+                  onChange={(event) =>
+                    setFormState((previous) => ({
+                      ...previous,
+                      coverImage: event.target.value,
+                    }))
+                  }
+                  className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                  placeholder="https://..."
+                />
+                <button
+                  type="button"
+                  disabled={isUploadingCover}
+                  onClick={() => coverFileInputRef.current?.click()}
+                  className="rounded-lg border border-[var(--color-green)]/30 bg-[var(--color-green)]/8 px-3 text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--color-green)]/16 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isUploadingCover ? "Uploading..." : "Upload"}
+                </button>
+                <input
+                  ref={coverFileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={onCoverUpload}
+                  className="hidden"
+                />
+              </div>
             </label>
 
             <label className="grid gap-1 text-sm">
@@ -412,10 +456,10 @@ export default function BlogsManager() {
 
             <button
               type="submit"
-              disabled={isBusy}
+              disabled={isFormBusy}
               className="inline-flex items-center justify-center rounded-xl border border-[var(--color-green)] bg-[var(--color-green)]/10 px-4 py-2.5 text-sm font-bold tracking-[0.12em] text-[var(--foreground)] transition hover:bg-[var(--color-green)]/20"
             >
-              {isBusy ? (
+              {isFormBusy ? (
                 <motion.span
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}

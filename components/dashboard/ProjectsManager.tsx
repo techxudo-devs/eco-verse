@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Check, Pencil, PlusCircle, RotateCcw, Save, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Project } from "@/app/generated/prisma/client";
@@ -11,7 +11,8 @@ import {
   useUpdateProject,
 } from "@/lib/hooks/useProjects";
 import { parseProjectPayload } from "@/lib/projects/projectPayload";
-import type { FormEvent } from "react";
+import { uploadImageToCloudinary } from "@/lib/utils/cloudinary";
+import type { ChangeEvent, FormEvent } from "react";
 
 type ProjectFormState = {
   title: string;
@@ -51,9 +52,14 @@ export default function ProjectsManager() {
   const [editingProjectId, setEditingProjectId] = useState<number | null>(null);
   const [formState, setFormState] = useState<ProjectFormState>(defaultFormState);
   const [formError, setFormError] = useState<string>("");
+  const [isUploadingCover, setIsUploadingCover] = useState(false);
+  const [isUploadingGallery, setIsUploadingGallery] = useState(false);
+  const coverFileInputRef = useRef<HTMLInputElement | null>(null);
+  const galleryFileInputRef = useRef<HTMLInputElement | null>(null);
 
   const isMutationPending =
     createProject.isPending || updateProject.isPending || deleteProject.isPending;
+  const isFormBusy = isMutationPending || isUploadingCover || isUploadingGallery;
 
   const selectedProject = useMemo(
     () =>
@@ -149,6 +155,55 @@ export default function ProjectsManager() {
         [field]: value,
       }));
     };
+
+  const onCoverUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    try {
+      setIsUploadingCover(true);
+      setFormError("");
+      const secureUrl = await uploadImageToCloudinary(file);
+      updateField("coverImage")(secureUrl);
+    } catch {
+      setFormError("Image upload failed. Please check Cloudinary configuration.");
+    } finally {
+      setIsUploadingCover(false);
+      event.target.value = "";
+    }
+  };
+
+  const onGalleryUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files ?? []);
+    if (files.length === 0) {
+      return;
+    }
+
+    try {
+      setIsUploadingGallery(true);
+      setFormError("");
+      const uploadedUrls = await Promise.all(
+        files.map((file) => uploadImageToCloudinary(file)),
+      );
+      setFormState((previous) => {
+        const existing = previous.galleryImages
+          .split(",")
+          .map((value) => value.trim())
+          .filter(Boolean);
+        return {
+          ...previous,
+          galleryImages: [...existing, ...uploadedUrls].join(", "),
+        };
+      });
+    } catch {
+      setFormError("One or more gallery uploads failed.");
+    } finally {
+      setIsUploadingGallery(false);
+      event.target.value = "";
+    }
+  };
 
   return (
     <section className="space-y-6">
@@ -360,12 +415,29 @@ export default function ProjectsManager() {
 
             <label className="grid gap-1 text-sm">
               <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Cover Image</span>
-              <input
-                value={formState.coverImage}
-                onChange={(event) => updateField("coverImage")(event.target.value)}
-                className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
-                placeholder="https://..."
-              />
+              <div className="flex gap-2">
+                <input
+                  value={formState.coverImage}
+                  onChange={(event) => updateField("coverImage")(event.target.value)}
+                  className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                  placeholder="https://..."
+                />
+                <button
+                  type="button"
+                  disabled={isUploadingCover}
+                  onClick={() => coverFileInputRef.current?.click()}
+                  className="rounded-lg border border-[var(--color-green)]/30 bg-[var(--color-green)]/8 px-3 text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--color-green)]/16 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isUploadingCover ? "Uploading..." : "Upload"}
+                </button>
+                <input
+                  ref={coverFileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={onCoverUpload}
+                  className="hidden"
+                />
+              </div>
             </label>
 
             <label className="grid gap-1 text-sm">
@@ -380,20 +452,38 @@ export default function ProjectsManager() {
 
             <label className="grid gap-1 text-sm">
               <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Gallery Images (comma separated)</span>
-              <input
-                value={formState.galleryImages}
-                onChange={(event) => updateField("galleryImages")(event.target.value)}
-                className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
-                placeholder="https://... , https://..."
-              />
+              <div className="flex gap-2">
+                <input
+                  value={formState.galleryImages}
+                  onChange={(event) => updateField("galleryImages")(event.target.value)}
+                  className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                  placeholder="https://... , https://..."
+                />
+                <button
+                  type="button"
+                  disabled={isUploadingGallery}
+                  onClick={() => galleryFileInputRef.current?.click()}
+                  className="rounded-lg border border-[var(--color-green)]/30 bg-[var(--color-green)]/8 px-3 text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--color-green)]/16 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isUploadingGallery ? "Uploading..." : "Upload"}
+                </button>
+                <input
+                  ref={galleryFileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={onGalleryUpload}
+                  className="hidden"
+                />
+              </div>
             </label>
 
             <button
               type="submit"
-              disabled={isMutationPending}
+              disabled={isFormBusy}
               className="inline-flex items-center justify-center rounded-xl border border-[var(--color-green)] bg-[var(--color-green)]/10 px-4 py-2.5 text-sm font-bold tracking-[0.12em] text-[var(--foreground)] transition hover:bg-[var(--color-green)]/20"
             >
-              {isMutationPending ? (
+              {isFormBusy ? (
                 <motion.span
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
