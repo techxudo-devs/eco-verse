@@ -177,6 +177,7 @@ const Cards = () => {
         {items.map((item, index) => (
           <div
             key={item.id}
+            id={item.id}
             ref={(el) => {
               elementsRef.current[index] = el;
             }}

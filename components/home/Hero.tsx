@@ -32,7 +32,7 @@ const Hero = () => {
       {/* Is container ko humne absolute rakha hai taake ye image ke upar exact position ho sake */}
       <div className="absolute left-10 bottom-[3%] z-40 flex flex-col pointer-events-none">
         {/* Agence text: weight bold aur position thodi closer */}
-        <p className="font-clash text-[1.1rem] font-bold text-orange-300 opacity-90 mb-1">
+        <p className="font-clash text-xl font-bold text-orange-300 opacity-90 mb-4">
           Agence social média
         </p>
         {/* Main Heading: line-height (leading) ko tight kiya hai for closer look */}
