@@ -101,7 +101,7 @@ const Expertise = () => {
     ];
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] bg-[#D1CFE4]">
+        <div ref={containerRef} className="relative h-[300vh] bg-[#00522D]">
             {/* Sticky Scroll Container */}
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
