@@ -1,4 +1,5 @@
 import CardsFlipScrollAnimation from '@/components/home/CardsFlipScrollAnimation'
+import CardsStack from '@/components/home/CardsStack'
 import Expertise from '@/components/home/Expertise'
 import Hero from '@/components/home/Hero'
 import Navbar from '@/components/home/Navbar'
@@ -10,6 +11,7 @@ const page = () => {
             <Hero />
             {/* <CardsFlipScrollAnimation /> */}
             <Expertise />
+            <CardsStack />
         </div>
     )
 }
