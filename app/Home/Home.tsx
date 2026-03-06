@@ -3,6 +3,7 @@ import CardsStack from '@/components/home/CardsStack'
 import ChooseUs from '@/components/home/ChooseUs'
 import Expertise from '@/components/home/Expertise'
 import FAQS from '@/components/home/FAQS'
+import Footer from '@/components/home/Footer'
 import Hero from '@/components/home/Hero'
 import Navbar from '@/components/home/Navbar'
 
@@ -16,6 +17,7 @@ const page = () => {
             <CardsStack />
             <ChooseUs />
             <FAQS />
+            <Footer />
         </div>
     )
 }
