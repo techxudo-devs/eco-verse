@@ -76,7 +76,7 @@ const Footer = () => {
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.1 } } // Staggers the letters popping up
                 }}
-                className="w-full flex justify-between items-end px-4 -mt-10 mb-10"
+                className="w-full flex -space-x-1 items-center justify-center px-4 -mt-10 mb-10"
             >
                 {logos.map((logo, index) => (
                     <motion.img

@@ -6,12 +6,14 @@ import FAQS from '@/components/home/FAQS'
 import Footer from '@/components/home/Footer'
 import Hero from '@/components/home/Hero'
 import Navbar from '@/components/home/Navbar'
+import Social from '@/components/home/Social'
 
 const page = () => {
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
             <Hero />
+            <Social />
             {/* <CardsFlipScrollAnimation /> */}
             <Expertise />
             <CardsStack />
