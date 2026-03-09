@@ -13,12 +13,12 @@ const page = () => {
         <div className="min-h-screen bg-background">
             <Navbar />
             <Hero />
-            <Social />
             {/* <CardsFlipScrollAnimation /> */}
             <Expertise />
             <CardsStack />
             <ChooseUs />
             <FAQS />
+            <Social />
             <Footer />
         </div>
     )

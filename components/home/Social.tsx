@@ -156,33 +156,16 @@ const Social = () => {
                                 </div>
 
                                 {/* Bottom Footer Elements */}
-                                <div className="absolute bottom-2 left-4 right-4 flex items-end justify-between z-20">
-                                    <div className="flex gap-1">
-                                        <button className="w-10 h-10 bg-orange-500 hover:bg-orange-600 transition-colors rounded-full flex items-center justify-center text-white text-2xl">
-                                            +
-                                        </button>
-                                        <button className="w-10 h-10 bg-white hover:bg-gray-100 transition-colors rounded-full flex items-center justify-center text-orange-500 text-xl">
-                                            ♡
-                                        </button>
-                                    </div>
-                                    <div className="flex flex-col items-end gap-1">
-                                        {card.tags.map((tag, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="bg-orange-500 backdrop-blur-sm text-white font-clash font-medium text-[10px] lg:text-[11px] xl:text-xs px-2 lg:px-3 py-1.5 rounded-lg"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
+                                <div className="absolute bottom-3 left-4 right-4 flex z-20">
+                                    <p className="font-clash font-medium bg-orange-500 text-white px-4 py-1 cursor-pointer hover:bg-orange-600 transition-colors duration-300 rounded-lg text-sm">View Blog</p>
                                 </div>
                             </div>
                         ))}
 
                         {/* 6th Card: Solid Orange "More Projects" */}
                         <div className="relative w-[80vw] lg:w-[calc(20vw-1.25rem)] h-[50vh] lg:h-[70vh] rounded-3xl bg-[#00522D] flex-shrink-0 flex flex-col items-center justify-center p-8 text-center">
-                            <h3 className="font-beni font-black text-[70px] text-white uppercase leading-[0.7] mb-8">
-                                MORE<br />PROJECTS?
+                            <h3 className="font-beni font-black text-[80px] text-white uppercase leading-[0.7] mb-8">
+                                MORE<br />BLOGS?
                             </h3>
                             <button className="bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-sm hover:scale-95 px-8 py-3 rounded-lg cursor-pointer uppercase">
                                 Explore
