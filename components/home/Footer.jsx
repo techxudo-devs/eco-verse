@@ -10,6 +10,9 @@ import logo4 from "@/public/assets/logo4.svg"
 import logo5 from "@/public/assets/logo5.svg"
 import logo6 from "@/public/assets/logo6.svg"
 
+import logo from "@/public/assets/charLogo.svg"
+import Image from 'next/image';
+
 const Footer = () => {
     // Smooth spring animation for sliding up from the bottom
     const slideUp = {
@@ -76,9 +79,9 @@ const Footer = () => {
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.1 } } // Staggers the letters popping up
                 }}
-                className="w-full flex -space-x-1 items-center justify-center px-4 -mt-10 mb-10"
+                className="w-full flex -space-x-1 items-center justify-center px-4 -mt-40 z-50"
             >
-                {logos.map((logo, index) => (
+                {/* {logos.map((logo, index) => (
                     <motion.img
                         key={index}
                         variants={slideUp}
@@ -86,11 +89,12 @@ const Footer = () => {
                         alt={`letter-${index}`}
                         className="w-[16%] h-auto object-contain"
                     />
-                ))}
+                ))} */}
+                <Image src={logo} alt="Logo" width={500} height={500} className="w-[800px] z-50" />
             </motion.div>
 
             {/* --- BOTTOM SECTION: COPYRIGHT & LINKS --- */}
-            <div className="flex flex-col lg:flex-row items-center justify-between px-4 lg:px-8 pb-8 text-[#00522D] font-clash font-medium text-[11px] lg:text-xs uppercase">
+            <div className="flex flex-col lg:flex-row items-center justify-between px-4 lg:px-8 pb-8 text-[#00522D] font-clash font-medium text-[11px] lg:text-xs uppercase -mt-12">
 
                 {/* Left: Copyright & Socials */}
                 <div className="flex flex-col lg:flex-row items-center gap-4">

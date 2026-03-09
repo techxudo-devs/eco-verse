@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Cards from "./Cards";
+import logo from "@/public/assets/charLogo.svg"
 
 const logos = [
   { src: "/assets/logo1.svg", alt: "Logo 1", className: "-mr-6" },
@@ -14,8 +15,8 @@ const Hero = () => {
   return (
     <section className="relative overflow-visible pt-8 min-h-[600px]">
       {/* Logos Container */}
-      <div className="relative z-10 mx-auto flex w-full items-center justify-center">
-        {logos.map((logo) => (
+      <div className="relative z-10 mx-auto flex w-full items-center justify-center -mt-24">
+        {/* {logos.map((logo) => (
           <Image
             key={logo.src}
             src={logo.src}
@@ -25,7 +26,8 @@ const Hero = () => {
             className={`w-[184px] ${logo.className}`}
             priority={logo.src === "/assets/logo1.svg"}
           />
-        ))}
+        ))} */}
+        <Image src={logo} alt="Logo" width={500} height={500} className="w-[800px]" />
       </div>
 
       {/* Main Text Content (Left Side) */}

@@ -28,12 +28,12 @@ const items: CardItem[] = [
   {
     id: 'card-left',
     src: 'https://www.agencefoudre.com/media/site/b89fc535d3-1764264576/agence-foudre-3-1440x-q80.avif',
-    baseX: -220,
+    baseX: -200,
     baseY: 10,
     baseRot: -2,
     z: 10,
-    width: 200,
-    height: 300,
+    width: 180,
+    height: 280,
     floatingItems: [
       { src: "💻 ⚡ 🎧", left: "-40px", bottom: "80px", rotation: -5 }
     ]
@@ -45,21 +45,21 @@ const items: CardItem[] = [
     baseY: 0,
     baseRot: 0,
     z: 30,
-    width: 280,
-    height: 420,
+    width: 260,
+    height: 400,
     floatingItems: [
-      { src: "⚡", top: "30px", left: "25%", rotation: 10 }
+      { src: "⚡", top: "40px", left: "25%", rotation: 10 }
     ]
   },
   {
     id: 'card-right',
     src: 'https://www.agencefoudre.com/media/site/cca40ed208-1764264583/agence-foudre-2-1440x-q80.avif',
-    baseX: 220,
+    baseX: 200,
     baseY: 10,
     baseRot: 2,
     z: 10,
-    width: 200,
-    height: 300,
+    width: 180,
+    height: 280,
     floatingItems: [
       { src: "🎥 ⚡ 🤜", right: "-80px", top: "160px", rotation: 5 }
     ]
