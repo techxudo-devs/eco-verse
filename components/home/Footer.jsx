@@ -98,7 +98,7 @@ const Footer = () => {
 
                 {/* Left: Copyright & Socials */}
                 <div className="flex flex-col lg:flex-row items-center gap-4">
-                    <span>© 2026 FOUDRE, all rights reserved.</span>
+                    <span>© 2026 ECHO VERSE, all rights reserved.</span>
 
                     <div className="flex items-center gap-2">
                         {/* Instagram Icon */}
@@ -134,9 +134,8 @@ const Footer = () => {
 
                 {/* Right: Legal Links */}
                 <div className="flex flex-wrap items-center justify-center gap-4 mt-6 lg:mt-0">
-                    <a href="#" className="hover:opacity-70 transition-opacity">Confidentiality</a>
-                    <a href="#" className="hover:opacity-70 transition-opacity">Legal Notice</a>
-                    <a href="#" className="hover:opacity-70 transition-opacity">Site by TROA</a>
+                    <a href="#" className="hover:opacity-70 transition-opacity">Terms & Conditions</a>
+                    <a href="#" className="hover:opacity-70 transition-opacity">Privacy Policy</a>
                 </div>
 
             </div>
