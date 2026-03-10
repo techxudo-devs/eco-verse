@@ -23,6 +23,77 @@ export const getBlogs = async () => {
   }
 };
 
+export const getPublishedBlogs = async (limit?: number) => {
+  try {
+    return await prisma.blog.findMany({
+      where: {
+        published: true,
+      },
+      orderBy: {
+        updatedAt: "desc",
+      },
+      ...(typeof limit === "number" ? { take: limit } : {}),
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching published blogs:", error);
+    throw new Error("Failed to fetch published blogs");
+  }
+};
+
+export const getPublishedBlogBySlug = async (slug: string) => {
+  try {
+    return await prisma.blog.findFirst({
+      where: {
+        slug,
+        published: true,
+      },
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching blog by slug:", error);
+    throw new Error("Failed to fetch blog");
+  }
+};
+
+export const getBlogBySlug = async (slug: string) => {
+  try {
+    return await prisma.blog.findUnique({
+      where: {
+        slug,
+      },
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching blog by slug:", error);
+    throw new Error("Failed to fetch blog");
+  }
+};
+
 export const createBlog = async (
   input: Omit<BlogCreateInput, "categoryName"> & { categoryId: number },
 ) => {

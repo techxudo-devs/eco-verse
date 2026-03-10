@@ -1,27 +1,37 @@
-import CardsFlipScrollAnimation from '@/components/home/CardsFlipScrollAnimation'
-import CardsStack from '@/components/home/CardsStack'
-import ChooseUs from '@/components/home/ChooseUs'
-import Expertise from '@/components/home/Expertise'
-import FAQS from '@/components/home/FAQS'
-import Footer from '@/components/home/Footer'
-import Hero from '@/components/home/Hero'
-import Navbar from '@/components/home/Navbar'
-import Social from '@/components/home/Social'
+import CardsStack from "@/components/home/CardsStack";
+import ChooseUs from "@/components/home/ChooseUs";
+import Expertise from "@/components/home/Expertise";
+import FAQS from "@/components/home/FAQS";
+import Footer from "@/components/home/Footer";
+import Hero from "@/components/home/Hero";
+import Navbar from "@/components/home/Navbar";
+import Social from "@/components/home/Social";
+import { getBlogs } from "@/lib/services/blogService";
 
-const page = () => {
-    return (
-        <div className="min-h-screen bg-background">
-            <Navbar />
-            <Hero />
-            {/* <CardsFlipScrollAnimation /> */}
-            <Expertise />
-            <CardsStack />
-            <ChooseUs />
-            <FAQS />
-            <Social />
-            <Footer />
-        </div>
-    )
-}
+const page = async () => {
+  const blogs = await getBlogs();
 
-export default page
+  const socialBlogs = blogs.slice(0, 5).map((blog) => ({
+    id: blog.id,
+    title: blog.title,
+    slug: blog.slug,
+    coverImage: blog.coverImage ?? "/assets/choose1.avif",
+    tags: blog.tags,
+  }));
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      {/* <CardsFlipScrollAnimation /> */}
+      <Expertise />
+      <CardsStack />
+      <ChooseUs />
+      <FAQS />
+      <Social blogs={socialBlogs} />
+      <Footer />
+    </div>
+  );
+};
+
+export default page;

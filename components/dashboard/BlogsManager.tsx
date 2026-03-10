@@ -231,7 +231,7 @@ export default function BlogsManager() {
               }}
               className="grid gap-3 md:grid-cols-2"
             >
-              {blogs.map((blog: { id: number; title: string; slug: string; content: string; updatedAt: string; published?: boolean; category?: { name?: string } }) => (
+              {blogs.map((blog: { id: number; title: string; slug: string; content: string; coverImage?: string | null; updatedAt: string; published?: boolean; category?: { name?: string } }) => (
                 <motion.article
                   key={blog.id}
                   variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
@@ -242,6 +242,15 @@ export default function BlogsManager() {
                       : "border-zinc-200 hover:border-[var(--color-green)]/55"
                   }`}
                 >
+                  {blog.coverImage ? (
+                    <div className="mb-3 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100">
+                      <img
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        className="h-40 w-full object-cover"
+                      />
+                    </div>
+                  ) : null}
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-xl font-black text-[var(--foreground)]">
