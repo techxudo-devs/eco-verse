@@ -94,7 +94,7 @@ const ChooseUs = () => {
 
                 {/* --- BACKGROUND LARGE TEXT --- */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
-                    <h1 className="text-[216px] leading-[0.7] font-beni font-black text-[#FFF0E5] text-center uppercase">
+                    <h1 className="text-[140px] sm:text-[180px] md:text-[200px] lg:text-[216px] leading-[0.7] font-beni font-black text-[#FFF0E5] text-center uppercase">
                         <span className="block">WHY</span>
                         <span className="block">CHOOSE</span>
                         <span className="block">ECHO VERSE</span>
