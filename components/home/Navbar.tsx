@@ -105,7 +105,7 @@ const Navbar = () => {
           <div className="fixed inset-0 z-[60] flex overflow-hidden">
 
             {/* CENTER LOGO (slides with left panel) */}
-            <motion.div
+            {/* <motion.div
               variants={logoVariants}
               initial="hidden"
               animate="visible"
@@ -113,7 +113,7 @@ const Navbar = () => {
               className="absolute inset-0 flex items-center justify-center pointer-events-none z-[70]"
             >
               <Image src={echoLogo} alt="Echo Logo" className="w-[420px]" priority />
-            </motion.div>
+            </motion.div> */}
 
             {/* LEFT PANEL */}
             <motion.div
