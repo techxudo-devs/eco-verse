@@ -169,7 +169,7 @@ const Navbar = () => {
 
               <p className="font-clash font-bold text-white text-center text-xl leading-snug w-full max-w-[350px] mt-6">
                 Because we prefer genuine, quick, and straightforward exchanges.
-                Scan the QR code, send your message, and we'll reply (very quickly).
+                Scan the QR code, send your message, and we&apos;ll reply (very quickly).
               </p>
 
               <button className="mt-10 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-sm px-6 py-4 rounded-lg cursor-pointer hover:scale-95">
@@ -214,7 +214,7 @@ const Navbar = () => {
 
               <p className="font-clash font-medium text-white text-center text-base leading-snug w-full mt-4">
                 Because we prefer genuine, quick, and straightforward exchanges.
-                Scan the QR code, send your message, and we'll reply (very quickly).
+                Scan the QR code, send your message, and we&apos;ll reply (very quickly).
               </p>
 
               <button className="mt-6 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-base px-8 py-3 rounded-lg shadow-sm w-full hover:scale-95 cursor-pointer">

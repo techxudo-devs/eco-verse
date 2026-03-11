@@ -108,7 +108,7 @@ const Hero2 = () => {
         {/* Subheading */}
         <div className="z-10 mt-8 text-center max-w-2xl">
           <p className="text-[22px] leading-snug font-medium font-clash">
-            Money: it's all about change. Discover its story
+            Money: it&apos;s all about change. Discover its story
             <br />
             at MoMoney, the interactive Museum of Money.
           </p>

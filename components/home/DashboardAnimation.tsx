@@ -20,7 +20,7 @@ import leftDetail from "@/public/assets/leftDetail.svg"; // Quick Summary Arrow
 import rightDetail from "@/public/assets/rightDetail.svg"; // Improved UI Arrow
 
 type DashboardAnimationProps = {
-  scrollSectionRef?: React.RefObject<HTMLElement>;
+  scrollSectionRef?: React.RefObject<HTMLElement | null>;
 };
 
 const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
