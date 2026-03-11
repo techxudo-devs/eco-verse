@@ -135,7 +135,7 @@ const CardsStack = () => {
                         <div className="w-1/3 flex justify-start pl-14 z-40">
                             <div className="w-full max-w-[340px]">
                                 <h4 className="font-clash font-bold text-orange-600 text-[16px] mb-4 leading-5">
-                                    At Foudre, each project follows <br /> a clear and structured process.
+                                    At Echo Verse, each project follows <br /> a clear and structured process.
                                 </h4>
                                 <p className="font-clash font-medium text-orange-500 text-[16px] leading-5">
                                     Because effective communication cannot be improvised, we have created a method that combines strategy, creativity and rigor, to guarantee concrete results.
@@ -182,7 +182,7 @@ const CardsStack = () => {
 
                     <div className="mt-8 flex flex-col gap-4">
                         <h4 className="font-clash font-bold text-orange-600 text-[15px] sm:text-[16px] leading-tight px-4">
-                            At Foudre, each project follows a clear and structured process.
+                            At Echo Verse, each project follows a clear and structured process.
                         </h4>
                         <p className="font-clash font-medium text-orange-500 text-[14px] sm:text-[15px] leading-snug">
                             Because effective communication cannot be improvised, we have created a method that combines strategy, creativity and rigor, to guarantee concrete results.

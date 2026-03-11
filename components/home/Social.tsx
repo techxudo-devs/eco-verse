@@ -117,8 +117,8 @@ const Social = ({ blogs }: { blogs: SocialBlog[] }) => {
             {/* Huge Title */}
             <h2 className="text-[94px] text-white leading-16 font-beni uppercase font-black z-10 relative">
               <span className="block">WE</span>
-              <span className="block">MAKE THEM</span>
-              <span className="block">SOCIAL</span>
+              <span className="block">TELL</span>
+              <span className="block">STORIES</span>
             </h2>
 
             {/* Avatars Row */}
@@ -140,7 +140,7 @@ const Social = ({ blogs }: { blogs: SocialBlog[] }) => {
           {/* Bottom Left Label */}
           <div className="absolute bottom-8 left-9 z-50">
             <span className="text-white font-clash font-regular uppercase text-sm border-b border-white">
-              Projects
+              Blogs
             </span>
           </div>
         </div>

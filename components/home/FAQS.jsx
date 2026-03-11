@@ -22,7 +22,7 @@ const FAQS = () => {
     const faqs = [
         {
             question: "What types of companies do you support?",
-            answer: "At Foudre, we primarily support SMEs, mid-sized companies, and large groups, whether regional or national. Our mission: to help these organizations strengthen their image, develop their visibility, and unite their communities."
+            answer: "At Echo Verse, we primarily support SMEs, mid-sized companies, and large groups, whether regional or national. Our mission: to help these organizations strengthen their image, develop their visibility, and unite their communities."
         },
         {
             question: "Do you work only in Montpellier or also remotely?",
@@ -37,11 +37,11 @@ const FAQS = () => {
             answer: "We offer both! Whether you want us to completely manage your accounts or just guide your internal team with consulting and strategy, we adapt entirely to your needs."
         },
         {
-            question: "What results can be expected when working with Agence Foudre?",
+            question: "What results can be expected when working with Echo Verse?",
             answer: "You can expect increased brand awareness, stronger community engagement, a cohesive visual identity, and measurable growth in your key performance indicators (KPIs)."
         },
         {
-            question: "How to get a quote or start a collaboration with Agence Foudre?",
+            question: "How to get a quote or start a collaboration with Echo Verse?",
             answer: "It's very simple! Via WhatsApp, by answering the questionnaire at the bottom of the page, or by email. Next, we organize an initial exchange to understand your expectations and build a tailor-made proposal."
         }
     ];

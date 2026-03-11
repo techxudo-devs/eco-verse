@@ -99,26 +99,26 @@ const Expertise = () => {
             {/* ========================================== */}
             {/* DESKTOP VIEW (Visible lg and above)        */}
             {/* ========================================== */}
-            <div ref={desktopContainerRef} className="hidden lg:block relative h-[300vh] bg-[#00522D]">
+            <div ref={desktopContainerRef} className="hidden lg:block relative h-[300vh] bg-orange-500">
                 <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                     <div className="flex w-full max-w-[1400px] px-8 items-center justify-between">
 
                         {/* LEFT SECTION */}
                         <div className="w-full max-w-[400px] relative z-40">
                             <h1 className="text-[94px] leading-[0.7] font-beni font-black uppercase">
-                                <span className="text-orange-500 block">REASONING</span>
-                                <span className="text-orange-500 block">TO BETTER:</span>
-                                <span className="block text-orange-300">RESONATING.</span>
+                                <span className="text-white block">REASONING</span>
+                                <span className="text-white block">TO BETTER:</span>
+                                <span className="block text-[#00522D]">RESONATING.</span>
                             </h1>
 
                             <p className="font-clash text-orange-500 mt-5 text-lg font-semibold w-[85%] leading-6">
-                                Foudre is a social media agency founded on three strong areas of expertise.
+                                Echo Verse is a social media agency founded on three strong areas of expertise.
                             </p>
 
                             <motion.div
                                 animate={{ y: [-6, 6, -6] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -right-20 top-[70%] bg-[#FCE6D5] rounded-2xl px-3 py-5 flex items-center shadow-sm rotate-[-5deg]"
+                                className="absolute -right-20 top-[70%] bg-[#00522D] rounded-2xl px-3 py-5 flex items-center shadow-sm rotate-[-5deg]"
                             >
                                 <span className="text-3xl drop-shadow-sm">👀</span>
                                 <span className="text-3xl drop-shadow-sm">📱</span>
@@ -147,7 +147,7 @@ const Expertise = () => {
                                 <div key={i} className="flex flex-col border-b border-white last:border-0 py-4">
                                     <h3
                                         onClick={() => handleDesktopItemClick(i)}
-                                        className={`cursor-pointer font-beni font-black tracking-[0.5] text-[46px] uppercase leading-[0.9] transition-colors duration-500 ${desktopActiveIndex === i ? "text-orange-500" : "text-white"}`}
+                                        className={`cursor-pointer font-beni font-black tracking-[0.5] text-[46px] uppercase leading-[0.9] transition-colors duration-500 ${desktopActiveIndex === i ? "text-[#00522D]" : "text-white"}`}
                                     >
                                         {item.title}
                                     </h3>
@@ -166,7 +166,7 @@ const Expertise = () => {
                                             {item.pills.map((pill, idx) => (
                                                 <span
                                                     key={idx}
-                                                    className="bg-orange-500 text-white rounded-lg px-4 py-2 text-sm font-clash font-medium tracking-wide"
+                                                    className="bg-[#00522D] text-white rounded-lg px-4 py-2 text-sm font-clash font-medium tracking-wide"
                                                 >
                                                     {pill}
                                                 </span>
@@ -190,18 +190,18 @@ const Expertise = () => {
             {/* ========================================== */}
             {/* MOBILE VIEW (Visible below lg)             */}
             {/* ========================================== */}
-            <div className="block lg:hidden relative w-full bg-[#00522D] py-10 px-4 overflow-hidden">
+            <div className="block lg:hidden relative w-full bg-orange-500 py-10 px-4 overflow-hidden">
 
                 {/* TOP TEXT */}
                 <div className="w-full relative z-20 mb-10">
                     <h1 className="text-[3.5rem] sm:text-[5rem] leading-[0.7] font-beni font-black uppercase relative z-10">
-                        <span className="text-orange-500 block">REASONING</span>
-                        <span className="text-orange-500 block">TO BETTER:</span>
+                        <span className="text-[#00522D] block">REASONING</span>
+                        <span className="text-[#00522D] block">TO BETTER:</span>
                         <span className="block text-orange-300">RESONATING.</span>
                     </h1>
 
                     <p className="font-clash text-orange-500 mt-4 text-base sm:text-lg font-semibold w-[95%] sm:w-[80%] leading-snug">
-                        Foudre is a social media agency founded on three strong areas of expertise.
+                        Echo Verse is a social media agency founded on three strong areas of expertise.
                     </p>
 
                     <motion.div

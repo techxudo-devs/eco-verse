@@ -7,7 +7,7 @@ import { FaWhatsapp, FaInstagram, FaTiktok, FaPinterestP, FaLinkedinIn } from "r
 import qrImage from "@/public/assets/qr.avif";
 import Image from "next/image";
 
-import echoLogo from "@/public/assets/echoLogo.svg";
+import echoLogo from "@/public/assets/echoverse-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,15 +105,15 @@ const Navbar = () => {
           <div className="fixed inset-0 z-[60] flex overflow-hidden">
 
             {/* CENTER LOGO (slides with left panel) */}
-            {/* <motion.div
+            <motion.div
               variants={logoVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
               className="absolute inset-0 flex items-center justify-center pointer-events-none z-[70]"
             >
-              <Image src={echoLogo} alt="Echo Logo" className="w-[420px]" priority />
-            </motion.div> */}
+              <Image src={echoLogo} alt="Echo Logo" className="w-[600px]" priority />
+            </motion.div>
 
             {/* LEFT PANEL */}
             <motion.div
@@ -121,7 +121,7 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center pl-[8%] lg:pl-[12%]"
+              className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center pl-[8%] lg:pl-[10%]"
             >
               <nav className="flex flex-col mb-6">
                 {menuLinks.map((link, idx) => (
@@ -157,7 +157,7 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center items-center px-8"
+              className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center items-center px-8 pl-[12%]"
             >
               <Image src={qrImage} alt="QR Image" />
 
@@ -173,7 +173,7 @@ const Navbar = () => {
               </p>
 
               <button className="mt-10 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-sm px-6 py-4 rounded-lg cursor-pointer hover:scale-95">
-                Chat with Margaux
+                Chat With Us
               </button>
             </motion.div>
 
@@ -218,7 +218,7 @@ const Navbar = () => {
               </p>
 
               <button className="mt-6 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-base px-8 py-3 rounded-lg shadow-sm w-full hover:scale-95 cursor-pointer">
-                Chat with Margaux
+                Chat With Us
               </button>
             </motion.div>
           </>

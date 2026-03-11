@@ -7,6 +7,7 @@ import Hero from "@/components/home/Hero";
 import Hero2 from "@/components/home/Hero2";
 import Navbar from "@/components/home/Navbar";
 import Social from "@/components/home/Social";
+import VideosStack from "@/components/home/VideosStack";
 import { getBlogs } from "@/lib/services/blogService";
 
 const page = async () => {
@@ -26,6 +27,7 @@ const page = async () => {
       <Hero2 />
       {/* <CardsFlipScrollAnimation /> */}
       <Expertise />
+      <VideosStack />
       <CardsStack />
       <ChooseUs />
       <FAQS />
