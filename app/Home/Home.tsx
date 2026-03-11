@@ -1,5 +1,6 @@
 import CardsStack from "@/components/home/CardsStack";
 import ChooseUs from "@/components/home/ChooseUs";
+import DashboardAnimation from "@/components/home/DashboardAnimation";
 import Expertise from "@/components/home/Expertise";
 import FAQS from "@/components/home/FAQS";
 import Footer from "@/components/home/Footer";
@@ -25,6 +26,7 @@ const page = async () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero2 />
+      <DashboardAnimation />
       {/* <CardsFlipScrollAnimation /> */}
       <Expertise />
       <VideosStack />

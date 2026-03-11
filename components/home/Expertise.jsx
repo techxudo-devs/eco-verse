@@ -3,6 +3,10 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
+import first1 from "@/public/assets/first2.png"
+import second2 from "@/public/assets/second2.png"
+import third2 from "@/public/assets/third2.png"
+
 const Expertise = () => {
     // ==========================================
     // DESKTOP LOGIC (>= lg)
@@ -83,9 +87,9 @@ const Expertise = () => {
     ];
 
     const images = [
-        "https://www.agencefoudre.com/media/site/3c742bb01f-1767612914/foudre-@agence.foudre-57-600x-q80.avif",
-        "https://www.agencefoudre.com/media/site/b224aefda4-1767612789/shooting-foudre-600x-q80.avif",
-        "https://www.agencefoudre.com/media/site/750b347a6e-1764266386/foudre-5-600x-q80.avif"
+        third2.src,
+        second2.src,
+        first1.src,
     ];
 
     return (
