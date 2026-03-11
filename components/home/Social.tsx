@@ -64,7 +64,6 @@ const Social = ({ blogs }: { blogs: SocialBlog[] }) => {
   const shiftPercent =
     totalTrackCards > 3 ? ((totalTrackCards - 3) / totalTrackCards) * 100 : 0;
 
-  // Track scroll over a 400vh container to give plenty of scrolling time for the horizontal track
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -200,7 +199,6 @@ const Social = ({ blogs }: { blogs: SocialBlog[] }) => {
               </div>
             ))}
 
-            {/* 6th Card: Solid Orange "More Projects" */}
             <div className="relative w-[80vw] lg:w-[calc(20vw-1.25rem)] h-[50vh] lg:h-[70vh] rounded-3xl bg-[#00522D] flex-shrink-0 flex flex-col items-center justify-center p-8 text-center">
               <h3 className="font-beni font-black text-[80px] text-white uppercase leading-[0.7] mb-8">
                 MORE
