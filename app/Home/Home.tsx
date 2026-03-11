@@ -4,6 +4,7 @@ import Expertise from "@/components/home/Expertise";
 import FAQS from "@/components/home/FAQS";
 import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
+import Hero2 from "@/components/home/Hero2";
 import Navbar from "@/components/home/Navbar";
 import Social from "@/components/home/Social";
 import { getBlogs } from "@/lib/services/blogService";
@@ -22,7 +23,7 @@ const page = async () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
+      <Hero2 />
       {/* <CardsFlipScrollAnimation /> */}
       <Expertise />
       <CardsStack />

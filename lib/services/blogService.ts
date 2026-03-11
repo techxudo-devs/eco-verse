@@ -1,6 +1,22 @@
 import prisma from "@/lib/prisma";
 import type { BlogCreateInput, BlogUpdateInput } from "@/lib/schemas/blogSchema";
 
+const isPrismaP1001 = (error: unknown): boolean =>
+  typeof error === "object" &&
+  error !== null &&
+  "code" in error &&
+  (error as { code?: string }).code === "P1001";
+
+const throwDbError = (action: string, error: unknown): never => {
+  console.error(`Error ${action}:`, error);
+  if (isPrismaP1001(error)) {
+    throw new Error(
+      "Database is not reachable. Check DATABASE_URL and make sure Postgres is running.",
+    );
+  }
+  throw new Error(`Failed to ${action}`);
+};
+
 export const getBlogs = async () => {
   try {
     return await prisma.blog.findMany({
@@ -18,8 +34,7 @@ export const getBlogs = async () => {
       },
     });
   } catch (error) {
-    console.error("Error fetching blogs:", error);
-    throw new Error("Failed to fetch blogs");
+    return throwDbError("fetch blogs", error);
   }
 };
 
@@ -44,8 +59,7 @@ export const getPublishedBlogs = async (limit?: number) => {
       },
     });
   } catch (error) {
-    console.error("Error fetching published blogs:", error);
-    throw new Error("Failed to fetch published blogs");
+    return throwDbError("fetch published blogs", error);
   }
 };
 
@@ -67,8 +81,7 @@ export const getPublishedBlogBySlug = async (slug: string) => {
       },
     });
   } catch (error) {
-    console.error("Error fetching blog by slug:", error);
-    throw new Error("Failed to fetch blog");
+    return throwDbError("fetch blog by slug", error);
   }
 };
 
@@ -89,8 +102,7 @@ export const getBlogBySlug = async (slug: string) => {
       },
     });
   } catch (error) {
-    console.error("Error fetching blog by slug:", error);
-    throw new Error("Failed to fetch blog");
+    return throwDbError("fetch blog by slug", error);
   }
 };
 
@@ -102,8 +114,7 @@ export const createBlog = async (
       data: input,
     });
   } catch (error) {
-    console.error("Error creating blog:", error);
-    throw new Error("Failed to create blog");
+    return throwDbError("create blog", error);
   }
 };
 
@@ -115,8 +126,7 @@ export const updateBlog = async (input: BlogUpdateInput) => {
       data: payload,
     });
   } catch (error) {
-    console.error("Error updating blog:", error);
-    throw new Error("Failed to update blog");
+    return throwDbError("update blog", error);
   }
 };
 
@@ -126,7 +136,6 @@ export const deleteBlog = async (id: number) => {
       where: { id },
     });
   } catch (error) {
-    console.error("Error deleting blog:", error);
-    throw new Error("Failed to delete blog");
+    return throwDbError("delete blog", error);
   }
 };

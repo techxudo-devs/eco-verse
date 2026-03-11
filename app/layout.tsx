@@ -62,6 +62,28 @@ const beni = localFont({
   variable: "--font-beni",
 });
 
+const bue = localFont({
+  src:[
+    {
+      path: "../public/fonts/Bueno-VF.ttf",
+      weight: "100 900", // Variable font supports a range of weights
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Bueno-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Bueno-Regular.otf",
+      weight: "400",
+      style: "normal",
+    }
+  ],
+  variable: "--font-bue",
+  display: "swap",
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -79,7 +101,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${beni.variable} ${clashGrotesk.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${bue.variable} ${beni.variable} ${clashGrotesk.variable} ${inter.variable} font-sans antialiased`}>
         <QueryProvider>
           <SmoothScroll>{children}</SmoothScroll>
         </QueryProvider>

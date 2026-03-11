@@ -1,3 +1,5 @@
+@import url(https://db.onlinewebfonts.com/c/6d2c026c97d83d349353c409688ecd20?family=Bueno);
+
 @import "tailwindcss";
 
 :root {
@@ -22,6 +24,11 @@
 @theme {
   --font-clash: var(--font-clash), sans-serif;
   --font-beni: var(--font-beni), sans-serif;
+  --font-bue: var(--font-bue), sans-serif; 
+}
+
+.bue {
+  font-family: "Bueno";
 }
 
 html,
