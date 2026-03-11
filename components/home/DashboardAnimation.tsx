@@ -19,7 +19,11 @@ import numbersImage4 from "@/public/assets/numbers4.svg"; // Visits (Light Blue)
 import leftDetail from "@/public/assets/leftDetail.svg"; // Quick Summary Arrow
 import rightDetail from "@/public/assets/rightDetail.svg"; // Improved UI Arrow
 
-const DashboardAnimation = () => {
+type DashboardAnimationProps = {
+  scrollSectionRef?: React.RefObject<HTMLElement>;
+};
+
+const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -39,7 +43,7 @@ const DashboardAnimation = () => {
       // 2. Scroll-Triggered Scatter Animation for the Cards
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: scrollSectionRef?.current ?? sectionRef.current,
           start: "top 20%",     // Starts animating as soon as the section enters the viewport
           end: "center center", // Fully slots into place when the section is centered on screen
           scrub: 1,             // Binds the downward movement smoothly to the user's scroll amount
@@ -47,10 +51,10 @@ const DashboardAnimation = () => {
       });
 
       // Scattered at the TOP of the section initially, then coming downwards on scroll
-      tl.from(".animated-card-1", { x: "40vw", y: "-85vh", rotation: -20, scale: 1, ease: "none" }, 0) // Lime Card
-        .from(".animated-card-2", { x: "-20vw", y: "-85vh", rotation: -10, scale: 1, ease: "none" }, 0) // Pink Card
-        .from(".animated-card-3", { x: "15vw", y: "-100vh", rotation: 0, scale: 1, ease: "none" }, 0)  // Dark Blue Card
-        .from(".animated-card-4", { x: "10vw", y: "-80vh", rotation: 25, scale: 1, ease: "none" }, 0); // Light Blue Card
+      tl.from(".animated-card-1", { x: "80vw", y: "-180vh", rotation: -20, scale: 1, ease: "none" }, 0) // Lime Card
+        .from(".animated-card-2", { x: "-20vw", y: "-170vh", rotation: -10, scale: 1, ease: "none" }, 0) // Pink Card
+        .from(".animated-card-3", { x: "15vw", y: "-180vh", rotation: 0, scale: 1, ease: "none" }, 0)  // Dark Blue Card
+        .from(".animated-card-4", { x: "60vw", y: "-180vh", rotation: 25, scale: 1, ease: "none" }, 0); // Light Blue Card
         
     }, sectionRef);
 
@@ -60,7 +64,7 @@ const DashboardAnimation = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full min-h-screen py-10 overflow-hidden flex justify-center items-center bg-[#154238]"
+      className="relative z-20 w-full min-h-screen py-10 overflow-visible flex justify-center items-center bg-[#154238]"
     >
       {/* Background Subtle Grid */}
       <div 
