@@ -45,16 +45,16 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
         scrollTrigger: {
           trigger: scrollSectionRef?.current ?? sectionRef.current,
           start: "top 20%",     // Starts animating as soon as the section enters the viewport
-          end: "center center", // Fully slots into place when the section is centered on screen
+          end: "bottom bottom", // Fully slots into place when the section is centered on screen
           scrub: 1,             // Binds the downward movement smoothly to the user's scroll amount
         },
       });
 
       // Scattered at the TOP of the section initially, then coming downwards on scroll
-      tl.from(".animated-card-1", { x: "80vw", y: "-180vh", rotation: -20, scale: 1, ease: "none" }, 0) // Lime Card
-        .from(".animated-card-2", { x: "-20vw", y: "-170vh", rotation: -10, scale: 1, ease: "none" }, 0) // Pink Card
-        .from(".animated-card-3", { x: "15vw", y: "-180vh", rotation: 0, scale: 1, ease: "none" }, 0)  // Dark Blue Card
-        .from(".animated-card-4", { x: "60vw", y: "-180vh", rotation: 25, scale: 1, ease: "none" }, 0); // Light Blue Card
+      tl.from(".animated-card-1", { x: "75vw", y: "-170vh", rotation: -20, scale: 1, ease: "none" }, 0) // Lime Card
+        .from(".animated-card-2", { x: "-20vw", y: "-155vh", rotation: -10, scale: 1, ease: "none" }, 0) // Pink Card
+        .from(".animated-card-3", { x: "15vw", y: "-165vh", rotation: 0, scale: 1, ease: "none" }, 0)  // Dark Blue Card
+        .from(".animated-card-4", { x: "55vw", y: "-170vh", rotation: 25, scale: 1, ease: "none" }, 0); // Light Blue Card
         
     }, sectionRef);
 
