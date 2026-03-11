@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "dev:turbopack": "next dev --turbo",
-    "build": "next build",
+    "dev:webpack": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "db:test": "tsx scripts/test-database.ts",
