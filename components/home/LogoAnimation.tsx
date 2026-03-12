@@ -1,0 +1,146 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import {
+  Megaphone,
+  Mail,
+  User,
+  LayoutDashboard,
+  MessageSquareQuote,
+  Ticket,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Assets
+import echoVerseLogo from "@/public/assets/echoverse-logo.png";
+import backAnimation from "@/public/assets/backAnimation.svg";
+
+interface IntegrationCard {
+  icon: React.ReactNode;
+  title: string;
+  pos: string;
+}
+
+const LogoAnimation: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const cards: IntegrationCard[] = [
+    {
+      icon: <Mail className="w-8 h-8 mb-2" />,
+      title: "Email newsletter",
+      pos: "top-[15%] left-[10%]",
+    },
+    {
+      icon: <Megaphone className="w-8 h-8 mb-2" />,
+      title: "Advertising",
+      pos: "bottom-[10%] left-[5%]",
+    },
+    {
+      icon: <User className="w-8 h-8 mb-2" />,
+      title: "Social networks",
+      pos: "bottom-[25%] left-[25%]",
+    },
+    {
+      icon: <LayoutDashboard className="w-8 h-8 mb-2" />,
+      title: "CRM",
+      pos: "top-[20%] right-[25%]",
+    },
+    {
+      icon: <MessageSquareQuote className="w-8 h-8 mb-2" />,
+      title: "Chatbot",
+      pos: "bottom-[15%] right-[18%]",
+    },
+    {
+      icon: <Ticket className="w-8 h-8 mb-2" />,
+      title: "Ticket operator",
+      pos: "bottom-[40%] right-[5%]",
+    },
+  ];
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Create the scroll-bound timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 10%", // Starts when top of section hits 10% of viewport
+          end: "bottom bottom", // Ends when bottom of section hits center of viewport
+          scrub: 1, // Smoothly binds movement to scroll (1 second delay)
+          markers: false, // Set to true to debug start/end positions
+        },
+      });
+
+      // Move the logo from top to the center of the lines
+      // We use y: 450 (approx) to push it down through the title into the center
+      tl.to(logoRef.current, {
+        y: 500,
+        scale: 0.8,
+        ease: "none", // Keeps it strictly proportional to scroll
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="w-full flex bg-[#1C4238] flex-col items-center justify-start pt-10 overflow-hidden relative min-h-[50vh]"
+    >
+      {/* 1. INITIAL LOGO POSITION (TOP) */}
+      <div ref={logoRef} className="z-50">
+        <Image
+          className="w-[400px] h-auto bg-white rounded-xl"
+          src={echoVerseLogo}
+          alt="Logo of Echo Verse"
+          priority
+        />
+      </div>
+
+      {/* 3. ANIMATION ARENA */}
+      <div
+        ref={containerRef}
+        className="relative w-full aspect-[16/7] max-w-[1400px]"
+      >
+        {/* Background Image (Static Lines as requested) */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={backAnimation}
+            alt="Backside Animation"
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        {/* Integration Cards with Framer Motion for entrance */}
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            className={`absolute ${card.pos} z-10 bg-orange-500 rounded-xl shadow-sm p-4 w-36 h-36 flex flex-col items-center justify-center text-center transition-transform hover:scale-110 duration-300`}
+          >
+            <div className="text-white">{card.icon}</div>
+            <p className="text-white font-clash font-medium text-base leading-4 mt-2">
+              {card.title}
+            </p>
+          </motion.div>
+        ))}
+
+        {/* This is the destination spot (Visual Center) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      </div>
+    </div>
+  );
+};
+
+export default LogoAnimation;

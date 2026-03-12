@@ -5,6 +5,7 @@ import FAQS from "@/components/home/FAQS";
 import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
 import Hero2 from "@/components/home/Hero2";
+import LogoAnimation from "@/components/home/LogoAnimation";
 import Navbar from "@/components/home/Navbar";
 import Social from "@/components/home/Social";
 import VideosStack from "@/components/home/VideosStack";
@@ -25,6 +26,7 @@ const page = async () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero2 />
+      <LogoAnimation />
       {/* <CardsFlipScrollAnimation /> */}
       <Expertise />
       <VideosStack />
