@@ -135,7 +135,7 @@ export default function StudioEditorPanel({
   return (
     <aside
       data-lenis-prevent
-      className="border-b border-zinc-200 bg-white xl:sticky xl:top-16 xl:self-start xl:max-h-[calc(100vh-4rem)] xl:overflow-y-auto xl:overscroll-y-contain xl:border-b-0 xl:border-r"
+      className="border-b border-zinc-200 bg-white 2xl:sticky 2xl:top-16 2xl:self-start 2xl:max-h-[calc(100vh-4rem)] 2xl:overflow-y-auto 2xl:overscroll-y-contain 2xl:border-b-0 2xl:border-r"
     >
       <div className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 px-5 py-4 backdrop-blur">
         <div className="flex items-center justify-between">

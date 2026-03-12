@@ -42,8 +42,8 @@ export default function ProjectDetailView({ projectId }: Props) {
 
   if (editor.isEditing) {
     return (
-      <div className="bg-[#efefef] px-4 py-4 md:px-8 xl:px-20">
-        <section className="grid grid-cols-1 rounded-2xl border border-zinc-200 bg-white xl:grid-cols-[28rem_1fr]">
+      <div className="bg-[#efefef] px-3 py-4 md:px-6 xl:px-8 2xl:px-16">
+        <section className="grid grid-cols-1 rounded-2xl border border-zinc-200 bg-white 2xl:grid-cols-[24rem_minmax(0,1fr)]">
           <StudioEditorPanel
             projectForm={editor.projectForm}
             contentForm={editor.contentForm}

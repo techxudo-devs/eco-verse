@@ -20,6 +20,9 @@ export default function DashboardShell({ children }: DashboardShellProps) {
 
   const isProjectDetailRoute =
     pathname.startsWith("/dashboard/projects/") && pathname !== "/dashboard/projects";
+  const isBlogDetailRoute =
+    pathname.startsWith("/dashboard/blogs/") && pathname !== "/dashboard/blogs";
+  const isImmersiveDetailRoute = isProjectDetailRoute || isBlogDetailRoute;
 
   useEffect(() => {
     const onSidebarControl = (event: Event) => {
@@ -73,14 +76,14 @@ export default function DashboardShell({ children }: DashboardShellProps) {
           </header>
           <main
             className={
-              isProjectDetailRoute
+              isImmersiveDetailRoute
                 ? "px-0 pb-0 pt-0"
                 : "mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 lg:px-8"
             }
           >
             <div
               className={
-                isProjectDetailRoute
+                isImmersiveDetailRoute
                   ? "border-0 bg-transparent p-0 shadow-none"
                   : "rounded-[28px] border border-[var(--color-primary)]/20 bg-white/95 p-6 shadow-[0_12px_28px_rgba(31,41,55,0.08)]"
               }

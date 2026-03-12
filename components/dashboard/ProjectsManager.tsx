@@ -329,7 +329,7 @@ export default function ProjectsManager() {
       ) : null}
 
       {isLoading ? (
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} className="aspect-square animate-pulse rounded-xl border border-zinc-200 bg-white" />
           ))}
@@ -349,7 +349,7 @@ export default function ProjectsManager() {
               initial="hidden"
               animate="show"
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.06 } } }}
-              className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4"
+              className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             >
               {projects.map((project) => {
                 const isSelected = editingProjectId === project.id && panelOpen;

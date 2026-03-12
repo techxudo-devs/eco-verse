@@ -5,6 +5,7 @@ import type { BlogCreateInput, BlogUpdateInput } from "@/lib/schemas/blogSchema"
 
 export const blogKeys = {
   all: ["blogs"] as const,
+  detail: (id: number) => ["blogs", "detail", id] as const,
 };
 
 const fetchBlogs = async () => {
@@ -12,6 +13,16 @@ const fetchBlogs = async () => {
 
   if (!response.ok) {
     throw new Error("Failed to fetch blogs");
+  }
+
+  return response.json();
+};
+
+const fetchBlogById = async (id: number) => {
+  const response = await fetch(`/api/blogs/${id}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch blog");
   }
 
   return response.json();
@@ -63,6 +74,13 @@ export const useBlogs = () =>
     queryFn: fetchBlogs,
   });
 
+export const useBlog = (id: number) =>
+  useQuery({
+    queryKey: blogKeys.detail(id),
+    queryFn: () => fetchBlogById(id),
+    enabled: Number.isFinite(id) && id > 0,
+  });
+
 export const useCreateBlog = () => {
   const queryClient = useQueryClient();
 
@@ -77,7 +95,10 @@ export const useUpdateBlog = () => {
 
   return useMutation({
     mutationFn: updateBlog,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: blogKeys.all }),
+    onSuccess: (updatedBlog) => {
+      queryClient.invalidateQueries({ queryKey: blogKeys.all });
+      queryClient.invalidateQueries({ queryKey: blogKeys.detail(updatedBlog.id) });
+    },
   });
 };
 
@@ -89,4 +110,3 @@ export const useDeleteBlog = () => {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: blogKeys.all }),
   });
 };
-

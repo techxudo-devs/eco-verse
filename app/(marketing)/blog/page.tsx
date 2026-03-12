@@ -1,11 +1,29 @@
 import Link from "next/link";
+import { toBlogContentRecord } from "@/lib/blogs/studioContent";
 import { getBlogs } from "@/lib/services/blogService";
+
+const getBlogExcerpt = (content: string) => {
+  const raw = toBlogContentRecord(content);
+
+  if (Array.isArray(raw.blocks)) {
+    for (const item of raw.blocks) {
+      if (typeof item === "object" && item !== null && "content" in item) {
+        const blockContent = (item as { content?: unknown }).content;
+        if (typeof blockContent === "string" && blockContent.trim()) {
+          return blockContent.trim();
+        }
+      }
+    }
+  }
+
+  return content;
+};
 
 export default async function BlogPage() {
   const blogs = await getBlogs();
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-16">
+    <main className="container mx-auto w-full px-6 py-16 md:px-10">
       <div className="mb-12">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Journal</p>
         <h1 className="mt-2 font-beni text-5xl uppercase leading-none text-[var(--foreground)]">
@@ -39,7 +57,7 @@ export default async function BlogPage() {
                   <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
                 </h2>
                 <p className="line-clamp-3 text-sm text-zinc-600">
-                  {blog.description || blog.content}
+                  {blog.description || getBlogExcerpt(blog.content)}
                 </p>
                 <Link
                   href={`/blog/${blog.slug}`}

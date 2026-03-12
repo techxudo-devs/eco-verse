@@ -75,8 +75,8 @@ const DashboardSidebar = ({ collapsed = false }: DashboardSidebarProps) => {
 
   return (
     <aside
-      className={`sticky top-0 z-30 h-screen border-r border-[var(--color-primary)]/20 bg-white p-4 backdrop-blur-sm transition-all duration-200 ${
-        collapsed ? "w-[5.25rem]" : "w-[18rem]"
+      className={`sticky top-0 z-30 h-screen overflow-y-auto border-r border-[var(--color-primary)]/20 bg-white p-3 md:p-4 backdrop-blur-sm transition-all duration-200 ${
+        collapsed ? "w-16 md:w-20" : "w-56 lg:w-64 xl:w-72"
       }`}
     >
       <header className={`mb-6 flex items-center ${collapsed ? "justify-center" : ""}`}>

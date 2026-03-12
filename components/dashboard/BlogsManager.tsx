@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
-import { Check, Edit2, NotebookPen, RotateCcw, Save, SquarePen, Trash2 } from "lucide-react";
+import { Check, NotebookPen, RotateCcw, Save, SquarePen, Trash2 } from "lucide-react";
+import Link from "next/link";
 import {
   useBlogs,
   useCreateBlog,
@@ -86,21 +87,6 @@ export default function BlogsManager() {
     setEditingId(null);
     setFormState(defaultBlogForm);
     setFormError("");
-    setPanelOpen(true);
-  };
-
-  const openEdit = (blog: { id: number; title: string; slug: string; description?: string | null; content: string; coverImage?: string | null; tags: string[]; category?: { name?: string } }) => {
-    setEditingId(blog.id);
-    setFormError("");
-    setFormState({
-      title: blog.title,
-      slug: blog.slug,
-      description: blog.description ?? "",
-      content: blog.content ?? "",
-      coverImage: blog.coverImage ?? "",
-      tags: (blog.tags ?? []).join(", "),
-      categoryName: blog.category?.name ?? "General",
-    });
     setPanelOpen(true);
   };
 
@@ -351,7 +337,7 @@ export default function BlogsManager() {
       ) : null}
 
       {isLoading ? (
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
@@ -379,7 +365,7 @@ export default function BlogsManager() {
                 hidden: { opacity: 0 },
                 show: { opacity: 1, transition: { staggerChildren: 0.06 } },
               }}
-              className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4"
+              className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             >
               {blogs.map((blog: { id: number; title: string; coverImage?: string | null; tags?: string[] }) => (
                 <motion.article
@@ -423,14 +409,12 @@ export default function BlogsManager() {
                   ) : null}
 
                   <div className="mt-3 flex gap-1.5">
-                    <button
-                      onClick={() => openEdit(blog as never)}
-                      type="button"
+                    <Link
+                      href={`/dashboard/blogs/${blog.id}`}
                       className="inline-flex flex-1 items-center justify-center rounded-md border border-zinc-300 bg-zinc-50 py-1.5 text-xs font-semibold text-zinc-700 transition hover:border-[var(--color-primary)]"
                     >
-                      <Edit2 className="mr-1 size-3.5" />
-                      Edit
-                    </button>
+                      Open Studio
+                    </Link>
                     <button
                       onClick={() => submitDelete(blog.id)}
                       type="button"
