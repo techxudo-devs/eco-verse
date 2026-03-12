@@ -116,6 +116,7 @@ const LogoAnimation: React.FC = () => {
             alt="Backside Animation"
             fill
             className="object-contain"
+            unoptimized
           />
         </div>
 
