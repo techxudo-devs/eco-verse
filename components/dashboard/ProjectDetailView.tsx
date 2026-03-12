@@ -62,6 +62,7 @@ export default function ProjectDetailView({ projectId }: Props) {
             updateStat={editor.updateStat}
             updateSectionTitle={editor.updateSectionTitle}
             updateSectionParagraph={editor.updateSectionParagraph}
+            updateSectionEmbed={editor.updateSectionEmbed}
             addHeroDetail={editor.addHeroDetail}
             addHeroImage={editor.addHeroImage}
             removeHeroDetail={editor.removeHeroDetail}
@@ -72,6 +73,8 @@ export default function ProjectDetailView({ projectId }: Props) {
             removeSection={editor.removeSection}
             addParagraph={editor.addParagraph}
             removeParagraph={editor.removeParagraph}
+            addEmbed={editor.addEmbed}
+            removeEmbed={editor.removeEmbed}
           />
 
           <div>

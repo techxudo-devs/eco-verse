@@ -29,6 +29,11 @@ type StudioEditorPanelProps = {
     paragraphIndex: number,
     value: string,
   ) => void;
+  updateSectionEmbed: (
+    sectionIndex: number,
+    embedIndex: number,
+    value: string,
+  ) => void;
   addHeroDetail: () => void;
   addHeroImage: () => void;
   removeHeroDetail: (index: number) => void;
@@ -39,6 +44,8 @@ type StudioEditorPanelProps = {
   removeSection: (sectionIndex: number) => void;
   addParagraph: (sectionIndex: number) => void;
   removeParagraph: (sectionIndex: number, paragraphIndex: number) => void;
+  addEmbed: (sectionIndex: number) => void;
+  removeEmbed: (sectionIndex: number, embedIndex: number) => void;
 };
 
 export default function StudioEditorPanel({
@@ -59,6 +66,7 @@ export default function StudioEditorPanel({
   updateStat,
   updateSectionTitle,
   updateSectionParagraph,
+  updateSectionEmbed,
   addHeroDetail,
   addHeroImage,
   removeHeroDetail,
@@ -69,6 +77,8 @@ export default function StudioEditorPanel({
   removeSection,
   addParagraph,
   removeParagraph,
+  addEmbed,
+  removeEmbed,
 }: StudioEditorPanelProps) {
   const coverFileInputRef = useRef<HTMLInputElement | null>(null);
   const heroFileInputRefs = useRef<Array<HTMLInputElement | null>>([]);
@@ -351,6 +361,9 @@ export default function StudioEditorPanel({
               <PlusCircle className="size-3.5" /> Add Section
             </button>
           </div>
+          <p className="mb-3 text-xs text-zinc-500">
+            Use paragraphs for text only. Add Instagram/YouTube URLs in the section embed fields.
+          </p>
           <div className="space-y-4">
             {contentForm.sections.map((section, sectionIndex) => (
               <div key={`section-${sectionIndex}`} className="rounded-xl border border-zinc-200 p-3">
@@ -373,15 +386,15 @@ export default function StudioEditorPanel({
                 <div className="space-y-2">
                   {section.paragraphs.map((paragraph, paragraphIndex) => (
                     <div key={`section-${sectionIndex}-paragraph-${paragraphIndex}`} className="grid gap-2">
-                      <textarea
-                        value={paragraph}
-                        onChange={(event) =>
-                          updateSectionParagraph(sectionIndex, paragraphIndex, event.target.value)
-                        }
-                        rows={3}
+                        <textarea
+                          value={paragraph}
+                          onChange={(event) =>
+                            updateSectionParagraph(sectionIndex, paragraphIndex, event.target.value)
+                          }
+                          rows={3}
                         placeholder="Paragraph"
-                        className="rounded-xl border border-zinc-200 px-3 py-2 text-sm"
-                      />
+                          className="rounded-xl border border-zinc-200 px-3 py-2 text-sm"
+                        />
                       <button
                         type="button"
                         onClick={() => removeParagraph(sectionIndex, paragraphIndex)}
@@ -398,6 +411,40 @@ export default function StudioEditorPanel({
                   >
                     <PlusCircle className="size-3.5" /> Add Paragraph
                   </button>
+                </div>
+
+                <div className="mt-4 space-y-2 border-t border-zinc-200 pt-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500">
+                      Embeds
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => addEmbed(sectionIndex)}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-700"
+                    >
+                      <PlusCircle className="size-3.5" /> Add Embed
+                    </button>
+                  </div>
+                  {section.embeds.map((embed, embedIndex) => (
+                    <div key={`section-${sectionIndex}-embed-${embedIndex}`} className="grid gap-2 sm:grid-cols-[1fr_auto]">
+                      <input
+                        value={embed}
+                        onChange={(event) =>
+                          updateSectionEmbed(sectionIndex, embedIndex, event.target.value)
+                        }
+                        placeholder="Instagram or YouTube URL"
+                        className="rounded-xl border border-zinc-200 px-3 py-2 text-sm"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeEmbed(sectionIndex, embedIndex)}
+                        className="inline-flex items-center justify-center rounded-xl border border-red-200 px-3 py-2 text-red-600"
+                      >
+                        <MinusCircle className="size-4" />
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
