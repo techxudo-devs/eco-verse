@@ -50,11 +50,13 @@ export default function ProjectDetailView({ projectId }: Props) {
             isSaving={editor.isSaving}
             isUploadingCover={editor.isUploadingCover}
             uploadingHeroIndex={editor.uploadingHeroIndex}
+            uploadingSectionImage={editor.uploadingSectionImage}
             actionError={editor.actionError}
             onExit={editor.closeEditor}
             onSave={editor.saveCaseStudy}
             onUploadCover={editor.uploadCoverImage}
             onUploadHeroImage={editor.uploadHeroImage}
+            onUploadSectionImage={editor.uploadSectionContentImage}
             onProjectChange={editor.onProjectChange}
             onSummaryChange={editor.onSummaryChange}
             updateHeroDetail={editor.updateHeroDetail}
@@ -63,6 +65,7 @@ export default function ProjectDetailView({ projectId }: Props) {
             updateSectionTitle={editor.updateSectionTitle}
             updateSectionParagraph={editor.updateSectionParagraph}
             updateSectionEmbed={editor.updateSectionEmbed}
+            updateSectionImage={editor.updateSectionImage}
             addHeroDetail={editor.addHeroDetail}
             addHeroImage={editor.addHeroImage}
             removeHeroDetail={editor.removeHeroDetail}
@@ -75,6 +78,8 @@ export default function ProjectDetailView({ projectId }: Props) {
             removeParagraph={editor.removeParagraph}
             addEmbed={editor.addEmbed}
             removeEmbed={editor.removeEmbed}
+            addSectionImage={editor.addSectionImage}
+            removeSectionImage={editor.removeSectionImage}
           />
 
           <div>

@@ -276,9 +276,42 @@ export default function ProjectCaseStudy({
               {section.paragraphs.map((paragraph, paragraphIndex) => (
                 <p key={`${section.title}-paragraph-${paragraphIndex}`}>{paragraph}</p>
               ))}
+            </div>
 
-              {section.embeds.length > 0 ? (
-                <div className="flex flex-wrap gap-4">
+            {section.images.length > 0 ? (
+              <div className="md:col-span-2">
+                <div
+                  className={`grid w-full gap-5 ${
+                    section.images.length > 1
+                      ? "sm:grid-cols-2 lg:grid-cols-3"
+                      : "grid-cols-1"
+                  }`}
+                >
+                  {section.images.map((image, imageIndex) => (
+                    <div
+                      key={`${section.title}-image-${imageIndex}`}
+                      className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 aspect-[4/3]"
+                    >
+                      <Image
+                        src={image}
+                        alt={`${section.title} image ${imageIndex + 1}`}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {section.embeds.length > 0 ? (
+              <div className="md:col-span-2">
+                <div
+                  className={`grid w-full gap-6 ${
+                    section.embeds.length > 1 ? "md:grid-cols-2" : "grid-cols-1"
+                  }`}
+                >
                   {section.embeds.map((embed, embedIndex) => {
                     const embedData = toEmbedData(embed);
 
@@ -297,15 +330,12 @@ export default function ProjectCaseStudy({
                     }
 
                     return (
-                      <div
-                        key={`${section.title}-embed-${embedIndex}`}
-                        className="min-w-[280px] flex-1 space-y-3"
-                      >
+                      <div key={`${section.title}-embed-${embedIndex}`} className="mx-auto w-full max-w-[420px] space-y-3">
                         <div
                           className={`overflow-hidden rounded-2xl border border-zinc-200 bg-black ${
                             embedData.provider === "youtube"
                               ? "aspect-video"
-                              : "mx-auto max-w-[420px] aspect-[9/16]"
+                              : "h-[760px]"
                           }`}
                         >
                           <iframe
@@ -329,8 +359,8 @@ export default function ProjectCaseStudy({
                     );
                   })}
                 </div>
-              ) : null}
-            </div>
+              </div>
+            ) : null}
           </article>
         ))}
       </section>

@@ -70,6 +70,10 @@ export const useProjectCaseStudyEditor = ({
   const [uploadingHeroIndex, setUploadingHeroIndex] = useState<number | null>(
     null,
   );
+  const [uploadingSectionImage, setUploadingSectionImage] = useState<{
+    sectionIndex: number;
+    imageIndex: number;
+  } | null>(null);
   const [actionError, setActionError] = useState("");
 
   useEffect(() => {
@@ -256,7 +260,7 @@ export const useProjectCaseStudyEditor = ({
   const addSection = () => {
     setContentForm((previous) => ({
       ...previous,
-      sections: [...previous.sections, { title: "", paragraphs: [""], embeds: [] }],
+      sections: [...previous.sections, { title: "", paragraphs: [""], embeds: [], images: [] }],
     }));
   };
 
@@ -318,6 +322,55 @@ export const useProjectCaseStudyEditor = ({
         return {
           ...section,
           embeds: section.embeds.filter((_, currentEmbedIndex) => currentEmbedIndex !== embedIndex),
+        };
+      }),
+    }));
+  };
+
+  const updateSectionImage = (
+    sectionIndex: number,
+    imageIndex: number,
+    value: string,
+  ) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentSectionIndex) => {
+        if (currentSectionIndex !== sectionIndex) {
+          return section;
+        }
+
+        return {
+          ...section,
+          images: section.images.map((image, currentImageIndex) =>
+            currentImageIndex === imageIndex ? value : image,
+          ),
+        };
+      }),
+    }));
+  };
+
+  const addSectionImage = (sectionIndex: number) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentIndex) =>
+        currentIndex === sectionIndex
+          ? { ...section, images: [...section.images, ""] }
+          : section,
+      ),
+    }));
+  };
+
+  const removeSectionImage = (sectionIndex: number, imageIndex: number) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentIndex) => {
+        if (currentIndex !== sectionIndex) {
+          return section;
+        }
+
+        return {
+          ...section,
+          images: section.images.filter((_, currentImageIndex) => currentImageIndex !== imageIndex),
         };
       }),
     }));
@@ -410,6 +463,23 @@ export const useProjectCaseStudyEditor = ({
     }
   };
 
+  const uploadSectionContentImage = async (
+    sectionIndex: number,
+    imageIndex: number,
+    file: File,
+  ) => {
+    try {
+      setActionError("");
+      setUploadingSectionImage({ sectionIndex, imageIndex });
+      const secureUrl = await uploadImageToCloudinary(file);
+      updateSectionImage(sectionIndex, imageIndex, secureUrl);
+    } catch {
+      setActionError("Image upload failed. Please check Cloudinary configuration.");
+    } finally {
+      setUploadingSectionImage(null);
+    }
+  };
+
   return {
     projectForm,
     contentForm,
@@ -417,6 +487,7 @@ export const useProjectCaseStudyEditor = ({
     isSaving,
     isUploadingCover,
     uploadingHeroIndex,
+    uploadingSectionImage,
     actionError,
     tags,
     onProjectChange,
@@ -427,6 +498,7 @@ export const useProjectCaseStudyEditor = ({
     updateSectionTitle,
     updateSectionParagraph,
     updateSectionEmbed,
+    updateSectionImage,
     addHeroDetail,
     addHeroImage,
     removeHeroDetail,
@@ -439,11 +511,14 @@ export const useProjectCaseStudyEditor = ({
     removeParagraph,
     addEmbed,
     removeEmbed,
+    addSectionImage,
+    removeSectionImage,
     resetDraft,
     openEditor,
     closeEditor,
     saveCaseStudy,
     uploadCoverImage,
     uploadHeroImage,
+    uploadSectionContentImage,
   };
 };

@@ -9,6 +9,7 @@ const caseStudySectionSchema = z.object({
   title: z.string().optional().default(""),
   paragraphs: z.array(z.string()).optional().default([]),
   embeds: z.array(z.string()).optional().default([]),
+  images: z.array(z.string()).optional().default([]),
 });
 
 export const caseStudyContentSchema = z.object({

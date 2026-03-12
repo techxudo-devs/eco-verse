@@ -7,6 +7,7 @@ export type CaseStudySection = {
   title: string;
   paragraphs: string[];
   embeds: string[];
+  images: string[];
 };
 
 export type CaseStudyContent = {
@@ -88,12 +89,17 @@ const normalizeSectionArray = (value: unknown): CaseStudySection[] => {
             .map((embed) => (typeof embed === "string" ? embed.trim() : ""))
             .filter(Boolean)
         : [];
+      const images = Array.isArray(item.images)
+        ? item.images
+            .map((image) => (typeof image === "string" ? image.trim() : ""))
+            .filter(Boolean)
+        : [];
 
-      if (!title && paragraphs.length === 0 && embeds.length === 0) {
+      if (!title && paragraphs.length === 0 && embeds.length === 0 && images.length === 0) {
         return null;
       }
 
-      return { title, paragraphs, embeds };
+      return { title, paragraphs, embeds, images };
     })
     .filter((item): item is CaseStudySection => item !== null);
 };
@@ -138,11 +144,13 @@ const toDefaultSections = (description: string, raw: Record<string, unknown>) =>
           ? defaultFirst
           : ["Introduce the market challenge and opportunity for this campaign."],
       embeds: [],
+      images: [],
     },
     {
       title: "Curating Authentic Luxury Experiences",
       paragraphs: defaultSecond,
       embeds: [],
+      images: [],
     },
   ];
 };
@@ -224,8 +232,13 @@ export const sanitizeCaseStudyContent = (
       title: section.title.trim(),
       paragraphs: section.paragraphs.map((paragraph) => paragraph.trim()).filter(Boolean),
       embeds: section.embeds.map((embed) => embed.trim()).filter(Boolean),
+      images: section.images.map((image) => image.trim()).filter(Boolean),
     }))
     .filter(
-      (section) => section.title || section.paragraphs.length > 0 || section.embeds.length > 0,
+      (section) =>
+        section.title ||
+        section.paragraphs.length > 0 ||
+        section.embeds.length > 0 ||
+        section.images.length > 0,
     ),
 });

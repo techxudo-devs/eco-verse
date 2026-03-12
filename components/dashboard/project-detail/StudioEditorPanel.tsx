@@ -11,11 +11,17 @@ type StudioEditorPanelProps = {
   isSaving: boolean;
   isUploadingCover: boolean;
   uploadingHeroIndex: number | null;
+  uploadingSectionImage: { sectionIndex: number; imageIndex: number } | null;
   actionError: string;
   onExit: () => void;
   onSave: () => void;
   onUploadCover: (file: File) => Promise<void>;
   onUploadHeroImage: (index: number, file: File) => Promise<void>;
+  onUploadSectionImage: (
+    sectionIndex: number,
+    imageIndex: number,
+    file: File,
+  ) => Promise<void>;
   onProjectChange: (
     field: keyof ProjectForm,
   ) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -34,6 +40,11 @@ type StudioEditorPanelProps = {
     embedIndex: number,
     value: string,
   ) => void;
+  updateSectionImage: (
+    sectionIndex: number,
+    imageIndex: number,
+    value: string,
+  ) => void;
   addHeroDetail: () => void;
   addHeroImage: () => void;
   removeHeroDetail: (index: number) => void;
@@ -46,6 +57,8 @@ type StudioEditorPanelProps = {
   removeParagraph: (sectionIndex: number, paragraphIndex: number) => void;
   addEmbed: (sectionIndex: number) => void;
   removeEmbed: (sectionIndex: number, embedIndex: number) => void;
+  addSectionImage: (sectionIndex: number) => void;
+  removeSectionImage: (sectionIndex: number, imageIndex: number) => void;
 };
 
 export default function StudioEditorPanel({
@@ -54,11 +67,13 @@ export default function StudioEditorPanel({
   isSaving,
   isUploadingCover,
   uploadingHeroIndex,
+  uploadingSectionImage,
   actionError,
   onExit,
   onSave,
   onUploadCover,
   onUploadHeroImage,
+  onUploadSectionImage,
   onProjectChange,
   onSummaryChange,
   updateHeroDetail,
@@ -67,6 +82,7 @@ export default function StudioEditorPanel({
   updateSectionTitle,
   updateSectionParagraph,
   updateSectionEmbed,
+  updateSectionImage,
   addHeroDetail,
   addHeroImage,
   removeHeroDetail,
@@ -79,9 +95,12 @@ export default function StudioEditorPanel({
   removeParagraph,
   addEmbed,
   removeEmbed,
+  addSectionImage,
+  removeSectionImage,
 }: StudioEditorPanelProps) {
   const coverFileInputRef = useRef<HTMLInputElement | null>(null);
   const heroFileInputRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const sectionImageFileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   const handleCoverUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -99,6 +118,17 @@ export default function StudioEditorPanel({
         return;
       }
       await onUploadHeroImage(index, file);
+      event.target.value = "";
+    };
+
+  const handleSectionImageUpload =
+    (sectionIndex: number, imageIndex: number) =>
+    async (event: ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file) {
+        return;
+      }
+      await onUploadSectionImage(sectionIndex, imageIndex, file);
       event.target.value = "";
     };
 
@@ -411,6 +441,67 @@ export default function StudioEditorPanel({
                   >
                     <PlusCircle className="size-3.5" /> Add Paragraph
                   </button>
+                </div>
+
+                <div className="mt-4 space-y-2 border-t border-zinc-200 pt-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500">
+                      Images
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => addSectionImage(sectionIndex)}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-700"
+                    >
+                      <PlusCircle className="size-3.5" /> Add Image
+                    </button>
+                  </div>
+                  {section.images.map((image, imageIndex) => {
+                    const inputKey = `${sectionIndex}-${imageIndex}`;
+                    const isUploadingThisImage =
+                      uploadingSectionImage?.sectionIndex === sectionIndex &&
+                      uploadingSectionImage.imageIndex === imageIndex;
+
+                    return (
+                      <div
+                        key={`section-${sectionIndex}-image-${imageIndex}`}
+                        className="grid gap-2 sm:grid-cols-[1fr_auto_auto]"
+                      >
+                        <input
+                          value={image}
+                          onChange={(event) =>
+                            updateSectionImage(sectionIndex, imageIndex, event.target.value)
+                          }
+                          placeholder="Image URL"
+                          className="rounded-xl border border-zinc-200 px-3 py-2 text-sm"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => sectionImageFileInputRefs.current[inputKey]?.click()}
+                          disabled={isUploadingThisImage}
+                          className="inline-flex items-center justify-center rounded-xl border border-zinc-300 px-3 py-2 text-xs font-semibold text-zinc-700 disabled:opacity-60"
+                        >
+                          {isUploadingThisImage ? "Uploading..." : "Upload"}
+                        </button>
+                        <input
+                          ref={(element) => {
+                            sectionImageFileInputRefs.current[inputKey] = element;
+                          }}
+                          type="file"
+                          accept="image/*"
+                          onChange={handleSectionImageUpload(sectionIndex, imageIndex)}
+                          className="hidden"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => removeSectionImage(sectionIndex, imageIndex)}
+                          className="inline-flex items-center justify-center rounded-xl border border-red-200 px-3 py-2 text-red-600"
+                        >
+                          <MinusCircle className="size-4" />
+                        </button>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="mt-4 space-y-2 border-t border-zinc-200 pt-3">
