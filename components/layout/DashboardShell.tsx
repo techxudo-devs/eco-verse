@@ -55,7 +55,7 @@ export default function DashboardShell({ children }: DashboardShellProps) {
                 <button
                   type="button"
                   onClick={() => setIsSidebarCollapsed((previous) => !previous)}
-                  className="inline-flex items-center gap-1 rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700"
+                  className="inline-flex items-center gap-1 rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-[10px] font-semibold text-zinc-700 2xl:text-xs"
                 >
                   {isSidebarCollapsed ? (
                     <>
@@ -67,11 +67,11 @@ export default function DashboardShell({ children }: DashboardShellProps) {
                     </>
                   )}
                 </button>
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--foreground)]/70">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--foreground)]/70 2xl:text-xs 2xl:tracking-[0.18em]">
                   Admin Workspace
                 </p>
               </div>
-              <p className="text-sm font-bold text-[var(--foreground)]">Ecoverse Dashboard</p>
+              <p className="text-xs font-bold text-[var(--foreground)] 2xl:text-sm">Ecoverse Dashboard</p>
             </div>
           </header>
           <main

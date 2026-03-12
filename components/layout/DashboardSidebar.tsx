@@ -75,14 +75,16 @@ const DashboardSidebar = ({ collapsed = false }: DashboardSidebarProps) => {
 
   return (
     <aside
-      className={`sticky top-0 z-30 h-screen overflow-y-auto border-r border-[var(--color-primary)]/20 bg-white p-3 md:p-4 backdrop-blur-sm transition-all duration-200 ${
-        collapsed ? "w-16 md:w-20" : "w-56 lg:w-64 xl:w-72"
+      className={`sticky top-0 z-30 h-screen overflow-y-auto border-r border-[var(--color-primary)]/20 bg-white p-2 md:p-3 lg:p-4 backdrop-blur-sm transition-all duration-200 ${
+        collapsed
+          ? "w-14 md:w-16 lg:w-20 2xl:w-24"
+          : "w-48 md:w-56 lg:w-64 2xl:w-72"
       }`}
     >
       <header className={`mb-6 flex items-center ${collapsed ? "justify-center" : ""}`}>
         <Link
           href="/dashboard"
-          className={`inline-flex items-center text-sm font-black uppercase tracking-[0.16em] text-[var(--foreground)] ${
+          className={`inline-flex items-center text-xs font-black uppercase tracking-[0.14em] text-[var(--foreground)] 2xl:text-sm 2xl:tracking-[0.16em] ${
             collapsed ? "justify-center" : "gap-3"
           }`}
         >
@@ -120,20 +122,20 @@ const DashboardSidebar = ({ collapsed = false }: DashboardSidebarProps) => {
                       : "border-[var(--color-primary)]/20 bg-white"
                   }`}
                 >
-                  <Icon className="size-4" />
+                  <Icon className="size-3.5 2xl:size-4" />
                 </span>
                 {!collapsed ? (
                   <span className="flex min-w-0 flex-col">
-                    <span className="truncate text-sm font-semibold">
+                    <span className="truncate text-xs font-semibold 2xl:text-sm">
                       {link.label}
                     </span>
-                    <span className="truncate text-xs text-[var(--foreground)]/55">
+                    <span className="truncate text-[10px] text-[var(--foreground)]/55 2xl:text-xs">
                       {link.description}
                     </span>
                   </span>
                 ) : null}
                 {link.count !== undefined ? (
-                  <span className={`text-xs font-semibold text-[var(--foreground)]/60 ${collapsed ? "" : "ml-auto"}`}>
+                  <span className={`text-[10px] font-semibold text-[var(--foreground)]/60 2xl:text-xs ${collapsed ? "" : "ml-auto"}`}>
                     {link.count}
                   </span>
                 ) : null}
