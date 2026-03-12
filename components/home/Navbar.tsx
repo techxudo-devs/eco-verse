@@ -92,8 +92,8 @@ const Navbar = () => {
             onClick={toggleMenu}
             className={`rounded-full p-6 transition-all duration-300 mr-7 cursor-pointer hover:scale-110 ${
               isOpen
-                ? "bg-orange-300 text-[#00522D]"
-                : "bg-orange-200 text-black"
+                ? "bg-orange-400 text-[#00522D]"
+                : "bg-orange-300 text-black"
             }`}
             type="button"
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -117,7 +117,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="fixed inset-0 z-[60] flex overflow-hidden">
             {/* CENTER LOGO (slides with left panel) */}
-            <motion.div
+            {/* <motion.div
               variants={logoVariants}
               initial="hidden"
               animate="visible"
@@ -130,7 +130,7 @@ const Navbar = () => {
                 className="w-[600px]"
                 priority
               />
-            </motion.div>
+            </motion.div> */}
 
             {/* LEFT PANEL */}
             <motion.div
