@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MenuIcon, X } from "lucide-react";
+import { MenuIcon, X, Phone, Mail } from "lucide-react";
 import {
   FaWhatsapp,
   FaInstagram,
+  FaLinkedinIn,
   FaTiktok,
   FaPinterestP,
-  FaLinkedinIn,
 } from "react-icons/fa";
 import qrImage from "@/public/assets/qr.avif";
 import Image from "next/image";
@@ -18,23 +18,31 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
+  const [isSocialOpen, setIsSocialOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    if (isOpen || isWhatsAppOpen) {
+    if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [isOpen, isWhatsAppOpen]);
+  }, [isOpen]);
 
   const slideEase = [0.76, 0, 0.24, 1] as const;
+
+  // Smaller social icons configuration
+  // x and y are distances from the center of the main button
+  const socialIcons = [
+    { id: 1, icon: <FaInstagram size={18} />, x: 25, y: -60, delay: 0.05 },
+    { id: 2, icon: <FaLinkedinIn size={18} />, x: -30, y: -60, delay: 0.1 },
+    { id: 3, icon: <Phone size={18} />, x: -65, y: -20, delay: 0.15 },
+    { id: 4, icon: <Mail size={18} />, x: -55, y: 30, delay: 0.2 },
+  ];
 
   const leftPanelVariants = {
     hidden: { x: "-100%" },
@@ -48,22 +56,6 @@ const Navbar = () => {
     exit: { x: "100%", transition: { duration: 0.8, ease: slideEase } },
   };
 
-  const logoVariants = {
-    hidden: { x: "-100%", opacity: 0, scale: 0.8 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: slideEase },
-    },
-    exit: {
-      x: "-100%",
-      opacity: 0,
-      scale: 0.8,
-      transition: { duration: 0.6, ease: slideEase },
-    },
-  };
-
   const menuLinks = [
     { name: "HOME", active: false },
     { name: "AGENCY", active: true },
@@ -75,19 +67,18 @@ const Navbar = () => {
 
   return (
     <>
-      {/* HEADER BUTTONS - Changed to absolute and removed -mt-20 to make it scroll with the page */}
+      {/* HEADER LOGO & MENU BUTTON */}
       <div className="absolute left-0 top-0 z-[100] w-full bg-transparent pointer-events-none -mt-20">
         <div className="flex items-center justify-between pointer-events-auto mt-5">
           <div>
-              <Link href={"/"}>
-                <Image
-                  className="w-60 h-full"
-                  src={echoLogo}
-                  alt="Echo Verse Logo"
-                />
-              </Link>
+            <Link href={"/"}>
+              <Image
+                className="w-60 h-full"
+                src={echoLogo}
+                alt="Echo Verse Logo"
+              />
+            </Link>
           </div>
-          {/* MENU BUTTON */}
           <button
             onClick={toggleMenu}
             className={`rounded-full p-6 transition-all duration-300 mr-7 cursor-pointer hover:scale-110 ${
@@ -95,44 +86,21 @@ const Navbar = () => {
                 ? "bg-orange-400 text-[#00522D]"
                 : "bg-orange-300 text-black"
             }`}
-            type="button"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.4 }}
             >
-              {isOpen ? (
-                <X size={18} strokeWidth={2} />
-              ) : (
-                <MenuIcon size={18} strokeWidth={2} />
-              )}
+              {isOpen ? <X size={18} /> : <MenuIcon size={18} />}
             </motion.div>
           </button>
         </div>
       </div>
 
-      {/* FULLSCREEN MENU - Remains fixed so it covers the screen when opened */}
+      {/* FULLSCREEN MENU */}
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-[60] flex overflow-hidden">
-            {/* CENTER LOGO (slides with left panel) */}
-            {/* <motion.div
-              variants={logoVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="absolute inset-0 flex items-center justify-center pointer-events-none z-[70]"
-            >
-              <Image
-                src={echoLogo}
-                alt="Echo Logo"
-                className="w-[600px]"
-                priority
-              />
-            </motion.div> */}
-
-            {/* LEFT PANEL */}
             <motion.div
               variants={leftPanelVariants}
               initial="hidden"
@@ -170,8 +138,6 @@ const Navbar = () => {
                 )}
               </div>
             </motion.div>
-
-            {/* RIGHT PANEL */}
             <motion.div
               variants={rightPanelVariants}
               initial="hidden"
@@ -201,65 +167,58 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* FLOATING WHATSAPP BUTTON */}
-      {!isOpen && !isWhatsAppOpen && (
-        <button
-          onClick={() => setIsWhatsAppOpen(true)}
-          className="fixed bottom-7 right-7 z-[100] rounded-full bg-orange-200 p-5 text-[#00522D] transition-transform duration-300 cursor-pointer hover:scale-110"
-          type="button"
-          aria-label="Open WhatsApp"
-        >
-          <FaWhatsapp size={24} />
-        </button>
-      )}
-
-      {/* WHATSAPP POPUP */}
-      <AnimatePresence>
-        {isWhatsAppOpen && (
-          <>
-            <div
-              className="fixed inset-0 z-[105]"
-              onClick={() => setIsWhatsAppOpen(false)}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, y: 20, x: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-              exit={{ opacity: 0, scale: 0.5, y: 20, x: 20 }}
-              style={{ transformOrigin: "bottom right" }}
-              transition={{ type: "spring", stiffness: 260, damping: 25 }}
-              className="fixed bottom-7 right-7 z-[110] w-[380px] bg-[#00522D] rounded-[2.5rem] p-8 flex flex-col items-center overflow-hidden"
-            >
-              <button
-                onClick={() => setIsWhatsAppOpen(false)}
-                className="absolute top-5 right-5 bg-orange-200 text-[#00522D] p-3 rounded-full hover:scale-110 transition-transform duration-300 shadow-sm cursor-pointer"
+      {/* COMPACT SOCIAL SLIDING BUBBLES */}
+      <div className="fixed bottom-7 right-7 z-[120] flex items-center justify-center">
+        <AnimatePresence>
+          {isSocialOpen &&
+            socialIcons.map((item) => (
+              <motion.a
+                key={item.id}
+                href="#"
+                // SLIDING LOGIC: Start from 0 (center of button) and slide to target x/y
+                initial={{ x: 0, y: 0, opacity: 0, scale: 0.5 }}
+                animate={{ x: item.x, y: item.y, opacity: 1, scale: 1 }}
+                exit={{ x: 0, y: 0, opacity: 0, scale: 0.5 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                  delay: isSocialOpen ? item.delay : 0, // Delay on open, fast on close
+                }}
+                className="absolute w-11 h-11 bg-[#00522D] rounded-full flex items-center justify-center text-white shadow-sm hover:scale-110 transition-all duration-300"
               >
-                <X size={20} strokeWidth={2} />
-              </button>
+                {item.icon}
+              </motion.a>
+            ))}
+        </AnimatePresence>
 
-              <div className="mt-6 mb-6">
-                <Image src={qrImage} alt="QR Image" className="w-30 h-30" />
-              </div>
+        {/* MAIN BUTTON (Smaller & Compact) */}
+        <button
+          onClick={() => setIsSocialOpen(!isSocialOpen)}
+          className="relative z-[130] p-6 rounded-full bg-orange-300 text-[#00522D] flex items-center justify-center transition-transform duration-300 cursor-pointer hover:scale-105 active:scale-95"
+        >
+          <motion.div
+            key={isSocialOpen ? "close" : "whatsapp"}
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {isSocialOpen ? (
+              <X size={22} strokeWidth={2} />
+            ) : (
+              <FaWhatsapp size={20} />
+            )}
+          </motion.div>
+        </button>
+      </div>
 
-              <h2 className="font-beni font-black text-[70px] leading-[0.7] text-white text-center uppercase">
-                <span className="block">SHALL WE</span>
-                <span className="block">CONNECT ON</span>
-                <span className="block">WHATSAPP?</span>
-              </h2>
-
-              <p className="font-clash font-medium text-white text-center text-base leading-snug w-full mt-4">
-                Because we prefer genuine, quick, and straightforward exchanges.
-                Scan the QR code, send your message, and we&apos;ll reply (very
-                quickly).
-              </p>
-
-              <button className="mt-6 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-base px-8 py-3 rounded-lg shadow-sm w-full hover:scale-95 cursor-pointer">
-                Chat With Us
-              </button>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* WHATSAPP POPUP - COMMENTED OUT AS REQUESTED */}
+      {/* 
+      <AnimatePresence>
+        {isWhatsAppOpen && ( ... )}
+      </AnimatePresence> 
+      */}
     </>
   );
 };
