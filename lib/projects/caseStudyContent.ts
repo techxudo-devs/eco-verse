@@ -6,6 +6,7 @@ export type CaseStudyField = {
 export type CaseStudySection = {
   title: string;
   paragraphs: string[];
+  embeds: string[];
 };
 
 export type CaseStudyContent = {
@@ -82,12 +83,17 @@ const normalizeSectionArray = (value: unknown): CaseStudySection[] => {
             .map((paragraph) => (typeof paragraph === "string" ? paragraph.trim() : ""))
             .filter(Boolean)
         : [];
+      const embeds = Array.isArray(item.embeds)
+        ? item.embeds
+            .map((embed) => (typeof embed === "string" ? embed.trim() : ""))
+            .filter(Boolean)
+        : [];
 
-      if (!title && paragraphs.length === 0) {
+      if (!title && paragraphs.length === 0 && embeds.length === 0) {
         return null;
       }
 
-      return { title, paragraphs };
+      return { title, paragraphs, embeds };
     })
     .filter((item): item is CaseStudySection => item !== null);
 };
@@ -131,10 +137,12 @@ const toDefaultSections = (description: string, raw: Record<string, unknown>) =>
         defaultFirst.length > 0
           ? defaultFirst
           : ["Introduce the market challenge and opportunity for this campaign."],
+      embeds: [],
     },
     {
       title: "Curating Authentic Luxury Experiences",
       paragraphs: defaultSecond,
+      embeds: [],
     },
   ];
 };
@@ -215,6 +223,9 @@ export const sanitizeCaseStudyContent = (
     .map((section) => ({
       title: section.title.trim(),
       paragraphs: section.paragraphs.map((paragraph) => paragraph.trim()).filter(Boolean),
+      embeds: section.embeds.map((embed) => embed.trim()).filter(Boolean),
     }))
-    .filter((section) => section.title || section.paragraphs.length > 0),
+    .filter(
+      (section) => section.title || section.paragraphs.length > 0 || section.embeds.length > 0,
+    ),
 });

@@ -177,6 +177,28 @@ export const useProjectCaseStudyEditor = ({
     }));
   };
 
+  const updateSectionEmbed = (
+    sectionIndex: number,
+    embedIndex: number,
+    value: string,
+  ) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentSectionIndex) => {
+        if (currentSectionIndex !== sectionIndex) {
+          return section;
+        }
+
+        return {
+          ...section,
+          embeds: section.embeds.map((embed, currentEmbedIndex) =>
+            currentEmbedIndex === embedIndex ? value : embed,
+          ),
+        };
+      }),
+    }));
+  };
+
   const addHeroDetail = () => {
     setContentForm((previous) => ({
       ...previous,
@@ -234,7 +256,7 @@ export const useProjectCaseStudyEditor = ({
   const addSection = () => {
     setContentForm((previous) => ({
       ...previous,
-      sections: [...previous.sections, { title: "", paragraphs: [""] }],
+      sections: [...previous.sections, { title: "", paragraphs: [""], embeds: [] }],
     }));
   };
 
@@ -269,6 +291,33 @@ export const useProjectCaseStudyEditor = ({
           paragraphs: section.paragraphs.filter(
             (_, currentParagraphIndex) => currentParagraphIndex !== paragraphIndex,
           ),
+        };
+      }),
+    }));
+  };
+
+  const addEmbed = (sectionIndex: number) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentIndex) =>
+        currentIndex === sectionIndex
+          ? { ...section, embeds: [...section.embeds, ""] }
+          : section,
+      ),
+    }));
+  };
+
+  const removeEmbed = (sectionIndex: number, embedIndex: number) => {
+    setContentForm((previous) => ({
+      ...previous,
+      sections: previous.sections.map((section, currentIndex) => {
+        if (currentIndex !== sectionIndex) {
+          return section;
+        }
+
+        return {
+          ...section,
+          embeds: section.embeds.filter((_, currentEmbedIndex) => currentEmbedIndex !== embedIndex),
         };
       }),
     }));
@@ -377,6 +426,7 @@ export const useProjectCaseStudyEditor = ({
     updateStat,
     updateSectionTitle,
     updateSectionParagraph,
+    updateSectionEmbed,
     addHeroDetail,
     addHeroImage,
     removeHeroDetail,
@@ -387,6 +437,8 @@ export const useProjectCaseStudyEditor = ({
     removeSection,
     addParagraph,
     removeParagraph,
+    addEmbed,
+    removeEmbed,
     resetDraft,
     openEditor,
     closeEditor,

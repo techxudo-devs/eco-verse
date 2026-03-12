@@ -3,6 +3,112 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CaseStudyContent } from "@/lib/projects/caseStudyContent";
 
+type EmbedProvider = "instagram" | "youtube";
+
+type EmbedData = {
+  provider: EmbedProvider;
+  src: string;
+  link: string;
+};
+
+const extractFirstUrl = (value: string) => {
+  const iframeSrcMatch = value.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+  if (iframeSrcMatch?.[1]) {
+    return iframeSrcMatch[1];
+  }
+
+  const blockquoteCiteMatch = value.match(/<blockquote[^>]+cite=["']([^"']+)["']/i);
+  if (blockquoteCiteMatch?.[1]) {
+    return blockquoteCiteMatch[1];
+  }
+
+  const inlineUrlMatch = value.match(/https?:\/\/[^\s"'<>()]+/i);
+  if (inlineUrlMatch?.[0]) {
+    return inlineUrlMatch[0];
+  }
+
+  if (value.startsWith("www.")) {
+    return `https://${value}`;
+  }
+
+  return value;
+};
+
+const toEmbedData = (value: string): EmbedData | null => {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  const looksLikeEmbedCode = trimmed.includes("<iframe") || trimmed.includes("<blockquote");
+  const looksLikeSingleUrl = /^https?:\/\//i.test(trimmed) || trimmed.startsWith("www.");
+
+  if (!looksLikeEmbedCode && !looksLikeSingleUrl) {
+    return null;
+  }
+
+  const possibleUrl = extractFirstUrl(trimmed);
+
+  let parsed: URL;
+  try {
+    parsed = new URL(possibleUrl);
+  } catch {
+    return null;
+  }
+
+  const host = parsed.hostname.toLowerCase();
+  const pathSegments = parsed.pathname.split("/").filter(Boolean);
+
+  if (
+    host === "youtube.com" ||
+    host === "www.youtube.com" ||
+    host === "m.youtube.com" ||
+    host === "youtu.be"
+  ) {
+    let videoId = "";
+
+    if (host === "youtu.be") {
+      videoId = pathSegments[0] ?? "";
+    } else if (pathSegments[0] === "watch") {
+      videoId = parsed.searchParams.get("v") ?? "";
+    } else if (pathSegments[0] === "shorts" || pathSegments[0] === "embed") {
+      videoId = pathSegments[1] ?? "";
+    }
+
+    if (!videoId) {
+      return null;
+    }
+
+    return {
+      provider: "youtube",
+      src: `https://www.youtube.com/embed/${videoId}`,
+      link: `https://www.youtube.com/watch?v=${videoId}`,
+    };
+  }
+
+  if (host === "instagram.com" || host === "www.instagram.com") {
+    const contentType = pathSegments[0];
+    const postId = pathSegments[1];
+
+    if (!contentType || !postId) {
+      return null;
+    }
+
+    if (!["p", "reel", "tv"].includes(contentType)) {
+      return null;
+    }
+
+    const link = `https://www.instagram.com/${contentType}/${postId}/`;
+    return {
+      provider: "instagram",
+      src: `${link}embed`,
+      link,
+    };
+  }
+
+  return null;
+};
+
 type ProjectCaseStudyProps = {
   title: string;
   coverImage: string;
@@ -168,10 +274,62 @@ export default function ProjectCaseStudy({
             </h2>
             <div className="space-y-6 text-lg leading-relaxed text-black/90">
               {section.paragraphs.map((paragraph, paragraphIndex) => (
-                <p key={`${section.title}-paragraph-${paragraphIndex}`}>
-                  {paragraph}
-                </p>
+                <p key={`${section.title}-paragraph-${paragraphIndex}`}>{paragraph}</p>
               ))}
+
+              {section.embeds.length > 0 ? (
+                <div className="flex flex-wrap gap-4">
+                  {section.embeds.map((embed, embedIndex) => {
+                    const embedData = toEmbedData(embed);
+
+                    if (!embedData) {
+                      return (
+                        <a
+                          key={`${section.title}-embed-link-${embedIndex}`}
+                          href={embed}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex text-sm font-semibold text-[#ff006e] hover:text-[#ff2a86]"
+                        >
+                          Open link {embedIndex + 1}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={`${section.title}-embed-${embedIndex}`}
+                        className="min-w-[280px] flex-1 space-y-3"
+                      >
+                        <div
+                          className={`overflow-hidden rounded-2xl border border-zinc-200 bg-black ${
+                            embedData.provider === "youtube"
+                              ? "aspect-video"
+                              : "mx-auto max-w-[420px] aspect-[9/16]"
+                          }`}
+                        >
+                          <iframe
+                            src={embedData.src}
+                            title={`${embedData.provider} embed ${embedIndex + 1}`}
+                            className="h-full w-full"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          />
+                        </div>
+                        <a
+                          href={embedData.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex text-sm font-semibold text-[#ff006e] hover:text-[#ff2a86]"
+                        >
+                          View on {embedData.provider === "instagram" ? "Instagram" : "YouTube"}
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
             </div>
           </article>
         ))}
