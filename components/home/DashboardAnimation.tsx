@@ -62,9 +62,9 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: scrollSectionRef?.current ?? sectionRef.current,
-          start: "top 20%", // Starts animating as soon as the section enters the viewport
-          end: "bottom bottom", // Fully slots into place when the section is centered on screen
-          scrub: 1, // Binds the downward movement smoothly to the user's scroll amount
+          start: "top 50%", // Starts animating as soon as the section enters the viewport
+          end: isMobile ? "bottom 120%" : "bottom bottom", // Complete earlier on mobile
+          scrub: isMobile ? 0.6 : 1, // Faster settle on mobile scroll
         },
       });
 
