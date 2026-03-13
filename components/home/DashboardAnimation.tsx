@@ -63,7 +63,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
         scrollTrigger: {
           trigger: scrollSectionRef?.current ?? sectionRef.current,
           start: "top 50%", // Starts animating as soon as the section enters the viewport
-          end: isMobile ? "bottom 120%" : "bottom bottom", // Complete earlier on mobile
+          end: isMobile ? "bottom 100%" : "bottom bottom", // Complete earlier on mobile
           scrub: isMobile ? 0.6 : 1, // Faster settle on mobile scroll
         },
       });

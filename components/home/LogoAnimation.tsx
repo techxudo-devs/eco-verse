@@ -3,12 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import {
-  Megaphone,
-  Mail,
-  User,
-  LayoutDashboard,
-  MessageSquareQuote,
-  Ticket,
+  Cpu,
+  BarChart3,
+  Gauge,
+  ArrowUpRight,
+  GitBranch,
+  Award,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -32,42 +32,42 @@ const LogoAnimation: React.FC = () => {
   const cards: IntegrationCard[] = [
     {
       icon: (
-        <Mail className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <Cpu className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Technology",
       pos: "top-[16%] md:top-[12%] left-[4%] md:left-[5%] lg:left-[10%]",
     },
     {
       icon: (
-        <Megaphone className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <BarChart3 className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Performance",
       pos: "bottom-[15%] md:bottom-[10%] left-[18%] md:left-[5%]",
     },
     {
       icon: (
-        <User className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <Gauge className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Speed",
       pos: "bottom-[38%] md:bottom-[22%] left-[2%] md:left-[20%] lg:left-[25%]",
     },
     {
       icon: (
-        <LayoutDashboard className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <ArrowUpRight className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Scale",
       pos: "top-[16%] right-[4%] md:right-[20%] lg:right-[25%]",
     },
     {
       icon: (
-        <MessageSquareQuote className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <GitBranch className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Process",
       pos: "bottom-[15%] right-[18%]",
     },
     {
       icon: (
-        <Ticket className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
+        <Award className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
       title: "Expertise",
       pos: "bottom-[38%] right-[2%] md:right-[3%] lg:right-[5%]",
