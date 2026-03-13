@@ -45,19 +45,19 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
 
       const card1From = isMobile
         ? { x: "20vw", y: "-115vh", rotation: -15, scale: 1, ease: "none" }
-        : { x: "75vw", y: "-200vh", rotation: -15, scale: 1, ease: "none" };
+        : { x: "90vw", y: "-190vh", rotation: -15, scale: 1, ease: "none" };
 
       const card2From = isMobile
         ? { x: "-4vw", y: "-108vh", rotation: -10, scale: 1, ease: "none" }
-        : { x: "-20vw", y: "-155vh", rotation: -10, scale: 1, ease: "none" };
+        : { x: "-25vw", y: "-185vh", rotation: -10, scale: 1, ease: "none" };
 
       const card3From = isMobile
         ? { x: "2vw", y: "-112vh", rotation: 0, scale: 1, ease: "none" }
-        : { x: "15vw", y: "-163vh", rotation: 0, scale: 1, ease: "none" };
+        : { x: "15vw", y: "-195vh", rotation: 0, scale: 1, ease: "none" };
 
       const card4From = isMobile
         ? { x: "8vw", y: "-110vh", rotation: 15, scale: 1, ease: "none" }
-        : { x: "55vw", y: "-165vh", rotation: 15, scale: 1, ease: "none" };
+        : { x: "55vw", y: "-195vh", rotation: 15, scale: 1, ease: "none" };
 
       const tl = gsap.timeline({
         scrollTrigger: {
