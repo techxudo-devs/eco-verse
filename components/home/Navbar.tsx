@@ -142,16 +142,16 @@ const Navbar = () => {
               exit="exit"
               className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center items-center px-8 pl-[12%] pt-10"
             >
-              <Image src={qrImage} alt="QR Image" />
-              <h2 className="font-beni font-black text-[80px] leading-[0.7] text-white text-center uppercase">
+              <Image src={qrImage} alt="QR Image"/>
+              <h2 className="font-beni font-black md:text-[60px] lg:text-[80px] leading-[0.7] text-white text-center uppercase">
                 <span className="block">SHALL WE</span>
                 <span className="block">CONNECT ON</span>
                 <span className="block">WHATSAPP?</span>
               </h2>
-              <p className="font-clash font-bold text-white text-center text-xl leading-snug w-full max-w-[350px] mt-6">
+              <p className="font-clash font-bold text-white text-center md:text-lg lg:text-xl leading-snug w-full max-w-[350px] mt-6">
                 Because we prefer genuine, quick, and straightforward exchanges.
               </p>
-              <button className="mt-10 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-sm px-6 py-4 rounded-lg cursor-pointer hover:scale-95">
+              <button className="mt-4 lg:mt-10 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-sm px-6 py-4 rounded-lg cursor-pointer hover:scale-95">
                 Chat With Us
               </button>
             </motion.div>
