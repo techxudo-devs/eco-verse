@@ -38,7 +38,7 @@ const Footer = () => {
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.2 } }
                 }}
-                className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-center px-6 lg:px-50"
+                className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-center px-6 lg:px-50"
             >
                 {/* Left Image (Tilted Left) */}
                 <motion.img
@@ -46,21 +46,21 @@ const Footer = () => {
                     // High-quality placeholder matching the studio team vibe
                     src="https://www.agencefoudre.com/media/site/9e2180cad6-1764264569/agence-foudre-1-1024x-q80.avif"
                     alt="Team"
-                    className="w-full lg:w-[45%] h-auto rounded-3xl object-cover rotate-[-4deg] z-10"
+                    className="w-full md:w-[50%] lg:w-[45%] h-auto rounded-3xl object-cover rotate-[-4deg] z-10"
                 />
 
                 {/* Right Contact Box (Tilted Right) */}
                 <motion.div
                     variants={slideUp}
-                    className="w-full lg:w-[45%] bg-[#F97316] rounded-3xl px-4 py-10 flex flex-col items-center text-center text-white rotate-[6deg] z-10"
+                    className="w-full md:w-[50%] lg:w-[45%] bg-[#F97316] rounded-3xl px-4 py-10 flex flex-col items-center text-center text-white rotate-[6deg] z-10"
                 >
                     <span className="font-clash font-medium text-base mb-2">Contact</span>
 
-                    <h2 className="font-beni font-black text-[70px] leading-14 mb-6 uppercase">
+                    <h2 className="font-beni font-black md:text-[60px] lg:text-[70px] leading-14 mb-6 uppercase">
                         TELL US ABOUT IT.
                     </h2>
 
-                    <p className="font-clash font-medium text-lg lg:text-[15px] w-[70%] leading-5 mb-8">
+                    <p className="font-clash font-medium text-sm md:text-base lg:text-[15px] md:w-[80%] lg:w-[70%] leading-5 mb-8">
                         A mini quiz, 3 questions, less than a minute. We receive your answers and get back to you quickly.
                     </p>
 
@@ -90,7 +90,7 @@ const Footer = () => {
                         className="w-[16%] h-auto object-contain"
                     />
                 ))} */}
-                <Image src={logo} alt="Logo" width={500} height={500} className="w-[800px] z-50" />
+                <Image src={logo} alt="Logo" width={500} height={500} className="w-[500px] md:w-[600px] lg:w-[800px] z-50" />
             </motion.div>
 
             {/* --- BOTTOM SECTION: COPYRIGHT & LINKS --- */}
