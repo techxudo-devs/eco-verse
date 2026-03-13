@@ -110,7 +110,7 @@ const Hero2 = () => {
         <button className="group z-10 mt-10 flex items-center bg-transparent cursor-pointer overflow-visible transition-all">
           {/* Left Half: Text */}
           <div className="bg-orange-500 group-hover:bg-[#154238] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-l-md font-medium font-clash uppercase text-sm sm:text-base transition-all duration-500 ease-out group-hover:-translate-x-4 group-hover:-translate-y-3 group-hover:-rotate-6">
-            Book Tickets
+            Join Now
           </div>
 
           {/* Right Half: Icon */}
