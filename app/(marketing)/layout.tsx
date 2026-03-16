@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import SiteFooter from "@/components/layout/SiteFooter";
-import SiteHeader from "@/components/layout/SiteHeader";
+import Navbar from "@/components/home/Navbar";
+import Footer from "@/components/home/Footer";
 
 type MarketingLayoutProps = {
   children: ReactNode;
@@ -9,9 +9,9 @@ type MarketingLayoutProps = {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
+      <Navbar />
       <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <Footer />
     </div>
   );
 }

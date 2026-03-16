@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogArticle from "@/components/blog/BlogArticle";
-import { normalizeBlogStudioContent, toBlogContentRecord } from "@/lib/blogs/studioContent";
+import {
+  normalizeBlogStudioContent,
+  toBlogContentRecord,
+} from "@/lib/blogs/studioContent";
 import { getBlogBySlug } from "@/lib/services/blogService";
 
 type BlogDetailPageProps = {
