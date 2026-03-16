@@ -49,14 +49,14 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       content={content}
       tags={blog.tags}
       meta={
-        <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+        <>
           {blog.category?.name ?? "General"} •{" "}
           {new Date(blog.updatedAt).toLocaleDateString(undefined, {
             year: "numeric",
             month: "long",
             day: "numeric",
           })}
-        </p>
+        </>
       }
     />
   );
