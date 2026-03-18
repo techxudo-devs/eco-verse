@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   Cpu,
@@ -9,8 +9,10 @@ import {
   ArrowUpRight,
   GitBranch,
   Award,
+  ZoomIn,
+  X,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -30,6 +32,17 @@ const LogoAnimation: React.FC = () => {
   const logoImageRef = useRef<HTMLImageElement>(null);
   const meshRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activePreview, setActivePreview] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
+
+  const sideCards = [
+    { src: "/image-1.jpg", alt: "Left dashboard preview" },
+    { src: "/image-2.jpg", alt: "Right dashboard preview" },
+  ] as const;
+  const leftCard = sideCards[0];
+  const rightCard = sideCards[1];
 
   const cards: IntegrationCard[] = [
     {
@@ -148,6 +161,22 @@ const LogoAnimation: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    if (!activePreview) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActivePreview(null);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activePreview]);
+
   return (
     <div
       ref={sectionRef}
@@ -165,11 +194,31 @@ const LogoAnimation: React.FC = () => {
       {/* 1. INITIAL LOGO POSITION (TOP) */}
       <div ref={logoRef} className="z-50 relative">
         <div className="hidden md:flex items-center justify-center gap-5 lg:gap-8">
-          <div className="logo-side-card w-[170px] lg:w-[220px] h-[100px] lg:h-[130px] rounded-2xl border border-orange-200 bg-white/95 shadow-[0_10px_30px_rgba(249,115,22,0.18)] flex items-center justify-center">
-            <span className="font-clash text-xs lg:text-sm font-medium text-orange-500">
-              Add Left Dashboard Image
-            </span>
-          </div>
+          <button
+            type="button"
+            onClick={() => setActivePreview(leftCard)}
+            className="logo-side-card group relative w-[170px] lg:w-[220px] h-[100px] lg:h-[190px] overflow-hidden rounded-2xl border border-orange-200 bg-white/95 shadow-[0_10px_30px_rgba(249,115,22,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(249,115,22,0.32)]"
+            aria-label={`Open ${leftCard.alt}`}
+          >
+            <Image
+              src={leftCard.src}
+              fill
+              alt={leftCard.alt}
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="(min-width: 1024px) 220px, 170px"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-600/30 via-orange-400/8 to-transparent opacity-55 transition-opacity duration-300 group-hover:opacity-70" />
+
+            <div className="absolute inset-0 flex items-end justify-between p-3">
+              <span className="font-clash text-xs font-medium text-white">
+                Preview
+              </span>
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-orange-500 transition-transform duration-300 group-hover:scale-110">
+                <ZoomIn className="h-4 w-4" />
+              </span>
+            </div>
+          </button>
 
           <Image
             ref={logoImageRef}
@@ -179,11 +228,31 @@ const LogoAnimation: React.FC = () => {
             priority
           />
 
-          <div className="logo-side-card w-[170px] lg:w-[220px] h-[100px] lg:h-[130px] rounded-2xl border border-orange-200 bg-white/95 shadow-[0_10px_30px_rgba(249,115,22,0.18)] flex items-center justify-center">
-            <span className="font-clash text-xs lg:text-sm font-medium text-orange-500">
-              Add Right Dashboard Image
-            </span>
-          </div>
+          <button
+            type="button"
+            onClick={() => setActivePreview(rightCard)}
+            className="logo-side-card group relative w-[170px] lg:w-[250px] h-[100px] lg:h-[190px] overflow-hidden rounded-2xl border border-orange-200 bg-white/95 shadow-[0_10px_30px_rgba(249,115,22,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(249,115,22,0.32)]"
+            aria-label={`Open ${rightCard.alt}`}
+          >
+            <Image
+              src={rightCard.src}
+              fill
+              alt={rightCard.alt}
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="(min-width: 1024px) 250px, 170px"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-600/30 via-orange-400/8 to-transparent opacity-55 transition-opacity duration-300 group-hover:opacity-70" />
+
+            <div className="absolute inset-0 flex items-end justify-between p-3">
+              <span className="font-clash text-xs font-medium text-white">
+                Preview
+              </span>
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-orange-500 transition-transform duration-300 group-hover:scale-110">
+                <ZoomIn className="h-4 w-4" />
+              </span>
+            </div>
+          </button>
         </div>
 
         <div className="md:hidden">
@@ -233,6 +302,47 @@ const LogoAnimation: React.FC = () => {
         {/* This is the destination spot (Visual Center) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       </div>
+
+      <AnimatePresence>
+        {activePreview ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-orange-950/35 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setActivePreview(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 14 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 10 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="relative w-full max-w-5xl rounded-2xl overflow-hidden border border-orange-200 bg-zinc-900"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActivePreview(null)}
+                className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-zinc-700 hover:text-orange-500"
+                aria-label="Close preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="relative w-full h-[70vh] min-h-[320px]">
+                <Image
+                  src={activePreview.src}
+                  alt={activePreview.alt}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 };
