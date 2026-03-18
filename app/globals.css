@@ -49,3 +49,41 @@ html.lenis {
 .lenis.lenis-smooth {
   scroll-behavior: auto;
 }
+
+.award-scroll {
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+.award-left {
+  animation-name: award-appear-left;
+}
+
+.award-right {
+  animation-name: award-appear-right;
+}
+
+@supports (animation-timeline: view()) {
+  .award-scroll {
+    animation-timeline: view();
+    animation-range: entry 30% cover 75%;
+  }
+}
+
+@keyframes award-appear-left {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(150px);
+  }
+}
+
+@keyframes award-appear-right {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-150px);
+  }
+}
