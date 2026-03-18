@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Image Imports
-import dashboardImage1 from "@/public/assets/dashbaord1.svg"; // Reports
+import dashboardImage1 from "@/public/dashboard.jpg"; // Reports
 import dashboardImage2 from "@/public/assets/dashbaord2.svg"; // Traffic by Location
 import dashboardImage3 from "@/public/assets/dashbaord3.svg"; // Analytics
 import dashboardImage4 from "@/public/assets/dashbaord4.svg"; // Light speed booster

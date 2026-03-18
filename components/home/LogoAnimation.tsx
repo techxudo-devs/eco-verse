@@ -27,6 +27,8 @@ interface IntegrationCard {
 const LogoAnimation: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
+  const logoImageRef = useRef<HTMLImageElement>(null);
+  const meshRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const cards: IntegrationCard[] = [
@@ -109,6 +111,25 @@ const LogoAnimation: React.FC = () => {
         scale: 0.8,
         ease: "none",
       });
+
+      tl.to(logoImageRef.current, {
+        boxShadow:
+          "0 0 18px rgba(249, 115, 22, 0.8), 0 0 38px rgba(249, 115, 22, 0.55)",
+        borderColor: "#fb923c",
+        duration: 0.35,
+        ease: "power1.out",
+      });
+
+      tl.to(
+        meshRef.current,
+        {
+          opacity: 0.35,
+          scale: 1,
+          duration: 0.35,
+          ease: "power1.out",
+        },
+        "<"
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -119,10 +140,20 @@ const LogoAnimation: React.FC = () => {
       ref={sectionRef}
       className="w-full flex bg-zinc-50 flex-col items-center justify-start pt-10 overflow-hidden relative min-h-[70vh] md:min-h-[50vh]"
     >
+      <div
+        ref={meshRef}
+        className="absolute inset-0 pointer-events-none z-0 opacity-0 scale-90"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 22% 28%, rgba(251, 146, 60, 0.22), transparent 36%), radial-gradient(circle at 78% 32%, rgba(253, 186, 116, 0.2), transparent 40%), radial-gradient(circle at 50% 74%, rgba(249, 115, 22, 0.18), transparent 42%)",
+        }}
+      />
+
       {/* 1. INITIAL LOGO POSITION (TOP) */}
       <div ref={logoRef} className="z-50">
         <Image
-          className="w-[190px] md:w-[300px] lg:w-[400px] h-auto bg-orange-100 rounded-xl"
+          ref={logoImageRef}
+          className="w-[190px] md:w-[300px] lg:w-[400px] h-auto border border-orange-500 rounded-xl"
           src={echoVerseLogo}
           alt="Logo of Echo Verse"
           priority

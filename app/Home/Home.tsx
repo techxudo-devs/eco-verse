@@ -3,6 +3,7 @@ import ChooseUs from "@/components/home/ChooseUs";
 import Expertise from "@/components/home/Expertise";
 import FAQS from "@/components/home/FAQS";
 import Hero2 from "@/components/home/Hero2";
+import HowToOrder from "@/components/home/HowToOrder";
 import LogoAnimation from "@/components/home/LogoAnimation";
 import Social from "@/components/home/Social";
 import VideosStack from "@/components/home/VideosStack";
@@ -23,6 +24,7 @@ const page = async () => {
     <div className="min-h-screen bg-background">
       <Hero2 />
       <LogoAnimation />
+      <HowToOrder />
       {/* <CardsFlipScrollAnimation /> */}
       <Expertise />
       <VideosStack />
