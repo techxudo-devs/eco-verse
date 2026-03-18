@@ -187,48 +187,63 @@ export default function ProjectsManager() {
   const shortDescriptionCount = formState.shortDescription.trim().length;
 
   return (
-    <section className="space-y-6">
-      <div className="flex flex-col gap-3 border-b border-[var(--color-primary)]/20 pb-4 md:flex-row md:items-end md:justify-between">
+    <section className="min-h-screen space-y-8 bg-[#FFEDD5] px-6 py-12 md:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+      >
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Projects</p>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-[var(--foreground)]">Portfolio Hub</h2>
-          <p className="text-sm text-zinc-600">Add, edit, and manage portfolio entries quickly.</p>
+          <div className="inline-block rounded-full bg-[#00522D] px-4 py-2">
+            <p className="font-clash text-xs font-bold uppercase tracking-[0.2em] text-white">Projects</p>
+          </div>
+          <h2 className="mt-4 font-beni text-5xl font-black uppercase leading-tight text-[#00522D] md:text-6xl">
+            Portfolio Hub
+          </h2>
+          <p className="mt-2 font-clash text-sm font-medium text-zinc-700">
+            Add, edit, and manage portfolio entries quickly.
+          </p>
         </div>
 
         <button
-          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-green)]/40 bg-[var(--color-green)]/10 px-4 py-2 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--color-green)] hover:bg-[var(--color-green)]/18"
+          className="inline-flex items-center gap-2 rounded-full bg-[#F97316] px-6 py-3 font-clash text-sm font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-all hover:scale-105 hover:bg-[#ff6b35]"
           onClick={startCreate}
           type="button"
         >
-          <PlusCircle className="size-4" />
+          <PlusCircle className="size-5" />
           Add Project
         </button>
-      </div>
+      </motion.div>
 
       <div ref={panelTopRef} />
 
       {panelOpen && !editingProjectId ? (
         <motion.div
-          initial={{ x: 36, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          className="rounded-3xl border-2 border-[#F97316]/20 bg-white p-6 shadow-xl md:p-8"
         >
-          <form onSubmit={submitProject} className="grid gap-4">
+          <form onSubmit={submitProject} className="grid gap-5">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-black uppercase tracking-[0.18em] text-zinc-600">Create New Project</h3>
+              <h3 className="font-beni text-2xl font-black uppercase text-[#00522D]">Create New Project</h3>
               <button
                 type="button"
                 onClick={resetPanel}
-                className="inline-flex items-center rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-semibold text-zinc-700"
+                className="inline-flex items-center rounded-full border-2 border-zinc-300 px-4 py-2 font-clash text-xs font-bold uppercase text-zinc-700 transition hover:border-[#00522D] hover:bg-zinc-100"
               >
                 Close
               </button>
             </div>
 
-            {formError ? <p className="text-sm text-red-600">{formError}</p> : null}
+            {formError ? (
+              <p className="rounded-xl bg-red-50 px-4 py-3 font-clash text-sm font-semibold text-red-600">
+                {formError}
+              </p>
+            ) : null}
 
-            <label className="grid gap-1 text-sm">
-              <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Title</span>
+            <label className="grid gap-2">
+              <span className="font-clash text-xs font-bold uppercase tracking-[0.18em] text-[#00522D]">Title</span>
               <input
                 value={formState.title}
                 onChange={(event) => {
@@ -239,19 +254,21 @@ export default function ProjectsManager() {
                     slug: editingProjectId ? prev.slug : toSlug(value),
                   }));
                 }}
-                className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                className="w-full rounded-xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 font-clash outline-none transition focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/30"
                 required
                 placeholder="Project title"
               />
             </label>
 
-            <label className="grid gap-1 text-sm">
-              <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Cover Image</span>
+            <label className="grid gap-2">
+              <span className="font-clash text-xs font-bold uppercase tracking-[0.18em] text-[#00522D]">
+                Cover Image
+              </span>
               <div className="flex gap-2">
                 <input
                   value={formState.coverImage}
                   onChange={(event) => updateField("coverImage")(event.target.value)}
-                  className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                  className="w-full rounded-xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 font-clash outline-none transition focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/30"
                   placeholder="https://..."
                   required
                 />
@@ -259,7 +276,7 @@ export default function ProjectsManager() {
                   type="button"
                   disabled={isUploadingCover}
                   onClick={() => coverFileInputRef.current?.click()}
-                  className="rounded-lg border border-[var(--color-green)]/30 bg-[var(--color-green)]/8 px-3 text-xs font-semibold text-[var(--foreground)] transition hover:bg-[var(--color-green)]/16 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="rounded-xl bg-[#15803d] px-4 font-clash text-xs font-bold uppercase text-white transition hover:bg-[#00522D] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {isUploadingCover ? "Uploading..." : "Upload"}
                 </button>
@@ -272,7 +289,7 @@ export default function ProjectsManager() {
                 />
               </div>
               {formState.coverImage.trim() ? (
-                <div className="mt-2 overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50">
+                <div className="mt-2 overflow-hidden rounded-2xl border-2 border-zinc-200">
                   <img
                     src={formState.coverImage}
                     alt="Project cover preview"
@@ -282,25 +299,29 @@ export default function ProjectsManager() {
               ) : null}
             </label>
 
-            <label className="grid gap-1 text-sm">
+            <label className="grid gap-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Short Description</span>
-                <span className="text-xs text-zinc-500">{shortDescriptionCount} chars</span>
+                <span className="font-clash text-xs font-bold uppercase tracking-[0.18em] text-[#00522D]">
+                  Short Description
+                </span>
+                <span className="font-clash text-xs font-semibold text-zinc-500">{shortDescriptionCount} chars</span>
               </div>
               <textarea
                 value={formState.shortDescription}
                 onChange={(event) => updateField("shortDescription")(event.target.value)}
-                className="min-h-24 border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                className="min-h-24 rounded-xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 font-clash outline-none transition focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/30"
                 placeholder="Quick summary for this project"
               />
             </label>
 
-            <label className="grid gap-1 text-sm">
-              <span className="text-xs uppercase tracking-[0.18em] text-zinc-500">Tags (comma separated)</span>
+            <label className="grid gap-2">
+              <span className="font-clash text-xs font-bold uppercase tracking-[0.18em] text-[#00522D]">
+                Tags (comma separated)
+              </span>
               <input
                 value={formState.tags}
                 onChange={(event) => updateField("tags")(event.target.value)}
-                className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 outline-none transition focus:border-[var(--color-green)] focus:ring-2 focus:ring-[var(--color-green)]/30"
+                className="w-full rounded-xl border-2 border-zinc-200 bg-zinc-50 px-4 py-3 font-clash outline-none transition focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/30"
                 placeholder="ux, app, design"
               />
             </label>
@@ -308,7 +329,7 @@ export default function ProjectsManager() {
             <button
               type="submit"
               disabled={isFormBusy}
-              className="inline-flex items-center justify-center rounded-xl border border-[var(--color-green)] bg-[var(--color-green)]/10 px-4 py-2.5 text-sm font-bold tracking-[0.12em] text-[var(--foreground)] transition hover:bg-[var(--color-green)]/20"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-[#F97316] px-6 py-4 font-clash text-sm font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:scale-105 hover:bg-[#ff6b35] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isFormBusy ? (
                 <motion.span
@@ -316,34 +337,49 @@ export default function ProjectsManager() {
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   className="mr-2 inline-block"
                 >
-                  <RotateCcw className="size-4" />
+                  <RotateCcw className="size-5" />
                 </motion.span>
               ) : (
-                <Save className="mr-2 size-4" />
+                <Save className="mr-2 size-5" />
               )}
               <span>Create Project</span>
-              <Check className="ml-2 size-4" />
+              <Check className="ml-2 size-5" />
             </button>
           </form>
         </motion.div>
       ) : null}
 
       {isLoading ? (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="aspect-square animate-pulse rounded-xl border border-zinc-200 bg-white" />
+            <div
+              key={index}
+              className="aspect-square animate-pulse rounded-3xl border-2 border-zinc-200 bg-white shadow-lg"
+            />
           ))}
         </div>
       ) : (
         <>
           {error ? (
-            <p className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">Unable to load projects.</p>
+            <p className="rounded-3xl border-2 border-red-300 bg-red-50 px-6 py-4 font-clash text-sm font-semibold text-red-700 shadow-lg">
+              Unable to load projects.
+            </p>
           ) : null}
 
           {projects.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-zinc-300 bg-white px-6 py-10 text-center text-zinc-500">
-              No projects yet. Click <span className="font-semibold">Add Project</span> to create your first item.
-            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="rounded-3xl border-2 border-dashed border-[#F97316]/30 bg-white/50 px-8 py-16 text-center shadow-lg backdrop-blur-sm"
+            >
+              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#F97316]/10">
+                <ImageIcon className="h-10 w-10 text-[#F97316]" />
+              </div>
+              <h3 className="font-beni text-2xl font-bold uppercase text-[#00522D]">No Projects Yet</h3>
+              <p className="mt-2 font-clash text-sm text-zinc-600">
+                Click <span className="font-bold text-[#F97316]">Add Project</span> to create your first portfolio item.
+              </p>
+            </motion.div>
           ) : (
             <motion.div
               initial="hidden"
