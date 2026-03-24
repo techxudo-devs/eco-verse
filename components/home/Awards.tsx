@@ -24,7 +24,7 @@ const Awards = ({ projects = [] }: AwardsProps) => {
       <div className="absolute left-1/2 top-[240px] bottom-0 hidden w-px -translate-x-1/2 bg-[#F97316]/20 md:block" />
 
       <div className="container mx-auto space-y-10 px-6 md:space-y-14">
-        {showcaseProjects.length === 0 ? (
+        {showcaseProjects.length === 0 ? (  
           <div className="mx-auto max-w-2xl rounded-3xl border-2 border-dashed border-[#F97316]/30 bg-white/50 px-8 py-16 text-center shadow-lg backdrop-blur-sm">
             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#F97316]/10">
               <svg
@@ -59,9 +59,9 @@ const Awards = ({ projects = [] }: AwardsProps) => {
               <div
                 className={`award-scroll group ${
                   project.align === "left"
-                    ? "award-left md:ml-24"
-                    : "award-right md:mr-24"
-                } relative w-full max-w-[360px] overflow-hidden rounded-3xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl md:max-w-[480px]`}
+                    ? "award-left md:ml-10"
+                    : "award-right md:mr-10"
+                } relative w-full max-w-[300px] overflow-hidden rounded-md bg-white shadow-xl transition-all duration-500 hover:shadow-md md:max-w-[350px]`}
                 style={{
                   transform: project.align === "left" ? "rotate(-2deg)" : "rotate(2deg)",
                 }}
@@ -87,7 +87,7 @@ const Awards = ({ projects = [] }: AwardsProps) => {
                         unoptimized
                         className="object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-2"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#00522D] via-[#00522D]/50 to-transparent opacity-80"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#00522D] via-[#00522D] to-transparent opacity-10"></div>
                     </>
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#F97316] via-[#fdba74] to-[#15803d]">

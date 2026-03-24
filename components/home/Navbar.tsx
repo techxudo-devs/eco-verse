@@ -87,6 +87,7 @@ const Navbar = () => {
     },
     { name: "FAQ'S", type: "section", target: "faqs", active: false },
     { name: "BLOGS", type: "section", target: "blogs-preview", active: false },
+    { name: "PROJECTS", type: "route", target: "/projects", active: false },
     {
       name: "CONTACT US",
       type: "section",
