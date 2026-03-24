@@ -29,7 +29,7 @@ const page = async () => {
         <LogoAnimation />
       </section>
 
-     
+    
       <section id="our-expertise" className="scroll-mt-24">
         <Expertise />
       </section>
