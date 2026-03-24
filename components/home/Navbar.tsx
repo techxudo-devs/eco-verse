@@ -15,10 +15,13 @@ import Image from "next/image";
 
 import echoLogo from "@/public/assets/echoverse-logo.png";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -55,13 +58,96 @@ const Navbar = () => {
   };
 
   const menuLinks = [
-    { name: "HOME", active: false },
-    { name: "AGENCY", active: true },
-    { name: "PROJECTS", active: false },
-    { name: "EXPERTISE", active: false },
-    { name: "FAQ", active: false },
-    { name: "CONTACT", active: false },
+    { name: "HOME", type: "section", target: "home", active: false },
+    {
+      name: "OUR EXPERTISE",
+      type: "section",
+      target: "our-expertise",
+      active: false,
+    },
+    {
+      name: "OUR SERVICES",
+      type: "section",
+      target: "our-services",
+      active: true,
+    },
+    {
+      name: "METHOD & PROCESS",
+      type: "section",
+      target: "method-process",
+      active: false,
+    },
+    {
+      name: "WHY CHOOSE US",
+      type: "section",
+      target: "why-choose-us",
+      active: false,
+    },
+    { name: "FAQ'S", type: "section", target: "faqs", active: false },
+    { name: "BLOGS", type: "route", target: "/blog", active: false },
+    {
+      name: "CONTACT US",
+      type: "section",
+      target: "contact-us",
+      active: false,
+    },
   ];
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
+    }
+
+    const hash = window.location.hash.replace("#", "");
+
+    if (!hash) {
+      return;
+    }
+
+    let attemptCount = 0;
+
+    const scrollToHashSection = () => {
+      const section = document.getElementById(hash);
+
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      attemptCount += 1;
+
+      if (attemptCount < 20) {
+        window.setTimeout(scrollToHashSection, 150);
+      }
+    };
+
+    scrollToHashSection();
+  }, [pathname]);
+
+  const handleMenuNavigation = (
+    target: string,
+    type: "section" | "route",
+  ) => {
+    setIsOpen(false);
+
+    if (type === "route") {
+      router.push(target);
+      return;
+    }
+
+    if (pathname === "/") {
+      const section = document.getElementById(target);
+
+      if (section) {
+        window.history.replaceState(null, "", `/#${target}`);
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      return;
+    }
+
+    router.push(`/#${target}`);
+  };
 
   return (
     <>
@@ -108,16 +194,21 @@ const Navbar = () => {
             >
               <nav className="flex flex-col mb-6">
                 {menuLinks.map((link, idx) => (
-                  <a
+                  <button
                     key={idx}
-                    href={`#${link.name.toLowerCase()}`}
-                    onClick={toggleMenu}
-                    className={`font-beni font-black text-[3rem] sm:text-[4rem] lg:text-[5.5rem] leading-[0.8] uppercase transition-colors duration-300 hover:text-orange-400 ${
+                    type="button"
+                    onClick={() =>
+                      handleMenuNavigation(
+                        link.target,
+                        link.type as "section" | "route",
+                      )
+                    }
+                    className={`font-beni font-black text-[2rem] sm:text-[3rem] lg:text-[4rem] leading-[0.8] uppercase transition-colors duration-300 hover:text-orange-400 ${
                       link.active ? "text-orange-400" : "text-white"
-                    }`}
+                    } text-left`}
                   >
                     {link.name}
-                  </a>
+                  </button>
                 ))}
               </nav>
 
@@ -142,8 +233,8 @@ const Navbar = () => {
               exit="exit"
               className="w-1/2 h-full bg-[#00522D] flex flex-col justify-center items-center px-8 pl-[12%] pt-10"
             >
-              <Image src={qrImage} alt="QR Image"/>
-              <h2 className="font-beni font-black text-[40px] md:text-[60px] lg:text-[80px] leading-[0.7] text-white text-center uppercase sm:pt-0 pt-4">
+              <Image src={qrImage} alt="QR Image" />
+              <h2 className="font-beni font-black text-[30px] md:text-[50px] lg:text-[70px] leading-[0.7] text-white text-center uppercase sm:pt-0 pt-4">
                 <span className="block">SHALL WE</span>
                 <span className="block">CONNECT ON</span>
                 <span className="block">WHATSAPP?</span>
@@ -176,7 +267,7 @@ const Navbar = () => {
                   stiffness: 300,
                   damping: 25,
                   // Faster return: all icons fly back together instantly when closing
-                  delay: isSocialOpen ? item.delay : 0, 
+                  delay: isSocialOpen ? item.delay : 0,
                 }}
                 // REMOVED 'transition-all duration-300' to prevent conflict with Framer Motion
                 className="absolute w-11 h-11 bg-[#00522D] rounded-full flex items-center justify-center text-white shadow-sm hover:scale-110"

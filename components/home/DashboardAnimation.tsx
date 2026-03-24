@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import dashboardImage1 from "@/public/dashboard.jpg";
 
@@ -358,6 +359,32 @@ const CampaignPulseCard = () => {
 
 const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const dashboardSlides = [
+    {
+      src: dashboardImage1,
+      alt: "Reports Dashboard",
+    },
+    {
+      src: "/image-1.jpg",
+      alt: "Dashboard preview one",
+    },
+    {
+      src: "/image-2.jpg",
+      alt: "Dashboard preview two",
+    },
+  ] as const;
+
+  const goToPreviousSlide = () => {
+    setActiveSlide((current) =>
+      current === 0 ? dashboardSlides.length - 1 : current - 1,
+    );
+  };
+
+  const goToNextSlide = () => {
+    setActiveSlide((current) => (current + 1) % dashboardSlides.length);
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -367,19 +394,19 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
 
       const card1From = isMobile
         ? { x: "20vw", y: "-115vh", rotation: -15, scale: 1, ease: "none" }
-        : { x: "90vw", y: "-220vh", rotation: -15, scale: 1, ease: "none" };
+        : { x: "90vw", y: "-210vh", rotation: -15, scale: 1, ease: "none" };
 
       const card2From = isMobile
         ? { x: "-4vw", y: "-108vh", rotation: -10, scale: 1, ease: "none" }
-        : { x: "-25vw", y: "-215vh", rotation: -10, scale: 1, ease: "none" };
+        : { x: "-25vw", y: "-200vh", rotation: -10, scale: 1, ease: "none" };
 
       const card3From = isMobile
         ? { x: "2vw", y: "-112vh", rotation: 0, scale: 1, ease: "none" }
-        : { x: "15vw", y: "-223vh", rotation: 0, scale: 1, ease: "none" };
+        : { x: "15vw", y: "-210vh", rotation: 0, scale: 1, ease: "none" };
 
       const card4From = isMobile
         ? { x: "8vw", y: "-110vh", rotation: 13, scale: 1, ease: "none" }
-        : { x: "55vw", y: "-225vh", rotation: 13, scale: 1, ease: "none" };
+        : { x: "55vw", y: "-210vh", rotation: 13, scale: 1, ease: "none" };
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -399,6 +426,14 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
     return () => ctx.revert();
   }, [scrollSectionRef]);
 
+  useEffect(() => {
+    const slideInterval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % dashboardSlides.length);
+    }, 3000);
+
+    return () => window.clearInterval(slideInterval);
+  }, [dashboardSlides.length]);
+
   return (
     <section
       ref={sectionRef}
@@ -407,11 +442,62 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 flex flex-col gap-5 py-4 rounded-4xl md:gap-6 bg-orange-400">
         <div className="flex flex-col md:flex-row w-full gap-5 md:gap-6">
           <div className="w-full md:flex-1 bg-white rounded-2xl p-4 flex items-center justify-center">
-            <Image
-              src={dashboardImage1}
-              alt="Reports Dashboard"
-              className="w-full h-full object-contain rounded-xl"
-            />
+            <div className="relative w-full overflow-hidden rounded-xl bg-[#fff7f1]">
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              >
+                {dashboardSlides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="relative w-full shrink-0 aspect-[16/10]"
+                  >
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 60vw, 100vw"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={goToPreviousSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-orange-500 shadow-[0_10px_24px_rgba(249,115,22,0.18)] transition-all duration-300 hover:bg-white hover:scale-105"
+                aria-label="Show previous dashboard image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={goToNextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 cursor-pointer inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-orange-500 shadow-[0_10px_24px_rgba(249,115,22,0.18)] transition-all duration-300 hover:bg-white hover:scale-105"
+                aria-label="Show next dashboard image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+
+              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 backdrop-blur-sm">
+                {dashboardSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveSlide(index)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      activeSlide === index
+                        ? "w-6 bg-orange-500"
+                        : "w-2.5 bg-orange-200"
+                    }`}
+                    aria-label={`Go to dashboard image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="w-full md:w-[28%] bg-white rounded-2xl p-2 md:p-3 flex items-center justify-center">

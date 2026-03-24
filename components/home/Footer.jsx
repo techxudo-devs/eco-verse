@@ -3,13 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import logo1 from "@/public/assets/logo1.svg";
-import logo2 from "@/public/assets/logo2.svg";
-import logo3 from "@/public/assets/logo3.svg";
-import logo4 from "@/public/assets/logo4.svg";
-import logo5 from "@/public/assets/logo5.svg";
-import logo6 from "@/public/assets/logo6.svg";
-
 import logo from "@/public/assets/charLogo.svg";
 import Image from "next/image";
 
@@ -24,10 +17,11 @@ const Footer = () => {
     },
   };
 
-  const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
-
   return (
-    <div className="relative w-full overflow-hidden bg-[#FFEDD5] pt-10 sm:pt-20">
+    <div
+      id="contact-us"
+      className="relative w-full overflow-hidden bg-[#FFEDD5] pt-10 sm:pt-20 scroll-mt-24"
+    >
       {/* --- TOP SECTION: IMAGE & CONTACT BOX --- */}
       <motion.div
         initial="hidden"

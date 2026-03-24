@@ -3,7 +3,6 @@ import ChooseUs from "@/components/home/ChooseUs";
 import Expertise from "@/components/home/Expertise";
 import FAQS from "@/components/home/FAQS";
 import Hero2 from "@/components/home/Hero2";
-import HowToOrder from "@/components/home/HowToOrder";
 import LogoAnimation from "@/components/home/LogoAnimation";
 import Social from "@/components/home/Social";
 import VideosStack from "@/components/home/VideosStack";
@@ -22,16 +21,39 @@ const page = async () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Hero2 />
-      <LogoAnimation />
-      <HowToOrder />
+      <section id="home" className="scroll-mt-24">
+        <Hero2 />
+      </section>
+
+      <section id="our-services" className="scroll-mt-24">
+        <LogoAnimation />
+      </section>
+
+      {/* <HowToOrder /> */}
       {/* <CardsFlipScrollAnimation /> */}
-      <Expertise />
-      <VideosStack />
-      <CardsStack />
-      <ChooseUs />
-      <FAQS />
-      <Social blogs={socialBlogs} />
+      <section id="our-expertise" className="scroll-mt-24">
+        <Expertise />
+      </section>
+
+      <section className="scroll-mt-24">
+        <VideosStack />
+      </section>
+
+      <section id="method-process" className="scroll-mt-24">
+        <CardsStack />
+      </section>
+
+      <section id="why-choose-us" className="scroll-mt-24">
+        <ChooseUs />
+      </section>
+
+      <section id="faqs" className="scroll-mt-24">
+        <FAQS />
+      </section>
+
+      <section id="blogs-preview" className="scroll-mt-24">
+        <Social blogs={socialBlogs} />
+      </section>
     </div>
   );
 };
