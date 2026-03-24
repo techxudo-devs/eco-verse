@@ -29,8 +29,7 @@ const page = async () => {
         <LogoAnimation />
       </section>
 
-      {/* <HowToOrder /> */}
-      {/* <CardsFlipScrollAnimation /> */}
+     
       <section id="our-expertise" className="scroll-mt-24">
         <Expertise />
       </section>
