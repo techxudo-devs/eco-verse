@@ -367,11 +367,15 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
       alt: "Reports Dashboard",
     },
     {
-      src: "/image-1.jpg",
+      src: "/assets/image-3.jpeg",
       alt: "Dashboard preview one",
     },
     {
-      src: "/image-2.jpg",
+      src: "/assets/image-4.jpeg",
+      alt: "Dashboard preview two",
+    },
+    {
+      src: "/assets/image-5.jpeg",
       alt: "Dashboard preview two",
     },
   ] as const;
