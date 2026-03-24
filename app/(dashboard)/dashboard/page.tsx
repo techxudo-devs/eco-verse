@@ -147,7 +147,7 @@ export default async function DashboardPage() {
         </p>
         <p className="mt-3 text-sm text-[var(--foreground)]/65">
           {inquiryCount} unread inquiry cards are currently waiting for follow-up.
-          Keep this section active for a quick workflow.
+          Keep this section active for a  workflow.
         </p>
       </div>
     </section>
