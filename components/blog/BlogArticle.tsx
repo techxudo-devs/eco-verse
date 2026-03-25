@@ -98,7 +98,7 @@ export default function BlogArticle({
 
               <motion.h1
                 variants={slideUp}
-                className="font-beni text-5xl font-black uppercase leading-[0.85] text-white drop-shadow-lg md:text-7xl lg:text-8xl"
+                className="font-beni text-4xl sm:text-5xl font-black uppercase leading-[0.85] text-white drop-shadow-lg md:text-7xl lg:text-8xl"
               >
                 {title}
               </motion.h1>
@@ -203,7 +203,7 @@ export default function BlogArticle({
               variants={slideUp}
               className="mt-8 rotate-[-1deg] rounded-3xl bg-gradient-to-br from-[#F97316] to-[#ff6b35] p-8 shadow-lg md:mt-12 md:p-10"
             >
-              <h3 className="mb-6 font-beni text-xl font-black uppercase tracking-[0.16em] text-white md:text-2xl">
+              <h3 className="mb-6 font-beni text-2xl font-black uppercase tracking-[0.16em] text-white md:text-3xl">
                 Explore Topics
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -220,7 +220,7 @@ export default function BlogArticle({
                       delay: index * 0.05,
                     }}
                     whileHover={{ scale: 1.1, rotate: -2 }}
-                    className="cursor-pointer rounded-full bg-white/90 px-5 py-2 font-clash text-xs font-bold uppercase tracking-[0.12em] text-[#00522D] shadow-md backdrop-blur-sm transition-all hover:bg-white hover:shadow-xl"
+                    className="cursor-pointer rounded-full bg-white/90 px-5 py-2 font-clash text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#00522D] transition-all hover:bg-white"
                   >
                     {tag}
                   </motion.span>
@@ -237,7 +237,7 @@ export default function BlogArticle({
             >
               <Link
                 href="/blog"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#00522D] px-8 py-4 font-clash text-sm font-bold uppercase tracking-[0.16em] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#003d22] hover:shadow-xl"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#00522D] px-8 py-4 font-clash text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#003d22] hover:shadow-xl"
               >
                 <svg
                   className="h-5 w-5 transition-transform group-hover:-translate-x-2"
