@@ -52,7 +52,7 @@ export default function BlogList({ blogs }: BlogListProps) {
   };
 
   return (
-    <main className="w-full bg-[#FFEDD5] px-6 py-16 md:px-10 md:py-24">
+    <main className="w-full bg-[#FFEDD5] px-4 sm:px-6 py-16 md:px-10 md:py-24">
       {/* Hero Section */}
       <motion.div
         initial="hidden"
@@ -67,21 +67,21 @@ export default function BlogList({ blogs }: BlogListProps) {
           variants={slideUp}
           className="inline-block rounded-full bg-[#00522D] px-5 py-2"
         >
-          <p className="font-clash text-xs font-bold uppercase tracking-[0.2em] text-white">
+          <p className="font-clash text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-white">
             Journal
           </p>
         </motion.div>
 
         <motion.h1
           variants={slideUp}
-          className="mt-6 font-beni text-6xl font-black uppercase leading-[0.9] text-[#00522D] md:text-7xl lg:text-8xl"
+          className="mt-6 font-beni text-5xl sm:text-6xl font-black uppercase leading-[0.9] text-[#00522D] md:text-7xl lg:text-8xl"
         >
           Stories & Insights
         </motion.h1>
 
         <motion.p
           variants={slideUp}
-          className="mt-6 max-w-2xl font-clash text-base font-medium text-zinc-700 md:text-lg"
+          className="mt-6 max-w-2xl font-clash text-sm sm:text-base font-medium text-zinc-700 md:text-lg"
         >
           Exploring the intersection of creativity, strategy, and sustainable
           growth. Real stories from real campaigns.
@@ -93,7 +93,7 @@ export default function BlogList({ blogs }: BlogListProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="mx-auto max-w-2xl rounded-3xl border-2 border-dashed border-[#F97316]/30 bg-white/50 px-8 py-16 text-center shadow-lg backdrop-blur-sm"
+          className="mx-auto max-w-2xl rounded-3xl border-2 border-dashed border-[#F97316]/30 bg-white/50 px-4 sm:px-8 py-16 text-center"
         >
           <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#F97316]/10">
             <svg
@@ -147,25 +147,25 @@ export default function BlogList({ blogs }: BlogListProps) {
                 </div>
               </Link>
 
-              <div className="space-y-4 p-6">
+              <div className="space-y-4 p-5 sm:p-6">
                 <div className="inline-block rounded-full bg-gradient-to-r from-[#F97316]/10 to-[#15803d]/10 px-3 py-1">
-                  <p className="font-clash text-[10px] font-bold uppercase tracking-[0.16em] text-[#00522D]">
+                  <p className="font-clash text-[10px] font-semibold uppercase tracking-[0.16em] text-[#00522D]">
                     {blog.category?.name ?? "General"}
                   </p>
                 </div>
 
-                <h2 className="font-beni text-2xl font-black uppercase leading-tight text-[#00522D] transition-colors group-hover:text-[#F97316]">
+                <h2 className="font-beni text-2xl font-black uppercase leading-none text-[#00522D] transition-colors group-hover:text-[#F97316]">
                   <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
                 </h2>
 
-                <p className="line-clamp-3 font-clash text-sm leading-relaxed text-zinc-600">
+                <p className="line-clamp-3 font-clash text-sm leading-normal text-zinc-600">
                   {blog.description || getBlogExcerpt(blog.content)}
                 </p>
 
                 <div className="flex items-center justify-between pt-2">
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="group/btn inline-flex items-center gap-2 font-clash text-xs font-bold uppercase tracking-[0.14em] text-[#F97316] transition-all hover:gap-3"
+                    className="group/btn inline-flex items-center gap-2 font-clash text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[#F97316] transition-all hover:gap-3"
                   >
                     Read More
                     <svg
@@ -213,16 +213,16 @@ export default function BlogList({ blogs }: BlogListProps) {
           }}
           className="mx-auto mt-16 max-w-4xl md:mt-24"
         >
-          <div className="rotate-[-1deg] rounded-3xl bg-gradient-to-br from-[#00522D] to-[#003d22] p-8 shadow-2xl md:p-12">
+          <div className="rotate-[-1deg] rounded-3xl bg-gradient-to-br from-[#00522D] to-[#003d22] p-8 md:p-12">
             <div className="text-center">
-              <h2 className="font-beni text-4xl font-black uppercase leading-tight text-white md:text-5xl">
+              <h2 className="font-beni text-3xl sm:text-4xl font-black uppercase leading-none text-white md:text-5xl">
                 Want to tell your story?
               </h2>
               <p className="mx-auto mt-4 max-w-xl font-clash text-sm font-medium text-white/90 md:text-base">
                 We help brands craft narratives that resonate, convert, and
                 build lasting communities.
               </p>
-              <button className="mt-8 rounded-full bg-[#F97316] px-8 py-4 font-clash text-sm font-bold uppercase tracking-[0.16em] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#ff6b35] hover:shadow-xl">
+              <button className="mt-8 rounded-full bg-[#F97316] px-6 sm:px-8 py-4 font-clash text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:scale-105 hover:bg-[#ff6b35] hover:shadow-xl">
                 Start Your Project
               </button>
             </div>
