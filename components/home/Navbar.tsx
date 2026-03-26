@@ -90,8 +90,8 @@ const Navbar = () => {
     { name: "PROJECTS", type: "route", target: "/projects", active: false },
     {
       name: "CONTACT US",
-      type: "section",
-      target: "contact-us",
+      type: "route",
+      target: "/contact",
       active: false,
     },
   ];

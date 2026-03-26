@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import logo from "@/public/assets/charLogo.svg";
 import Image from "next/image";
 import QuizModal from "@/components/home/QuizModal";
+import Link from "next/link";
 
 const Footer = () => {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -61,13 +62,12 @@ const Footer = () => {
             answers and get back to you quickly.
           </p>
 
-          <button
-            type="button"
-            onClick={() => setIsQuizOpen(true)}
+          <Link
+            href="/contact"
             className="bg-white/30 hover:bg-white/40 transition-colors duration-300 px-4 py-3 rounded-lg font-clash cursor-pointer z-60 font-semibold text-white text-xs"
           >
             Start the quiz
-          </button>
+          </Link>
         </motion.div>
       </motion.div>
 
