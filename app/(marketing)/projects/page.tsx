@@ -6,6 +6,9 @@ import { getProjects } from "@/lib/services/projectService";
 export default async function ProjectsPage() {
   const projects = await getProjects();
 
-  return <Awards projects={projects} />;
+  return (
+    <div className="projects-page-cursor">
+      <Awards projects={projects} />
+    </div>
+  );
 }
-

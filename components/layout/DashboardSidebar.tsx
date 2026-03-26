@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import {
   FileText,
   FolderKanban,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ComponentType } from "react";
+import echoLogo from "@/public/assets/echoverse-logo.png";
 
 type DashboardSidebarProps = {
   collapsed?: boolean;
@@ -81,17 +83,27 @@ const DashboardSidebar = ({ collapsed = false }: DashboardSidebarProps) => {
           : "w-48 md:w-56 lg:w-64 2xl:w-72"
       }`}
     >
-      <header className={`mb-6 flex items-center ${collapsed ? "justify-center" : ""}`}>
+      <header
+        className={`mb-6 flex items-center ${collapsed ? "justify-center" : ""}`}
+      >
         <Link
           href="/dashboard"
           className={`inline-flex items-center text-xs font-black uppercase tracking-[0.14em] text-[var(--foreground)] 2xl:text-sm 2xl:tracking-[0.16em] ${
             collapsed ? "justify-center" : "gap-3"
           }`}
         >
-          <span className="grid size-8 place-items-center rounded-full border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/10 text-xs text-[var(--foreground)]">
-            CE
-          </span>
-          {!collapsed ? <span>Control Center</span> : null}
+          {collapsed ? (
+            <span className="grid size-8 place-items-center rounded-full border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/10 text-xs text-[var(--foreground)]">
+              EV
+            </span>
+          ) : (
+            <Image
+              src={echoLogo}
+              alt="Eco Verse Logo"
+              className="w-auto h-34 -mt-10 translate-x-10"
+              priority
+            />
+          )}
         </Link>
       </header>
 
@@ -135,7 +147,9 @@ const DashboardSidebar = ({ collapsed = false }: DashboardSidebarProps) => {
                   </span>
                 ) : null}
                 {link.count !== undefined ? (
-                  <span className={`text-[10px] font-semibold text-[var(--foreground)]/60 2xl:text-xs ${collapsed ? "" : "ml-auto"}`}>
+                  <span
+                    className={`text-[10px] font-semibold text-[var(--foreground)]/60 2xl:text-xs ${collapsed ? "" : "ml-auto"}`}
+                  >
                     {link.count}
                   </span>
                 ) : null}

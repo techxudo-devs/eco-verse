@@ -10,6 +10,7 @@ const Awards = ({ projects = [] }: AwardsProps) => {
   // Take first 8 projects and assign alternating alignment
   const showcaseProjects = projects.slice(0, 8).map((project, index) => ({
     ...project,
+    index,
     align: index % 2 === 0 ? ("left" as const) : ("right" as const),
   }));
 
@@ -22,6 +23,11 @@ const Awards = ({ projects = [] }: AwardsProps) => {
       </div>
 
       <div className="absolute left-1/2 top-[240px] bottom-0 hidden w-px -translate-x-1/2 bg-[#F97316]/20 md:block" />
+      <div className="award-line-marker absolute left-1/2 top-[260px] z-20 hidden -translate-x-1/2 md:block">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute left-1/1 top-1/2 h-[4px] w-10 -translate-x-1/2 -translate-y-1/2 bg-[#f97316]" />
+        </div>
+      </div>
 
       <div className="container mx-auto space-y-10 px-6 md:space-y-14">
         {showcaseProjects.length === 0 ? (
@@ -49,7 +55,7 @@ const Awards = ({ projects = [] }: AwardsProps) => {
             </p>
           </div>
         ) : (
-          showcaseProjects.map((project, idx) => (
+          showcaseProjects.map((project) => (
             <div
               key={project.id}
               className={`relative flex flex-col items-center md:flex-row ${
@@ -62,7 +68,11 @@ const Awards = ({ projects = [] }: AwardsProps) => {
                   project.align === "left"
                     ? "award-left md:ml-28"
                     : "award-right md:mr-28"
-                } relative w-full max-w-[88vw] overflow-hidden rounded-md bg-white transition-all duration-500 hover:shadow-md sm:max-w-[360px] md:max-w-[280px] lg:max-w-[260px] 2xl:max-w-[300px]`}
+                } w-full max-w-[88vw] rounded-lg border p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(113,74,39,0.12)] sm:max-w-[360px] md:max-w-[280px] md:p-4 lg:max-w-[240px] lg:p-3 2xl:max-w-[360px] 2xl:p-4 ${
+                  project.index % 2 === 0
+                    ? "border-[#d9c8c0] bg-[#eaded8]"
+                    : "border-[#c8d7c6] bg-[#dde8db]"
+                }`}
                 style={{
                   transform:
                     project.align === "left" ? "rotate(-2deg)" : "rotate(2deg)",
@@ -70,17 +80,11 @@ const Awards = ({ projects = [] }: AwardsProps) => {
                     project.align === "left" ? "-2deg" : "2deg",
                 }}
               >
-                {/* Decorative Corner */}
                 <div
-                  className={`absolute top-0 ${project.align === "left" ? "right-0" : "left-0"} h-24 w-24 overflow-hidden`}
+                  className={`relative aspect-1/1 w-full overflow-hidden rounded-lg md:rounded-[16px] lg:mx-auto lg:w-[95%] lg:rounded-lg 2xl:w-full 2xl:rounded-[20px] ${
+                    project.index % 2 === 0 ? "bg-[#f7f3f1]" : "bg-[#eef4ec]"
+                  }`}
                 >
-                  <div
-                    className={`absolute ${project.align === "left" ? "-right-12 -top-12" : "-left-12 -top-12"} h-24 w-24 rounded-full bg-gradient-to-br from-[#F97316] to-[#ff6b35] opacity-20`}
-                  ></div>
-                </div>
-
-                {/* Project Image with Overlay */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden lg:aspect-square">
                   {project.coverImage ? (
                     <>
                       <Image
@@ -88,14 +92,19 @@ const Awards = ({ projects = [] }: AwardsProps) => {
                         alt={project.title}
                         fill
                         unoptimized
-                        className="object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-2"
+                        className="object-cover transition duration-300 group-hover:scale-[1.03]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#00522D] via-[#00522D] to-transparent opacity-10"></div>
                     </>
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#F97316] via-[#fdba74] to-[#15803d]">
+                    <div
+                      className={`flex h-full w-full items-center justify-center ${
+                        project.index % 2 === 0
+                          ? "bg-[#f7f3f1]"
+                          : "bg-[#eef4ec]"
+                      }`}
+                    >
                       <svg
-                        className="h-20 w-20 text-white/30"
+                        className="h-16 w-16 text-[#1f1f1f]/20"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -109,32 +118,29 @@ const Awards = ({ projects = [] }: AwardsProps) => {
                       </svg>
                     </div>
                   )}
-
-                  {/* Floating Tags on Image */}
                 </div>
 
-                {/* Project Content with Tilted Effect */}
-                <div className="relative space-y-3 p-5 md:p-6 lg:p-5 2xl:p-6">
-                  {/* Decorative Line */}
-                  <div className="h-px w-10 rounded-full bg-gradient-to-r from-[#F97316] to-[#15803d]"></div>
-
-                  <h3 className=" text-lg  font-medium leading-[1.1] text-[#00522D] transition-colors group-hover:text-[#F97316] md:text-xl lg:text-md md 2xl:text-xl">
+                <div className="space-y-4 px-1 pb-1 pt-5 md:space-y-3 md:pt-4 lg:space-y-3 lg:pt-4 2xl:space-y-5 2xl:pt-6">
+                  <h3
+                    className={`font-clash text-[1.85rem] font-semibold leading-[1.02] tracking-[-0.03em] transition-colors md:text-[1.4rem] lg:text-[0.9rem] 2xl:text-[1.85rem] ${
+                      project.index % 2 === 0
+                        ? "text-[#141414] group-hover:text-[#00522D]"
+                        : "text-[#17351f] group-hover:text-[#0f5c2f]"
+                    }`}
+                  >
                     {project.title}
                   </h3>
 
-                  <p className="line-clamp-2 font-clash text-xs leading-relaxed text-zinc-600 md:text-sm lg:text-xs 2xl:text-sm">
+                  <p
+                    className={`max-w-[17ch] font-clash text-[0.95rem] leading-[1.12] md:max-w-[16ch] md:text-[0.82rem] lg:max-w-[25ch] lg:text-[0.70rem] 2xl:max-w-[17ch] 2xl:text-[0.95rem] ${
+                      project.index % 2 === 0
+                        ? "text-[#232323]"
+                        : "text-[#28412e]"
+                    }`}
+                  >
                     {project.shortDescription ||
                       "Explore this amazing project and discover the creative process behind it."}
                   </p>
-                </div>
-
-                {/* Decorative Bottom Corner */}
-                <div
-                  className={`absolute bottom-0 ${project.align === "left" ? "left-0" : "right-0"} h-16 w-16 overflow-hidden`}
-                >
-                  <div
-                    className={`absolute ${project.align === "left" ? "-left-8 -bottom-8" : "-right-8 -bottom-8"} h-16 w-16 rounded-full bg-gradient-to-br from-[#15803d] to-[#00522D] opacity-10`}
-                  ></div>
                 </div>
               </Link>
             </div>

@@ -63,6 +63,10 @@ html.lenis {
   animation-name: award-appear-right;
 }
 
+.award-line-marker {
+  position: sticky;
+}
+
 @supports (animation-timeline: view()) {
   .award-scroll {
     animation-timeline: view();
@@ -104,4 +108,9 @@ html.lenis {
   .award-right {
     animation-name: award-appear-mobile;
   }
+}
+
+.projects-page-cursor,
+.projects-page-cursor * {
+  cursor: url("/trophy.svg"), auto !important;
 }
