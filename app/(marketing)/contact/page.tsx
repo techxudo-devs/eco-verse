@@ -144,8 +144,8 @@ function ChoiceCard({
           <span
             className={`flex h-6 w-6 items-center justify-center rounded-md font-clash text-[10px] font-bold transition-colors md:h-7 md:w-7 ${
               selected
-                ? "bg-orange-500 text-white"
-                : "bg-emerald-900/5 text-emerald-900/40 group-hover:bg-orange-500/10 group-hover:text-orange-500"
+                ? "bg-orange text-white"
+                : "bg-emerald-900/5 text-emerald-900/40 group-hover:bg-orange/10 group-hover:text-orange-500"
             }`}
           >
             {index}
@@ -164,7 +164,7 @@ function ChoiceCard({
       <div
         className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 ${
           selected
-            ? "border-orange-500 bg-orange-500"
+            ? "border-orange-500 bg-orange"
             : "border-emerald-900/10 bg-transparent"
         }`}
       >
@@ -339,7 +339,7 @@ export default function ContactPage() {
                       <div
                         className={`relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-500 ${
                           isActive
-                            ? "border-orange-500 bg-orange-500 text-white"
+                            ? "border-orange-500 bg-orange text-white"
                             : isDone
                               ? "border-emerald-500 bg-emerald-500 text-white"
                               : "border-white/10 bg-transparent text-white/20"
@@ -394,7 +394,7 @@ export default function ContactPage() {
                       width: `${isComplete ? 100 : ((stepIndex + 1) / quizSteps.length) * 100}%`,
                     }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="h-full rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.4)]"
+                    className="h-full rounded-full bg-orange shadow-[0_0_10px_rgba(249,115,22,0.4)]"
                   />
                 </div>
               </div>
@@ -694,7 +694,7 @@ export default function ContactPage() {
                     type="submit"
                     form="contact-form"
                     disabled={isSubmitting}
-                    className="flex items-center gap-2.5 rounded-xl bg-orange-500 px-6 py-3 font-clash text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all hover:scale-105 hover:bg-orange-600 active:scale-95 disabled:opacity-50 md:px-7 md:py-3.5"
+                    className="flex items-center gap-2.5 rounded-xl bg-orange px-6 py-3 font-clash text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all hover:scale-105 hover:bg-orange-600 active:scale-95 disabled:opacity-50 md:px-7 md:py-3.5"
                   >
                     {isSubmitting ? "Sending…" : "Send Request"}
                   </button>

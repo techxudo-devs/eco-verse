@@ -264,7 +264,7 @@ const Navbar = () => {
               <p className="font-clash font-bold sm:block hidden text-white text-center md:text-lg lg:text-xl leading-snug w-full max-w-[350px] mt-6">
                 Because we prefer genuine, quick, and straightforward exchanges.
               </p>
-              <button className="mt-4 lg:mt-10 bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg cursor-pointer hover:scale-95">
+              <button className="mt-4 lg:mt-10 bg-orange transition-all duration-300 text-white font-clash font-semibold text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg cursor-pointer hover:scale-95">
                 Chat With Us
               </button>
             </motion.div>

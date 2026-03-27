@@ -109,12 +109,12 @@ const Hero2 = () => {
         {/* Updated Dividing Ticket Button */}
         <button className="group z-10 mt-10 flex items-center bg-transparent cursor-pointer overflow-visible transition-all">
           {/* Left Half: Text */}
-          <div className="bg-orange-500 group-hover:bg-[#154238] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-l-md font-medium font-clash uppercase text-sm sm:text-base transition-all duration-500 ease-out group-hover:-translate-x-4 group-hover:-translate-y-3 group-hover:-rotate-6">
+          <div className="bg-orange group-hover:bg-[#154238] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-l-md font-medium font-clash uppercase text-sm sm:text-base transition-all duration-500 ease-out group-hover:-translate-x-4 group-hover:-translate-y-3 group-hover:-rotate-6">
             Join Now
           </div>
 
           {/* Right Half: Icon */}
-          <div className="bg-orange-500 group-hover:bg-[#154238] border-l-2 border-dashed border-orange-300 group-hover:border-transparent px-3 sm:px-4 py-3 sm:py-4 rounded-r-md transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:-translate-y-3.5 group-hover:rotate-6 relative flex items-center justify-center w-[46px] h-[44px] sm:w-[54px] sm:h-[56px]">
+          <div className="bg-orange group-hover:bg-[#154238] border-l-2 border-dashed border-orange-300 group-hover:border-transparent px-3 sm:px-4 py-3 sm:py-4 rounded-r-md transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:-translate-y-3.5 group-hover:rotate-6 relative flex items-center justify-center w-[46px] h-[44px] sm:w-[54px] sm:h-[56px]">
             {/* Black Tag (Visible by default) */}
             <div className=" absolute transition-opacity duration-300 group-hover:opacity-0">
               <Image

@@ -5,6 +5,7 @@
 :root {
   --background: #fff8f6;
   --foreground: #1f2937;
+  --color-orange: #f97316;
   --color-primary: #fdba74;
   --color-secondary: #3b82f6;
   --color-green: #15803d;
@@ -14,6 +15,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-orange: var(--color-orange);
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-green: var(--color-green);

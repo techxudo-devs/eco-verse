@@ -5,6 +5,7 @@ import FAQS from "@/components/home/FAQS";
 import Hero2 from "@/components/home/Hero2";
 import LogoAnimation from "@/components/home/LogoAnimation";
 import Social from "@/components/home/Social";
+import TeamPartners from "@/components/home/TeamPartners";
 import VideosStack from "@/components/home/VideosStack";
 import { getBlogs } from "@/lib/services/blogService";
 
@@ -51,6 +52,10 @@ const page = async () => {
 
       <section id="blogs-preview" className="scroll-mt-24">
         <Social blogs={socialBlogs} />
+      </section>
+
+      <section id="team-partners" className="scroll-mt-24">
+        <TeamPartners />
       </section>
     </div>
   );

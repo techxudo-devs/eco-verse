@@ -157,7 +157,7 @@ const HowToOrder: React.FC = () => {
                   Amount: $50
                 </div>
 
-                <button className="mt-3 h-10 w-full rounded-xl bg-orange-500 text-white font-clash font-semibold text-xl">
+                <button className="mt-3 h-10 w-full rounded-xl bg-orange text-white font-clash font-semibold text-xl">
                   Set Goal
                 </button>
               </motion.div>
@@ -214,7 +214,7 @@ const HowToOrder: React.FC = () => {
 
                 <div className="mt-4 space-y-4">
                   <div className="flex items-start gap-2 text-left">
-                    <span className="mt-1 h-3 w-3 rounded-full bg-orange-500" />
+                    <span className="mt-1 h-3 w-3 rounded-full bg-orange" />
                     <div>
                       <p className="text-zinc-800 font-clash text-sm">
                         Your order is in progress.

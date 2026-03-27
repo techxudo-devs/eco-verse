@@ -90,7 +90,7 @@ function ChoiceCard({ selected, label, index, type = "radio" }) {
       <div className="flex items-center gap-3 sm:gap-4">
         {index && (
           <span className={`flex h-7 w-7 items-center justify-center rounded-lg font-clash text-[11px] font-bold transition-colors sm:h-8 sm:w-8 sm:text-xs ${
-            selected ? "bg-orange-500 text-white" : "bg-emerald-900/5 text-emerald-900/40 group-hover:bg-orange-500/10 group-hover:text-orange-500"
+            selected ? "bg-orange text-white" : "bg-emerald-900/5 text-emerald-900/40 group-hover:bg-orange/10 group-hover:text-orange-500"
           }`}>
             {index}
           </span>
@@ -102,7 +102,7 @@ function ChoiceCard({ selected, label, index, type = "radio" }) {
         </span>
       </div>
       <div className={`flex h-5 w-5 items-center justify-center rounded-full border-2 transition-all duration-300 ${
-        selected ? "border-orange-500 bg-orange-500" : "border-emerald-900/10 bg-transparent"
+        selected ? "border-orange-500 bg-orange" : "border-emerald-900/10 bg-transparent"
       }`}>
         {selected && (
           <motion.div
@@ -244,7 +244,7 @@ export default function QuizModal({
                     return (
                       <div key={step.id} className="group relative flex items-center gap-3 sm:gap-4">
                         <div className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 transition-all duration-500 sm:h-10 sm:w-10 ${
-                          isActive ? "border-orange-500 bg-orange-500 text-white" : 
+                          isActive ? "border-orange-500 bg-orange text-white" :
                           isDone ? "border-emerald-500 bg-emerald-500 text-white" : "border-white/10 bg-transparent text-white/20"
                         }`}>
                           {isDone ? <Check className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={3} /> : <span className="font-clash text-[11px] font-bold sm:text-xs">{step.eyebrow}</span>}
@@ -275,13 +275,13 @@ export default function QuizModal({
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${isComplete ? 100 : ((stepIndex + 1) / quizSteps.length) * 100}%` }}
-                    className="h-full rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.5)]"
+                    className="h-full rounded-full bg-orange shadow-[0_0_12px_rgba(249,115,22,0.5)]"
                   />
                 </div>
               </div>
 
               {/* Decorative blobs */}
-              <div className="absolute -bottom-24 -left-24 hidden h-64 w-64 rounded-full bg-orange-500/10 blur-3xl lg:block" />
+              <div className="absolute -bottom-24 -left-24 hidden h-64 w-64 rounded-full bg-orange/10 blur-3xl lg:block" />
               <div className="absolute -right-24 top-24 hidden h-48 w-48 rounded-full bg-emerald-400/5 blur-3xl lg:block" />
             </div>
 
@@ -467,7 +467,7 @@ export default function QuizModal({
                       type="submit"
                       form="quiz-form"
                       disabled={isSubmitting}
-                      className="group flex items-center gap-3 rounded-2xl bg-orange-500 px-5 py-3.5 font-clash text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:scale-105 hover:bg-orange-600 active:scale-95 disabled:opacity-50 sm:px-6 sm:py-4"
+                      className="group flex items-center gap-3 rounded-2xl bg-orange px-5 py-3.5 font-clash text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:scale-105 hover:bg-orange-600 active:scale-95 disabled:opacity-50 sm:px-6 sm:py-4"
                     >
                       {isSubmitting ? "Sending..." : "Send Request"}
                     </button>

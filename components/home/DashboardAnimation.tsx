@@ -80,7 +80,7 @@ const AudienceMockCard = () => {
                 <span>42.69%</span>
               </div>
               <div className="h-1.5 rounded-full bg-orange-100 overflow-hidden">
-                <div className="h-full w-[42.69%] rounded-full bg-orange-500" />
+                <div className="h-full w-[42.69%] rounded-full bg-orange" />
               </div>
             </div>
 
@@ -112,7 +112,7 @@ const AudienceMockCard = () => {
               </span>
               <div className="h-1.5 rounded-full bg-zinc-100 overflow-hidden flex">
                 <div
-                  className="h-full bg-orange-500"
+                  className="h-full bg-orange"
                   style={{ width: `${item.female}%` }}
                 />
                 <div
@@ -198,7 +198,7 @@ const FollowerGrowthMiniCard = () => {
 
       <div className="mt-2.5 flex items-center gap-1.5">
         <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2 py-0.5 font-clash text-[9px] text-orange-600">
-          <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+          <span className="h-1.5 w-1.5 rounded-full bg-orange" />
           Follower
         </span>
         <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2 py-0.5 font-clash text-[9px] text-orange-600">
@@ -490,7 +490,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
                     onClick={() => setActiveSlide(index)}
                     className={`h-2.5 rounded-full transition-all duration-300 ${
                       activeSlide === index
-                        ? "w-6 bg-orange-500"
+                        ? "w-6 bg-orange"
                         : "w-2.5 bg-orange-200"
                     }`}
                     aria-label={`Go to dashboard image ${index + 1}`}

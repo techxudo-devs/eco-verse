@@ -87,7 +87,7 @@ const Social = ({ blogs = [] }: { blogs?: SocialBlog[] }) => {
   ];
 
   return (
-    <div ref={containerRef} className="relative h-[400vh] bg-orange-500">
+    <div ref={containerRef} className="relative h-[400vh] bg-orange">
       <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row items-center overflow-hidden">
         
         {/* --- LEFT SECTION --- */}
@@ -200,7 +200,7 @@ const Social = ({ blogs = [] }: { blogs?: SocialBlog[] }) => {
               </h3>
               <Link
                 href="/blog"
-                className="bg-orange-500 transition-all duration-300 text-white font-clash font-semibold text-xs sm:text-sm hover:scale-95 px-6 sm:px-8 py-3 rounded-lg cursor-pointer uppercase"
+                className="bg-orange transition-all duration-300 text-white font-clash font-semibold text-xs sm:text-sm hover:scale-95 px-6 sm:px-8 py-3 rounded-lg cursor-pointer uppercase"
               >
                 Explore
               </Link>

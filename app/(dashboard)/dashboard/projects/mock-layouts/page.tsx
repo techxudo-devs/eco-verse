@@ -382,7 +382,7 @@ function ConceptB() {
                       status === "done"
                         ? "bg-orange-100 text-orange-600"
                         : status === "active"
-                          ? "bg-orange-500 text-white"
+                          ? "bg-orange text-white"
                           : "bg-zinc-100 text-zinc-400"
                     }`}
                   >

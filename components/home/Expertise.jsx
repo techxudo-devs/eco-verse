@@ -103,7 +103,7 @@ const Expertise = () => {
             {/* ========================================== */}
             {/* DESKTOP VIEW (Visible lg and above)        */}
             {/* ========================================== */}
-            <div ref={desktopContainerRef} className="hidden lg:block relative h-[300vh] bg-orange-500">
+            <div ref={desktopContainerRef} className="hidden lg:block relative h-[300vh] bg-orange">
                 <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                     <div className="flex w-full max-w-[1400px] px-8 items-center justify-between">
 
@@ -194,7 +194,7 @@ const Expertise = () => {
             {/* ========================================== */}
             {/* MOBILE VIEW (Visible below lg)             */}
             {/* ========================================== */}
-            <div className="block lg:hidden relative w-full bg-orange-500 py-10 px-4 overflow-hidden">
+            <div className="block lg:hidden relative w-full bg-orange py-10 px-4 overflow-hidden">
 
                 {/* TOP TEXT */}
                 <div className="w-full relative z-20 lg:mb-10">

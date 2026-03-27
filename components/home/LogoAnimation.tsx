@@ -197,7 +197,7 @@ const LogoAnimation: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className={`absolute ${card.pos} z-10 bg-orange-500 rounded-xl shadow-sm p-2.5 md:p-4 w-[84px] h-[84px] md:w-30 lg:w-36 md:h-30 lg:h-36 flex flex-col items-center justify-center text-center transition-transform hover:scale-110 duration-300`}
+            className={`absolute ${card.pos} z-10 bg-orange rounded-xl shadow-sm p-2.5 md:p-4 w-[84px] h-[84px] md:w-30 lg:w-36 md:h-30 lg:h-36 flex flex-col items-center justify-center text-center transition-transform hover:scale-110 duration-300`}
           >
             <div className="text-white">{card.icon}</div>
             <p className="text-white font-clash font-medium text-[9px] sm:text-sm lg:text-base leading-3 md:leading-4 mt-1.5 md:mt-2">
