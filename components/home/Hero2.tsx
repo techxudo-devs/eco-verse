@@ -80,7 +80,7 @@ const Hero2 = () => {
               alt="Bulb"
               width={180}
               height={180}
-              className="w-24 sm:w-28 md:w-24 lg:w-32 h-auto"
+              className="w-16 sm:w-28 md:w-24 lg:w-32 h-auto"
               priority
             />
           </div>
