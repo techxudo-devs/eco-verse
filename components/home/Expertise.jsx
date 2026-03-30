@@ -82,7 +82,7 @@ const Expertise = () => {
     // ==========================================
     const rightContent = [
         {
-          title: "SOCIAL MEDIA STRATEGY",
+          title: "DEMAND STRATEGY",
           desc: "We build social strategies that guide people from first impression to final action - aligning creators, content, and distribution into a system that performs with purpose.",
           pills: [
             "Channel growth planning",
@@ -95,7 +95,7 @@ const Expertise = () => {
           ]
         },
         {
-          title: "CONTENT CREATION",
+          title: "ATTENTION DESIGN",
           desc: "We create content around how people actually stop, watch, trust, and respond - built to capture attention quickly and turn it into meaningful action.",
           pills: [
             "Creator-led production",
@@ -108,7 +108,7 @@ const Expertise = () => {
           ]
         },
         {
-          title: "COMMUNITY MANAGEMENT",
+          title: "AUDIENCE INTELLIGENCE",
           desc: "We manage your community as a live layer of brand insight - turning replies, reactions, and conversations into stronger trust, smarter decisions, and better performance.",
           pills: [
             "Comment intelligence",
@@ -145,12 +145,11 @@ const Expertise = () => {
 
                         {/* LEFT SECTION */}
                         <div className="w-full max-w-[400px] relative z-40">
-                            <h1 className="text-[94px] leading-[0.7] font-beni font-black uppercase">
-                                <span className="text-white block">FROM</span>
-                                <span className="text-white block">STRATEGY TO</span>
-                                <span className="block text-[#00522D]"> RESONANCE.</span>
-                                 
-                            </h1>
+                        <h1 className="text-[94px] leading-[0.7] font-beni font-black uppercase">
+  <span className="text-white block">BUILT TO</span>
+  <span className="text-white block">DRIVE</span>
+  <span className="block text-[#00522D]">RESULTS.</span>
+</h1>
 
                             <p className="font-clash text-orange-500 mt-5 text-lg font-semibold w-[85%] leading-6">
                                 Echo Verse is a social media agency founded on three strong areas of expertise.

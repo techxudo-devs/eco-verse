@@ -70,40 +70,40 @@ const Hero2 = () => {
           <p className="font-clash text-sm sm:text-base font-semibold text-orange-300 uppercase tracking-widest mb-4 z-20 pointer-events-none">
             For brands ready to grow beyond noise
           </p>
-          <h1 className="font-bue text-[40px] sm:text-[68px] md:text-[84px] lg:text-[128px] leading-[0.82] text-center uppercase font-bold m-0 z-20 pointer-events-none">
+          <h1 className="font-bue text-[48px]  md:text-[84px] lg:text-[95px] 2xl:text-[128px] leading-[0.82] text-center uppercase font-bold m-0 z-20 pointer-events-none">
             <span className="block">
-              Turn Creator <span className="text-orange-300">Marketing</span>
+              From Revenue <span className="text-orange-300"></span>
             </span>
-            <span className="block">Into Real Growth</span>
+            <span className="block text-orange-300">To Reach</span>
           </h1>
 
-          <div className="absolute  left-2 md:left-[17%] lg:left-[13%] bottom-2 md:bottom-6 lg:bottom-10 -rotate-10 z-30">
+          <div className="absolute  left-6 md:left-[17%] lg:left-[18%] 2xl:left-[10%] bottom-2 md:bottom-6 2xl:bottom-25 lg:bottom-10  -rotate-10 z-30">
             <Image
               ref={bulbRef}
               src={bulbImg}
               alt="Bulb"
               width={180}
               height={180}
-              className="w-16 sm:w-28 md:w-24 lg:w-32 h-auto"
+              className="w-16 md:w-24 lg:w-32 h-auto"
               priority
             />
           </div>
 
-          <div className="absolute right-2 md:right-[16%] lg:right-[12%] top-3 sm:top-[15%] z-30">
+          <div className="absolute right-2 md:right-[16%] lg:right-[18%] 2xl:right-[12%] top-9 md:top-[10%] z-30">
             <Image
               ref={smileRef}
               src={smileImg}
               alt="Smile"
               width={160}
               height={160}
-              className="w-16 sm:w-28 md:w-24 lg:w-32 h-auto"
+              className="w-16  md:w-24 lg:w-29 h-auto"
               priority
             />
           </div>
         </div>
 
         <div className="z-10 mt-4 text-center max-w-2xl px-2 sm:px-0">
-          <p className="text-sm sm:text-base lg:text-[22px] leading-5 lg:leading-6 font-medium font-clash">
+          <p className="text-sm sm:text-base lg:text-[18px] 2xl:text-[22px] leading-5 lg:leading-6 font-medium font-clash">
             No more guessing. No more vanity metrics.{" "}
             <br className="hidden sm:block" /> Just clear strategy, better creators, and outcomes you can actually see.
           </p>
