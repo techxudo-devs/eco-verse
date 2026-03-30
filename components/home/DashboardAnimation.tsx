@@ -397,12 +397,12 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
       ).matches;
 
       const card1From = isMobile
-        ? { x: "20vw", y: "-115vh", rotation: -15, scale: 1, ease: "none" }
+        ? { x: "20vw", y: "-120vh", rotation: -15, scale: 1, ease: "none" }
         : is2xl
           ? { x: "88vw", y: "-205vh", rotation: -15, scale: 1, ease: "none" }
           : is1080
             ? { x: "89vw", y: "-218vh", rotation: -15, scale: 1, ease: "none" }
-            : { x: "95vw", y: "-210vh", rotation: -15, scale: 1, ease: "none" };
+            : { x: "95vw", y: "-205vh", rotation: -15, scale: 1, ease: "none" };
 
       const card2From = isMobile
         ? { x: "-4vw", y: "-108vh", rotation: -10, scale: 1, ease: "none" }
@@ -410,7 +410,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
           ? { x: "-30vw", y: "-212vh", rotation: -10, scale: 1, ease: "none" }
           : is1080
             ? { x: "-26vw", y: "-206vh", rotation: -10, scale: 1, ease: "none" }
-            : { x: "-25vw", y: "-210vh", rotation: 10, scale: 1, ease: "none" };
+            : { x: "-25vw", y: "-209vh", rotation: 10, scale: 1, ease: "none" };
 
       const card3From = isMobile
         ? { x: "2vw", y: "-112vh", rotation: 0, scale: 1, ease: "none" }
@@ -418,7 +418,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
           ? { x: "2vw", y: "-190vh", rotation: -13, scale: 1, ease: "none" }
           : is1080
             ? { x: "2vw", y: "-204vh", rotation: 13, scale: 1, ease: "none" }
-            : { x: "2vw", y: "-203vh", rotation: -13, scale: 1, ease: "none" };
+            : { x: "2vw", y: "-205vh", rotation: -13, scale: 1, ease: "none" };
 
       const card4From = isMobile
         ? { x: "8vw", y: "-110vh", rotation: 13, scale: 1, ease: "none" }
@@ -426,7 +426,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
           ? { x: "55vw", y: "-190vh", rotation: 13, scale: 1, ease: "none" }
           : is1080
             ? { x: "58vw", y: "-204vh", rotation: 13, scale: 1, ease: "none" }
-            : { x: "55vw", y: "-203vh", rotation: 13, scale: 1, ease: "none" };
+            : { x: "60vw", y: "-203vh", rotation: 13, scale: 1, ease: "none" };
 
       const tl = gsap.timeline({
         scrollTrigger: {
