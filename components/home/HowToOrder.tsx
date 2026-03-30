@@ -15,11 +15,10 @@ const HowToOrder: React.FC = () => {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-clash font-semibold text-3xl md:text-5xl text-zinc-900">
-            How to <span className="text-orange-500">Order?</span>
+            From first conversation <span className="text-orange-500">to first results.</span>
           </h2>
           <p className="mt-4 text-zinc-500 font-clash text-sm md:text-lg leading-relaxed">
-            Here&apos;s a quick rundown of how you can start your project with our
-            team in 3 simple steps.
+            Clear, structured, and fast-moving. No unnecessary layers. No drawn-out onboarding. Just a focused path from understanding the problem to launching something that works.
           </p>
         </motion.div>
 
@@ -110,7 +109,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.22 }}
                 className="mt-4 font-clash font-semibold text-4xl leading-tight text-zinc-900"
               >
-                Pick the service
+                Clarify what matters
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -119,7 +118,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.28 }}
                 className="mt-3 font-clash text-zinc-600 text-xl leading-snug max-w-[330px]"
               >
-                Choose the exact service your brand needs.
+                We go beyond surface-level briefs and identify the real objective — what needs to move, why it&apos;s not moving today, and what success looks like in business terms.
               </motion.p>
             </motion.div>
 
@@ -178,7 +177,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.37 }}
                 className="mt-4 font-clash font-semibold text-4xl leading-tight text-zinc-900"
               >
-                Set the target
+                Build the system
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -187,7 +186,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.43 }}
                 className="mt-3 font-clash text-zinc-600 text-xl leading-snug max-w-[330px]"
               >
-                Enter your desired quantity and preferred budget.
+                We define the creator mix, content direction, and execution roadmap — all tied to clear performance signals so there&apos;s no ambiguity once things go live.
               </motion.p>
             </motion.div>
 
@@ -255,7 +254,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.52 }}
                 className="mt-4 font-clash font-semibold text-4xl leading-tight text-zinc-900"
               >
-                Get the results
+                Execute and evolve
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -264,7 +263,7 @@ const HowToOrder: React.FC = () => {
                 transition={{ duration: 0.45, delay: 0.58 }}
                 className="mt-3 font-clash text-zinc-600 text-xl leading-snug max-w-[330px]"
               >
-                Checkout and receive your completed delivery fast.
+                Campaigns launch quickly, but don&apos;t stay static. We track, learn, and refine in real time — scaling what performs and cutting what doesn&apos;t before it wastes budget.
               </motion.p>
             </motion.div>
           </div>

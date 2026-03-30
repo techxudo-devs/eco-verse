@@ -1,0 +1,296 @@
+ECHOVERSE 360 — CONTENT GENERATION PROMPTS
+Pakistani Audience | Journey-Style | High-Converting
+=====================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1: HERO SECTION
+File: components/home/Hero.tsx + Cards.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You are a conversion copywriter for EchoVerse 360, a tech-led influencer
+marketing and creator economy platform in Pakistan. Write the HERO section
+copy for their homepage.
+
+Context: The audience is Pakistani brand marketers, CMOs, and business owners
+(25-45 yrs) who are tired of paying influencer agencies that deliver followers
+but no sales. They've been burned before. They're skeptical but hungry for
+real growth.
+
+Tone: Confident. Sharp. Like a friend who's worked at WPP globally and is
+now building something transformational right here in Pakistan. Not arrogant
+— visionary.
+
+Write:
+1. A pre-headline label (5-7 words max) — the type above the main heading.
+   Something like "Pakistan's Creator Economy, Redefined"
+2. A main headline (4-8 words, ALL CAPS style, bold statement). This should
+   feel like a punch — not a tagline. It should make a CMO stop scrolling.
+3. A sub-headline (1 sentence, 15-25 words). Should speak to the shift from
+   social media activity to measurable business outcomes.
+
+Journey moment this section must create: "I've finally found someone who
+speaks my language — not engagement rates, but actual ROI."
+
+Do NOT use: "innovative", "one-stop-shop", "360 solution", "we are the best",
+generic agency clichés.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2: EXPERTISE SECTION
+File: components/home/Expertise.jsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You are writing for EchoVerse 360's Expertise section. This section has 3
+accordion items. Pakistani brands are the audience — from FMCG to retail to
+D2C startups.
+
+The section currently has a headline: "REASONING TO BETTER: RESONATING."
+Keep the headline but write everything below it.
+
+For each of these 3 services, write:
+- A pill/tag list (5-8 short tags, 2-4 words each) that show DEPTH of
+  capability — not just what the service is, but what they actually DO
+  inside it. Make these feel like deliverables a Pakistani CMO would
+  recognize and want.
+- An optional 1-line description that could appear as a tooltip or
+  expanded state (20-30 words) that speaks to the outcome, not the service.
+
+Services to write for:
+A) SOCIAL MEDIA STRATEGY — For Pakistani brands trying to cut through noise
+   on Instagram, TikTok, YouTube
+B) CONTENT CREATION — Creator-led, platform-native, shot for scroll-stopping
+   performance
+C) COMMUNITY MANAGEMENT — Not just replies, but audience intelligence and
+   brand trust building
+
+Journey moment: "These people know exactly what I need — they're not
+guessing."
+
+Avoid generic agency language. Make it feel like a technical capability
+overview, not a brochure.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3: WHY CHOOSE US SECTION
+File: components/home/ChooseUs.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Write content for EchoVerse 360's "Why Choose Us" section. There are 4 cards.
+The section background text says "WHY CHOOSE ECHO VERSE" — keep that.
+
+Pakistani audience: Brand owners and marketing heads who've worked with
+local agencies that over-promise and under-deliver. They compare everything
+to what they've seen internationally (globally-run brands like Unilever,
+Pepsi, Coca-Cola operate here). EchoVerse is built by people who've actually
+run those accounts.
+
+For each card, write:
+- Card Title (2-4 words, ALL CAPS)
+- Card Body (2-3 sentences, 35-50 words total). Should feel like a specific
+  differentiator, not a generic claim.
+
+The 4 cards should tell a SEQUENTIAL STORY:
+Card 1: We've built this from deep experience (credibility)
+Card 2: We don't copy-paste — everything is custom (process)
+Card 3: We use technology and data, not gut feeling (method)
+Card 4: But ultimately, we care about your brand's story (humanity)
+
+Journey moment: "This agency is different — they've actually done this at
+scale before."
+
+The tone per card should feel increasingly warm — starts authoritative,
+ends human.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4: PROJECTS / CASE STUDIES SECTION
+File: components/home/Awards.tsx / ProjectsShowcase.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Write the section header and supporting copy for EchoVerse 360's Projects
+showcase section. This section displays case study cards — real campaigns
+run for Pakistani brands.
+
+The section title is "PROJECTS" (displayed very large).
+
+Write:
+1. A section eyebrow/label (3-5 words) that appears above or beside the
+   heading — should frame WHY the visitor is looking at this. E.g.,
+   "Results that speak louder."
+2. A 1-2 sentence context blurb (25-40 words) beneath the heading.
+   This should feel like a tour guide saying "here's proof" — not a
+   humble-brag. Speak to Pakistani brands who want to see local market
+   proof, not just international case studies.
+3. A "View All Projects" CTA micro-copy (5-8 words) — replace the generic
+   "View All Projects" with something more compelling.
+
+Journey moment: "I want to see if they've done this for brands like mine."
+
+Avoid: "portfolio", "our work speaks for itself", "excellence".
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5: BLOGS / INSIGHTS SECTION
+File: components/home/Social.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Write the left-panel content for EchoVerse 360's Blogs section. The section
+headline is "WE TELL STORIES" — keep that headline.
+
+This section shows blog/insight articles horizontally. Pakistani audience:
+brand managers, marketing heads, startup founders who want to learn but
+don't have time for long reads.
+
+Write:
+1. The sub-copy below "WE TELL STORIES" (2-3 lines, 30-45 words). Should
+   position EchoVerse's blog as a creator economy intelligence feed — not
+   a company blog. Speak to what the Pakistani market is missing:
+   data-backed creator economy thinking written by practitioners.
+2. 5 blog article titles that would genuinely stop a Pakistani CMO from
+   scrolling. Topics should cover: influencer ROI, creator economy trends
+   in Pakistan, TikTok vs Instagram for Pakistani brands, campaign
+   performance frameworks, brand-creator partnership models.
+   Each title should be 6-10 words, punchy, no fluff.
+3. 2-3 tag labels (used on blog cards) that reflect EchoVerse's editorial
+   voice: e.g., "Creator Economy", "Performance Marketing", "Pakistan Market"
+
+Journey moment: "These people actually think deeply about this industry —
+I want to keep reading."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6: LEADERSHIP / TEAM SECTION
+File: components/home/TeamPartners.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rewrite the section header and bio introductions for EchoVerse 360's
+Leadership section. The section currently says "Partnered with industry
+leaders."
+
+Pakistani context: Trust is earned through credentials. The team here has
+worked at GroupM, WPP, IPG Mediabrands — globally. That's a massive
+credibility signal in Pakistan. Most local agencies are run by people with
+3-4 years experience. This team has 20+ years each, across global markets.
+
+Write:
+1. A new section header (keep the same structure — 2 lines). The first
+   line should anchor trust. The second line should signal transformation
+   — like "They built the industry. Now they're rebuilding it."
+2. For each team member, write a 2-sentence "bio hook" (40-55 words) —
+   NOT a LinkedIn summary. This should read like a story: where they came
+   from, what they've seen, and why they're building this now. Use specific
+   brand names (Unilever, Pepsi, GroupM) as social proof — Pakistanis
+   recognize these.
+
+Team members:
+- Fahad Bashir Bhura (Co-Founder & CEO) — WPP, GroupM, Indonesia/Australia
+- Shoaib Hussain (CEO, The Huddle Room) — HUM TV, GEO, ARY, digital sales
+- Ovais Ilyas (Co-Founder & Country Lead) — WPP Media, Spark Foundry,
+  Carat, 20+ years Pakistan
+
+Journey moment: "I can trust these people with my brand."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7: HOW TO ORDER / PROCESS SECTION
+File: components/home/HowToOrder.tsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rewrite the entire "How to Order" section for EchoVerse 360. This is a
+3-step process section showing how to start working with the agency.
+
+Pakistani context: Decision-makers want simplicity and speed. They've sat
+through too many 2-hour agency pitch decks. EchoVerse should feel like the
+agency that respects your time and just gets started.
+
+Current section is generic ("Pick the service", "Set the target",
+"Get the results"). Rewrite it to feel like EchoVerse's actual onboarding
+experience.
+
+Write:
+1. Section headline — replace "How to Order?" with something that feels
+   less transactional and more like the beginning of a partnership.
+   (7-12 words)
+2. Section sub-copy (25-35 words). Should set the tone: fast, structured,
+   no fluff.
+3. For each of the 3 steps, write:
+   - Step label (3-5 words, punchy title)
+   - Step description (20-30 words). Should feel specific — what actually
+     happens in this step at EchoVerse? Not generic.
+
+Journey moment: "This is easy. I can start this week."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8: FAQ SECTION
+File: components/home/FAQS.jsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rewrite 6 FAQs for EchoVerse 360's FAQ section. The section heading is
+"SMALL QUESTIONS, BIG ANSWERS" — keep that.
+
+Pakistani audience: Brand owners who are curious but cautious. They want
+to know: Can you actually deliver? How do you measure success? What's the
+minimum commitment? Do you work with small brands or only big ones?
+
+Write 6 Q&A pairs. Requirements:
+- Questions should sound like they're coming from a REAL Pakistani brand
+  manager — not a generic FAQ list
+- Answers should be 40-70 words: honest, specific, and confident without
+  being defensive
+- At least 2 questions should address ROI/measurement (because Pakistan
+  market is skeptical of influencer marketing ROI)
+- At least 1 question should address what makes EchoVerse different from
+  the 50 other agencies offering the same service
+- At least 1 question should address how to get started / minimum
+  commitment
+- Tone: like a senior partner answering a smart client's question — not
+  sales-y, not corporate
+
+Journey moment: "My last concern just got answered."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9: FOOTER / CONTACT SECTION
+File: components/home/Footer.jsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rewrite the contact/footer section copy for EchoVerse 360. The current
+headline is "TELL US ABOUT IT." — you can keep or replace it.
+
+Pakistani context: The call-to-action needs to feel low-pressure but
+high-value. Pakistani decision-makers don't like being sold to. They want
+to feel like THEY are making the move, not being converted.
+
+Write:
+1. A contact label/eyebrow (3-5 words) above the headline
+2. Main headline — should feel like an open invitation, not a sales push.
+   Keep the energy of "TELL US ABOUT IT" but make it feel more like
+   "we're ready when you are." (4-8 words, ALL CAPS)
+3. The body copy beneath the headline (30-45 words). Should describe the
+   quiz/intake form process — make it sound fast, easy, and worth it.
+   Reference that a real human (with 20 years experience) will actually
+   respond.
+4. CTA button copy (3-5 words) — replace "Start the quiz" with something
+   that feels like the first step of a conversation, not a form submission.
+5. Footer tagline (10-15 words) — a single line that sits in the bottom
+   of the page, below the logo. Should summarize EchoVerse 360's entire
+   reason for being, for a Pakistani market.
+
+Journey moment: "I want to reach out — right now."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE VISITOR JOURNEY (for reference when generating all content)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Hero       → "This is different"
+Expertise  → "They know their stuff"
+Why Us     → "I trust them"
+Projects   → "Proof"
+Blogs      → "They think deeply"
+Team       → "Real people, real experience"
+Process    → "Easy to start"
+FAQ        → "My doubts are gone"
+Contact    → "Let's go"

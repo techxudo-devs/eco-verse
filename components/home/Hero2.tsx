@@ -67,10 +67,13 @@ const Hero2 = () => {
     <section ref={sectionRef}>
       <div className="relative flex flex-col items-center justify-center min-h-[100svh] md:h-screen w-full bg-white text-orange-500 overflow-hidden px-4 pt-8 sm:pt-10">
         <div className="relative flex flex-col items-center justify-center z-10 w-full max-w-6xl">
+          <p className="font-clash text-sm sm:text-base font-semibold text-orange-300 uppercase tracking-widest mb-4 z-20 pointer-events-none">
+            For brands ready to grow beyond noise
+          </p>
           <h1 className="font-bue text-[44px] sm:text-[80px] md:text-[100px] lg:text-[150px] leading-[0.8] text-center uppercase font-bold m-0 z-20 pointer-events-none">
-            Creator <span className="text-orange-300">Marketing</span>
+            Turn Creator <span className="text-orange-300">Marketing</span>
             <br />
-            Systemized
+            Into Real Growth
           </h1>
 
           <div className="absolute  left-2 md:left-[17%] lg:left-[13%] bottom-2 md:bottom-6 lg:bottom-10 -rotate-10 z-30">
@@ -100,9 +103,8 @@ const Hero2 = () => {
 
         <div className="z-10 mt-4 text-center max-w-2xl px-2 sm:px-0">
           <p className="text-sm sm:text-base lg:text-[22px] leading-5 lg:leading-6 font-medium font-clash">
-            Powering brands to launch and manage creator campaigns{" "}
-            <br className="hidden sm:block" /> with speed and measurable
-            performance
+            No more guessing. No more vanity metrics.{" "}
+            <br className="hidden sm:block" /> Just clear strategy, better creators, and outcomes you can actually see.
           </p>
         </div>
 

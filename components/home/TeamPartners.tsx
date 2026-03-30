@@ -15,19 +15,19 @@ const teamMembers: TeamMember[] = [
     name: "Fahad Bashir Bhura",
     role: "Co-Founder & CEO",
     image: "/team-2.jpeg",
-    bio: "Fahad is the Co-Founder & CEO of Echoverse 360, bringing over two decades of global media and commercial leadership across WPP in Pakistan, Indonesia, and Australia. He has led large-scale media investments, commercial strategy, and strategic partnerships for major brands including Unilever, Pepsi Cola International, Gillette, and GST. Before Echoverse 360, he held leadership roles across GroupM and IPG Mediabrands, including Managing Director Asia Pacific and Chief Investment Officer at GroupM Indonesia. His work has focused on commercial transformation, structured negotiations, and scalable investment frameworks across markets. At Echoverse 360, he is building a next-generation digital ecosystem that combines creativity, technology, and data to deliver transparency, efficiency, and performance in creator and digital marketing.",
+    bio: "After leading commercial strategy across WPP and GroupM in Pakistan, Indonesia, and Australia — working with brands like Unilever, Pepsi, and Gillette — Fahad saw exactly where creator marketing breaks down at the execution level. EchoVerse is built from that experience: a system where influence stops being an activity and starts being a measurable business outcome.",
   },
   {
     name: "Shoaib Hussain",
     role: "CEO",
     image: "/team.webp",
-    bio: "Shoaib is the CEO of The Huddle Room with 10 years of media industry experience, leading sales, marketing, and business development across clients under The Huddle Room umbrella. He has extensive expertise in digital sales and marketing, with hands-on work alongside major media buying houses including GroupM, Starcom, Mediacom, and Manhattan, and brands such as Mondelez, Pepsi, Unilever, and Coca-Cola. A team leader with a diverse skill set across content creation, business development, sales, and operations, he has also worked with top TV channels in Pakistan including HUM TV, GEO Entertainment, and ARY Digital, delivering customized TV and digital content for target audiences. He is recognized as a trendsetter in achieving benchmark business volume for HUM TV Digital sales and sponsorships, as well as for FM106.2, Pakistan's leading radio network. As the media landscape evolves, Shoaib continues to diversify into new mediums through customized, tailor-made digital campaigns.",
+    bio: "Shoaib spent years on the inside of Pakistan's biggest media properties — HUM TV, GEO, ARY — understanding what actually captures attention and what converts it into commercial results. Now he's focused on building creator-led campaigns that connect storytelling to sales, not just screens.",
   },
   {
     name: "Ovais Ilyas",
     role: "Co-Founder & Country Lead",
     image: "/team-4.png",
-    bio: "Ovais is a seasoned marketing and communications leader with over two decades of experience driving business growth, transforming organizations, and building high-performing teams across Pakistan's media and marketing landscape. His career spans both broadcasters and leading global agency networks, including WPP Media (formerly GroupM), Spark Foundry, ZenithOptimedia, and Carat, where he led major portfolios across FMCG, telecom, banking, automotive, technology, and retail. He has led and partnered with brands including Unilever, Colgate-Palmolive, Zong, Reckitt, Foodpanda, McDonald's, Changan Automobile, Hamdard Laboratories, Shan Foods, Ismail Industries, Xiaomi, and J., while also driving strategic transitions for The Coca-Cola Company and Jazz. Known for strategic foresight, crisis management, and a people-first leadership style, Ovais has consistently unlocked new revenue streams, onboarded high-value clients, and delivered record business growth by building integrated 360-degree teams.",
+    bio: "Two decades across WPP Media, Spark Foundry, and Carat managing portfolios for Unilever, Coca-Cola, and Jazz gave Ovais a rare view of what great strategy looks like — and where most agencies lose it in execution. He's now bringing that discipline and accountability back to how Pakistani brands grow through creators.",
   },
 ];
 
@@ -42,11 +42,14 @@ const TeamPartners = () => {
         <div className="mb-10 flex items-end justify-between">
           <div>
             <h2 className="font-beni text-[1.9rem] leading-[0.9] font-black uppercase  md:text-4xl lg:text-[4rem]">
-              <span className="block text-foreground">Partnered with</span>
+              <span className="block text-foreground">Built by people who&apos;ve</span>
               <span className="block text-orange text-8xl">
-                industry leaders
+                run the system
               </span>
             </h2>
+            <p className="font-clash text-sm md:text-base text-foreground/50 mt-4 max-w-md leading-relaxed">
+              Now rebuilding it with intent — combining global experience with a focused vision for Pakistan&apos;s creator economy.
+            </p>
           </div>
         </div>
 

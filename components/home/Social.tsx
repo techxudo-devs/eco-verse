@@ -17,43 +17,43 @@ type SocialBlog = {
 const fallbackCards: SocialBlog[] = [
   {
     id: 1,
-    title: "How We Build Social Campaign Systems",
-    slug: "how-we-build-social-campaign-systems",
+    title: "Why Most Creator Campaigns Fail Before They Start",
+    slug: "why-most-creator-campaigns-fail-before-they-start",
     coverImage:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Social media", "Content creation"],
+    tags: ["Creator Economy", "Performance Strategy"],
   },
   {
     id: 2,
-    title: "Brand Storytelling That Converts",
-    slug: "brand-storytelling-that-converts",
+    title: "The Shift From Reach to Revenue in Creator Marketing",
+    slug: "the-shift-from-reach-to-revenue-in-creator-marketing",
     coverImage:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Storytelling", "Strategy"],
+    tags: ["Performance Strategy", "Growth Systems"],
   },
   {
     id: 3,
-    title: "Creative Direction for Modern Feeds",
-    slug: "creative-direction-for-modern-feeds",
+    title: "Where Attention Actually Converts Today",
+    slug: "where-attention-actually-converts-today",
     coverImage:
       "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Creative", "Design"],
+    tags: ["Creator Economy", "Pakistan Market"],
   },
   {
     id: 4,
-    title: "Performance Content Playbook",
-    slug: "performance-content-playbook",
+    title: "How to Build Creator Partnerships That Scale",
+    slug: "how-to-build-creator-partnerships-that-scale",
     coverImage:
       "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Performance", "Growth"],
+    tags: ["Growth Systems", "Performance Strategy"],
   },
   {
     id: 5,
-    title: "How Teams Ship Better Content Faster",
-    slug: "how-teams-ship-better-content-faster",
+    title: "What Smart Brands Track Beyond Engagement",
+    slug: "what-smart-brands-track-beyond-engagement",
     coverImage:
       "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Workflow", "Publishing"],
+    tags: ["Pakistan Market", "Creator Economy"],
   },
 ];
 
@@ -116,6 +116,9 @@ const Social = ({ blogs = [] }: { blogs?: SocialBlog[] }) => {
               <span className="block">TELL</span>
               <span className="block">STORIES</span>
             </h2>
+            <p className="font-clash text-white/75 text-sm sm:text-base font-medium leading-snug mt-5 max-w-[320px]">
+              This is a working layer of insight, not content for the sake of visibility. We share what&apos;s actually shaping the creator economy — grounded in real campaigns, real performance data, and real decisions being made.
+            </p>
 
             {/* Avatars Row */}
             <div className="flex items-center mt-4 sm:mt-6">

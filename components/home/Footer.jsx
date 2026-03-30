@@ -51,22 +51,21 @@ const Footer = () => {
           variants={slideUp}
           className="w-full  md:w-[50%] lg:w-[45%] bg-[#F97316] rounded-3xl px-4 py-10 flex flex-col items-center text-center text-white rotate-[6deg] z-"
         >
-          <span className="font-clash font-medium text-base mb-2">Contact</span>
+          <span className="font-clash font-medium text-base mb-2 opacity-80">No pressure, just clarity</span>
 
           <h2 className="font-beni font-black text-[40px] md:text-[60px] lg:text-[70px] leading-14 mb-6 uppercase">
-            TELL US ABOUT IT.
+            LET&apos;S SEE IF THIS MAKES SENSE.
           </h2>
 
           <p className="font-clash font-medium text-sm md:text-base lg:text-[15px] md:w-[80%] lg:w-[70%] leading-5 mb-8">
-            A mini quiz, 3 questions, less than a minute. We receive your
-            answers and get back to you quickly.
+            Share a bit about your brand, your current challenges, or what you&apos;re trying to unlock next. You&apos;ll get a thoughtful response from someone who understands this space — not a generic sales reply.
           </p>
 
           <Link
             href="/contact"
             className="bg-white/30 hover:bg-white/40 transition-colors duration-300 px-4 py-3 rounded-lg font-clash cursor-pointer z-60 font-semibold text-white text-xs"
           >
-            Start the quiz
+            Start the conversation
           </Link>
         </motion.div>
       </motion.div>
@@ -105,6 +104,7 @@ const Footer = () => {
         {/* Left: Copyright & Socials */}
         <div className="flex flex-col lg:flex-row items-center gap-2 sm:gap-4">
           <span>© 2026 ECHO VERSE, all rights reserved.</span>
+          <span className="hidden lg:inline text-[#00522D]/60">Where creator marketing shifts from activity to real business impact.</span>
 
           <div className="flex items-center gap-2">
             {/* Instagram Icon */}

@@ -17,9 +17,15 @@ const Awards = ({ projects = [] }: AwardsProps) => {
   return (
     <section className="relative bg-[#FFEDD5] py-20 md:py-24">
       <div className="mb-20 text-center md:mb-28">
+        <p className="font-clash text-sm font-semibold uppercase tracking-widest text-[#F97316] mb-4">
+          What this approach delivers
+        </p>
         <h2 className="font-beni font-black text-6xl uppercase leading-none text-[#00522D] md:text-[10rem] lg:text-[8rem]">
           Projects
         </h2>
+        <p className="font-clash text-sm md:text-base text-zinc-600 mt-6 max-w-xl mx-auto leading-relaxed px-4">
+          This is where strategy meets execution and performance becomes visible. Explore how creator-led campaigns translate into measurable outcomes when built with structure, not guesswork.
+        </p>
       </div>
 
       <div className="absolute left-1/2 top-[240px] bottom-0 hidden w-px -translate-x-1/2 bg-[#F97316]/20 md:block" />

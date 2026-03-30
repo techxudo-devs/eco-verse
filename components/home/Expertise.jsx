@@ -81,9 +81,21 @@ const Expertise = () => {
     // DATA
     // ==========================================
     const rightContent = [
-        { title: "SOCIAL MEDIA STRATEGY", pills: ["Analysis of the current situation", "Benchmark", "Creation of an art direction", "Defining a social media strategy"] },
-        { title: "CONTENT CREATION", pills: ["Videos", "Photos", "Instagram Reels", "Interview", "Corporate", "Studio recording", "YouTube", "TikTok"] },
-        { title: "COMMUNITY MANAGEMENT", pills: ["Editorial planning", "Posting", "Creating stories", "Daily moderation", "Reporting & Learnings", "Project management"] }
+        {
+            title: "SOCIAL MEDIA STRATEGY",
+            desc: "We design strategies that move people step-by-step from discovery to decision — connecting creators, content, and distribution into one system that drives real outcomes.",
+            pills: ["Channel-specific growth systems", "Audience intent breakdown", "Campaign narrative design", "Paid + organic synchronization", "Creator ecosystem planning", "Conversion funnel mapping", "Launch sequencing frameworks"]
+        },
+        {
+            title: "CONTENT CREATION",
+            desc: "Every piece of content is built for how attention actually works — engineered to capture interest fast, hold it long enough to matter, and push it toward action.",
+            pills: ["Creator-led production", "Platform-native storytelling", "Scroll-stopping hooks", "Short-form video systems", "Performance scripting", "Creative testing loops", "Retention-driven editing"]
+        },
+        {
+            title: "COMMUNITY MANAGEMENT",
+            desc: "We treat your audience as a live signal source — turning conversations into insights, insights into decisions, and decisions into stronger brand performance over time.",
+            pills: ["Comment intelligence systems", "DM conversion handling", "Sentiment analysis tracking", "Brand trust frameworks", "Audience insight loops", "Reputation response systems", "Retention-driven engagement"]
+        }
     ];
 
     const images = [
@@ -166,6 +178,11 @@ const Expertise = () => {
                                         className="overflow-hidden"
                                         transition={{ duration: 0.4, ease: "easeInOut" }}
                                     >
+                                        {item.desc && (
+                                            <p className="font-clash text-white/80 text-sm font-medium leading-snug mb-3 w-[90%]">
+                                                {item.desc}
+                                            </p>
+                                        )}
                                         <div className="flex flex-wrap gap-1">
                                             {item.pills.map((pill, idx) => (
                                                 <span
@@ -262,6 +279,11 @@ const Expertise = () => {
                                 className="overflow-hidden"
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
                             >
+                                {item.desc && (
+                                    <p className="font-clash text-white/80 text-xs sm:text-sm font-medium leading-snug mb-2 w-[95%]">
+                                        {item.desc}
+                                    </p>
+                                )}
                                 <div className="flex flex-wrap gap-2">
                                     {item.pills.map((pill, idx) => (
                                         <span

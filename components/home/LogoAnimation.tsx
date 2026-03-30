@@ -36,42 +36,42 @@ const LogoAnimation: React.FC = () => {
       icon: (
         <Cpu className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Technology",
+      title: "Clarity",
       pos: "top-[16%] md:top-[12%] left-[4%] md:left-[5%] lg:left-[10%]",
     },
     {
       icon: (
         <BarChart3 className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Performance",
+      title: "Control",
       pos: "bottom-[15%] md:bottom-[10%] left-[18%] md:left-[5%]",
     },
     {
       icon: (
         <Gauge className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Speed",
+      title: "Performance",
       pos: "bottom-[38%] md:bottom-[22%] left-[2%] md:left-[20%] lg:left-[25%]",
     },
     {
       icon: (
         <ArrowUpRight className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Scale",
+      title: "Transparency",
       pos: "top-[16%] right-[4%] md:right-[20%] lg:right-[25%]",
     },
     {
       icon: (
         <GitBranch className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Process",
+      title: "Speed",
       pos: "bottom-[15%] right-[18%]",
     },
     {
       icon: (
         <Award className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 mb-1.5 md:mb-2" />
       ),
-      title: "Expertise",
+      title: "Trust",
       pos: "bottom-[38%] right-[2%] md:right-[3%] lg:right-[5%]",
     },
   ];

@@ -18,28 +18,28 @@ const FAQS = () => {
 
     const faqs = [
         {
-            question: "What types of companies do you support?",
-            answer: "At Echo Verse, we primarily support SMEs, mid-sized companies, and large groups, whether regional or national. Our mission: to help these organizations strengthen their image, develop their visibility, and unite their communities."
+            question: "How is this different from a typical influencer agency?",
+            answer: "Most agencies focus on getting creators and posting content. We focus on what happens after that. Every campaign is structured, tracked, and optimized so it actually contributes to business growth — not just visibility."
         },
         {
-            question: "Do you work only in Montpellier or also remotely?",
-            answer: "Our agency is based in the heart of Montpellier, but we collaborate with clients throughout France and abroad. We organize photo and video shoots on location, lasting one or more days, and we work remotely using shared tools and regular communication. The result: the same high-quality support, whether you are in France or abroad."
+            question: "Will I be able to see what's going on in my campaign?",
+            answer: "Yes. You'll have access to a live dashboard where you can track creators, content performance, and campaign progress — without waiting for reports or updates."
         },
         {
-            question: "What specific services do you offer?",
-            answer: "We offer complete social media strategy, content creation (photo/video), daily community management, and targeted paid advertising campaigns tailored to your specific goals."
+            question: "How do you measure success?",
+            answer: "We define success before we start. Depending on your goal, that could be engagement quality, response, conversions, or overall campaign impact. Everything is tracked against that — not generic metrics."
         },
         {
-            question: "Do you only offer social media management or also consulting/support?",
-            answer: "We offer both! Whether you want us to completely manage your accounts or just guide your internal team with consulting and strategy, we adapt entirely to your needs."
+            question: "Do you only work with large brands?",
+            answer: "No. We work with brands that are serious about growing. Whether you're scaling or just starting to structure things properly, the approach adapts to your stage."
         },
         {
-            question: "What results can be expected when working with Echo Verse?",
-            answer: "You can expect increased brand awareness, stronger community engagement, a cohesive visual identity, and measurable growth in your key performance indicators (KPIs)."
+            question: "How quickly can we start?",
+            answer: "Once we align on your goal, things move fast. The process is designed to get you from idea to execution without unnecessary delays."
         },
         {
-            question: "How to get a quote or start a collaboration with Echo Verse?",
-            answer: "It's very simple! Via WhatsApp, by answering the questionnaire at the bottom of the page, or by email. Next, we organize an initial exchange to understand your expectations and build a tailor-made proposal."
+            question: "What kind of involvement is needed from our side?",
+            answer: "We keep it simple. You stay informed and involved at key moments, but you won't be pulled into unnecessary back-and-forth. The system is built to reduce your effort, not increase it."
         }
     ];
 

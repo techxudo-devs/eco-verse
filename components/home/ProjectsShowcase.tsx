@@ -18,9 +18,15 @@ const ProjectsShowcase = ({ projects }: ProjectsShowcaseProps) => {
   return (
     <section className="relative bg-[#FFEDD5] py-20 md:py-24">
       <div className="mb-20 text-center md:mb-28">
+        <p className="font-clash text-sm font-semibold uppercase tracking-widest text-[#F97316] mb-4">
+          What this approach delivers
+        </p>
         <h2 className="font-beni text-6xl uppercase leading-none text-[#00522D] md:text-[10rem] lg:text-[12rem]">
           Projects
         </h2>
+        <p className="font-clash text-sm md:text-base text-zinc-600 mt-6 max-w-xl mx-auto leading-relaxed px-4">
+          This is where strategy meets execution and performance becomes visible. Explore how creator-led campaigns translate into measurable outcomes when built with structure, not guesswork.
+        </p>
       </div>
 
       <div className="absolute left-1/2 top-[240px] hidden w-px -translate-x-1/2 bg-[#F97316]/20 md:block bottom-0" />
@@ -142,7 +148,7 @@ const ProjectsShowcase = ({ projects }: ProjectsShowcaseProps) => {
             href="/projects"
             className="inline-flex items-center gap-2 rounded-full border-2 border-[#00522D]/30 bg-white px-8 py-4 font-clash text-sm font-bold uppercase tracking-[0.16em] text-[#00522D] shadow-lg transition-all hover:scale-105 hover:border-[#00522D] hover:shadow-xl"
           >
-            View All Projects
+            Explore the thinking behind the results
             <svg
               className="h-5 w-5"
               fill="none"
