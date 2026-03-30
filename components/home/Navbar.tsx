@@ -16,10 +16,46 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const HOME_SECTION_KEY = "echoverse-home-section";
+const HOME_SECTIONS = ["home", "our-services", "faqs", "blogs-preview"] as const;
+const menuLinks = [
+  { name: "HOME", type: "section", target: "home" },
+  { name: "OUR SERVICES", type: "section", target: "our-services" },
+  { name: "FAQ'S", type: "section", target: "faqs" },
+  { name: "BLOGS", type: "section", target: "blogs-preview" },
+  { name: "PROJECTS", type: "route", target: "/projects" },
+  { name: "CONTACT US", type: "route", target: "/contact" },
+] as const;
+
+const normalizePath = (path: string) => {
+  if (path.length > 1 && path.endsWith("/")) {
+    return path.slice(0, -1);
+  }
+
+  return path;
+};
+
+const getInitialActiveSection = (): (typeof HOME_SECTIONS)[number] => {
+  if (typeof window === "undefined") {
+    return "home";
+  }
+
+  const hashSection = window.location.hash.replace("#", "");
+
+  if (
+    HOME_SECTIONS.includes(hashSection as (typeof HOME_SECTIONS)[number])
+  ) {
+    return hashSection as (typeof HOME_SECTIONS)[number];
+  }
+
+  return "home";
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<
+    (typeof HOME_SECTIONS)[number]
+  >(getInitialActiveSection);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -79,27 +115,6 @@ const Navbar = () => {
     visible: { x: 0, transition: { duration: 0.8, ease: slideEase } },
     exit: { x: "100%", transition: { duration: 0.8, ease: slideEase } },
   };
-
-  const menuLinks = [
-    { name: "HOME", type: "section", target: "home", active: false },
-
-    {
-      name: "OUR SERVICES",
-      type: "section",
-      target: "our-services",
-      active: true,
-    },
-
-    { name: "FAQ'S", type: "section", target: "faqs", active: false },
-    { name: "BLOGS", type: "section", target: "blogs-preview", active: false },
-    { name: "PROJECTS", type: "route", target: "/projects", active: false },
-    {
-      name: "CONTACT US",
-      type: "route",
-      target: "/contact",
-      active: false,
-    },
-  ];
 
   const scrollToSection = (target: string) => {
     const section = document.getElementById(target);
@@ -168,6 +183,57 @@ const Navbar = () => {
 
     scrollToHashSection();
   }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
+    }
+
+    const sections = HOME_SECTIONS.map((sectionId) =>
+      document.getElementById(sectionId),
+    ).filter((section): section is HTMLElement => Boolean(section));
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length === 0) {
+          return;
+        }
+
+        setActiveSection(
+          visibleSections[0].target.id as (typeof HOME_SECTIONS)[number],
+        );
+      },
+      {
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: [0.2, 0.35, 0.5, 0.65],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pathname]);
+
+  const isMenuLinkActive = (target: string, type: "section" | "route") => {
+    if (type === "section") {
+      return pathname === "/" && activeSection === target;
+    }
+
+    const currentPath = normalizePath(pathname);
+    const targetPath = normalizePath(target);
+
+    return currentPath === targetPath || currentPath.startsWith(`${targetPath}/`);
+  };
 
   const handleMenuNavigation = (target: string, type: "section" | "route") => {
     setIsOpen(false);
@@ -247,7 +313,9 @@ const Navbar = () => {
                       )
                     }
                     className={`font-beni font-black text-[2rem] sm:text-[3rem] lg:text-[4rem] leading-[0.8] cursor-pointer uppercase transition-colors duration-300 hover:text-orange-400 ${
-                      link.active ? "text-orange-400" : "text-white"
+                      isMenuLinkActive(link.target, link.type)
+                        ? "text-orange-400"
+                        : "text-white"
                     } text-left`}
                   >
                     {link.name}

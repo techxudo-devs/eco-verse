@@ -65,7 +65,7 @@ const CardsStack = () => {
       title: "LISTEN FIRST",
       desc: "Every strong partnership starts with understanding",
       details:
-        "We begin by learning about your brand, your ambition, and the real challenge behind the brief - so the work starts from insight, not assumption.",
+        "We begin by learning about your brand, your ambition, and the real challenge behind the brief  so the work starts from insight, not assumption.",
       color: "bg-[#F97316]", // orange-400
       rotation: 0, // straight
     },
@@ -92,8 +92,8 @@ const CardsStack = () => {
       title: "STAY CONNECTED",
       desc: "A process that keeps you close, not confused",
       details:
-        "You stay informed throughout the journey with clear visibility, open communication, and a team that works with you - not around you.",
-      color: "bg-[#00522D]", // orange-700 (green as per your code)
+        "You stay informed throughout the journey with clear visibility, open communication, and a team that works with you  not around you.",
+      color: "bg[#00522D]", // orange-700 (green as per your code)
       rotation: 5, // tilt right
     },
     {

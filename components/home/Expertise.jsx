@@ -203,7 +203,7 @@ const Expertise = () => {
   const rightContent = [
     {
       title: "DEMAND STRATEGY",
-      desc: "We build social strategies that guide people from first impression to final action - aligning creators, content, and distribution into a system that performs with purpose.",
+      desc: "We build social strategies that guide people from first impression to final action  aligning creators, content, and distribution into a system that performs with purpose.",
       pills: [
         "Channel growth planning",
         "Audience intent mapping",
@@ -216,7 +216,7 @@ const Expertise = () => {
     },
     {
       title: "ATTENTION DESIGN",
-      desc: "We create content around how people actually stop, watch, trust, and respond - built to capture attention quickly and turn it into meaningful action.",
+      desc: "We create content around how people actually stop, watch, trust, and respond  built to capture attention quickly and turn it into meaningful action.",
       pills: [
         "Creator-led production",
         "Platform-native storytelling",
@@ -229,7 +229,7 @@ const Expertise = () => {
     },
     {
       title: "AUDIENCE INTELLIGENCE",
-      desc: "We manage your community as a live layer of brand insight - turning replies, reactions, and conversations into stronger trust, smarter decisions, and better performance.",
+      desc: "We manage your community as a live layer of brand insight  turning replies, reactions, and conversations into stronger trust, smarter decisions, and better performance.",
       pills: [
         "Comment intelligence",
         "DM response systems",
@@ -379,8 +379,8 @@ const Expertise = () => {
             </h1>
 
             <p className="font-clash text-orange-500 mt-4 text-base sm:text-lg font-semibold w-[95%] sm:w-[80%] leading-snug">
-              Echo Verse is a social media agency founded on three strong areas of
-              expertise.
+              Echo Verse is a social media agency founded on three strong areas
+              of expertise.
             </p>
 
             <motion.div
