@@ -26,7 +26,7 @@ async function main() {
 
 Modern consumers are more informed than ever before. They scrutinize supply chains, question corporate commitments, and demand transparency. This shift presents both challenges and opportunities for marketing professionals who must navigate the delicate balance between authentic messaging and commercial objectives.
 
-The rise of digital platforms has democratized information, making it impossible for brands to hide behind greenwashing tactics. Social media amplifies both successes and failures, creating an environment where authenticity isn't just preferred—it's required.`,
+The rise of digital platforms has democratized information, making it impossible for brands to hide behind greenwashing tactics. Social media amplifies both successes and failures, creating an environment where authenticity isn't just preferred-it's required.`,
         embeds: [],
         images: [],
       },
@@ -42,7 +42,7 @@ However, this demographic is also highly skeptical. Years of corporate greenwash
       },
       {
         heading: "Building Authentic Brand Narratives",
-        content: `Authenticity in sustainable marketing isn't about perfection—it's about honesty. Brands that acknowledge their journey, including setbacks and challenges, often resonate more deeply than those claiming flawless sustainability credentials.
+        content: `Authenticity in sustainable marketing isn't about perfection-it's about honesty. Brands that acknowledge their journey, including setbacks and challenges, often resonate more deeply than those claiming flawless sustainability credentials.
 
 The most effective brand narratives weave environmental commitment into the company's origin story and future vision. They don't treat sustainability as a marketing add-on but as a core value that influences every business decision. This integration creates coherence between messaging and action, building trust through consistency.
 
@@ -74,7 +74,7 @@ Social media platforms amplify sustainable messaging but also create challenges.
         heading: "Measuring Impact Beyond Profit",
         content: `Traditional marketing metrics focus on conversion rates, engagement, and revenue. Sustainable marketing requires additional frameworks that measure environmental and social impact alongside financial performance.
 
-Triple bottom line accounting—evaluating people, planet, and profit—provides a more holistic view of marketing effectiveness. This approach recognizes that long-term brand value depends on more than quarterly earnings, encompassing environmental stewardship and social responsibility.
+Triple bottom line accounting-evaluating people, planet, and profit-provides a more holistic view of marketing effectiveness. This approach recognizes that long-term brand value depends on more than quarterly earnings, encompassing environmental stewardship and social responsibility.
 
 B Corp certification and similar frameworks offer standardized methods for measuring and communicating sustainable business practices. These certifications provide third-party validation that strengthens marketing claims and builds consumer confidence.`,
         embeds: [],
@@ -92,7 +92,7 @@ Industry-wide initiatives, such as sustainable packaging coalitions or carbon-ne
       },
       {
         heading: "The Psychology of Sustainable Choice",
-        content: `Understanding why consumers choose sustainable products requires insight into behavioral psychology and decision-making processes. Environmental concern alone doesn't guarantee sustainable purchasing behavior—convenience, price, and perceived quality often override good intentions.
+        content: `Understanding why consumers choose sustainable products requires insight into behavioral psychology and decision-making processes. Environmental concern alone doesn't guarantee sustainable purchasing behavior-convenience, price, and perceived quality often override good intentions.
 
 Effective sustainable marketing addresses these friction points, making green choices easier and more attractive. This might involve highlighting cost savings from durable products, emphasizing health benefits of natural materials, or creating convenient subscription models for sustainable alternatives.
 
@@ -118,7 +118,7 @@ Emerging technologies like artificial intelligence and machine learning will ena
 
 The brands that thrive will be those that view sustainability not as a marketing challenge but as a business opportunity. They'll innovate products, reimagine business models, and create entirely new categories that make sustainable living easier, more affordable, and more desirable.
 
-Ultimately, the most successful sustainable marketing won't feel like marketing at all—it will simply be how responsible businesses operate, communicate, and create value in a world that demands better from the companies that shape our future.`,
+Ultimately, the most successful sustainable marketing won't feel like marketing at all-it will simply be how responsible businesses operate, communicate, and create value in a world that demands better from the companies that shape our future.`,
         embeds: [],
         images: ["/assets/choose1.avif"],
       },

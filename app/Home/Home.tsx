@@ -7,10 +7,10 @@ import LogoAnimation from "@/components/home/LogoAnimation";
 import Social from "@/components/home/Social";
 import TeamPartners from "@/components/home/TeamPartners";
 import VideosStack from "@/components/home/VideosStack";
-import { getBlogs } from "@/lib/services/blogService";
+import { getPublishedBlogs } from "@/lib/services/blogService";
 
 const page = async () => {
-  const blogs = await getBlogs();
+  const blogs = await getPublishedBlogs();
 
   const socialBlogs = blogs.slice(0, 5).map((blog) => ({
     id: blog.id,

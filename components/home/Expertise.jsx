@@ -82,21 +82,45 @@ const Expertise = () => {
     // ==========================================
     const rightContent = [
         {
-            title: "SOCIAL MEDIA STRATEGY",
-            desc: "We design strategies that move people step-by-step from discovery to decision — connecting creators, content, and distribution into one system that drives real outcomes.",
-            pills: ["Channel-specific growth systems", "Audience intent breakdown", "Campaign narrative design", "Paid + organic synchronization", "Creator ecosystem planning", "Conversion funnel mapping", "Launch sequencing frameworks"]
+          title: "SOCIAL MEDIA STRATEGY",
+          desc: "We build social strategies that guide people from first impression to final action - aligning creators, content, and distribution into a system that performs with purpose.",
+          pills: [
+            "Channel growth planning",
+            "Audience intent mapping",
+            "Campaign narrative design",
+            "Paid + organic sync",
+            "Creator mix strategy",
+            "Conversion funnel planning",
+            "Launch sequence systems"
+          ]
         },
         {
-            title: "CONTENT CREATION",
-            desc: "Every piece of content is built for how attention actually works — engineered to capture interest fast, hold it long enough to matter, and push it toward action.",
-            pills: ["Creator-led production", "Platform-native storytelling", "Scroll-stopping hooks", "Short-form video systems", "Performance scripting", "Creative testing loops", "Retention-driven editing"]
+          title: "CONTENT CREATION",
+          desc: "We create content around how people actually stop, watch, trust, and respond - built to capture attention quickly and turn it into meaningful action.",
+          pills: [
+            "Creator-led production",
+            "Platform-native storytelling",
+            "Scroll-stopping hooks",
+            "Short-form video systems",
+            "Performance-first scripting",
+            "Creative testing loops",
+            "Retention-driven editing"
+          ]
         },
         {
-            title: "COMMUNITY MANAGEMENT",
-            desc: "We treat your audience as a live signal source — turning conversations into insights, insights into decisions, and decisions into stronger brand performance over time.",
-            pills: ["Comment intelligence systems", "DM conversion handling", "Sentiment analysis tracking", "Brand trust frameworks", "Audience insight loops", "Reputation response systems", "Retention-driven engagement"]
+          title: "COMMUNITY MANAGEMENT",
+          desc: "We manage your community as a live layer of brand insight - turning replies, reactions, and conversations into stronger trust, smarter decisions, and better performance.",
+          pills: [
+            "Comment intelligence",
+            "DM response systems",
+            "Sentiment tracking",
+            "Brand trust building",
+            "Audience insight loops",
+            "Reputation management",
+            "Retention engagement"
+          ]
         }
-    ];
+      ];
 
     const images = [
         third2.src,
@@ -122,9 +146,10 @@ const Expertise = () => {
                         {/* LEFT SECTION */}
                         <div className="w-full max-w-[400px] relative z-40">
                             <h1 className="text-[94px] leading-[0.7] font-beni font-black uppercase">
-                                <span className="text-white block">REASONING</span>
-                                <span className="text-white block">TO BETTER:</span>
-                                <span className="block text-[#00522D]">RESONATING.</span>
+                                <span className="text-white block">FROM</span>
+                                <span className="text-white block">STRATEGY TO</span>
+                                <span className="block text-[#00522D]"> RESONANCE.</span>
+                                 
                             </h1>
 
                             <p className="font-clash text-orange-500 mt-5 text-lg font-semibold w-[85%] leading-6">

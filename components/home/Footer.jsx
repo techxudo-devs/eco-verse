@@ -58,7 +58,7 @@ const Footer = () => {
           </h2>
 
           <p className="font-clash font-medium text-sm md:text-base lg:text-[15px] md:w-[80%] lg:w-[70%] leading-5 mb-8">
-            Share a bit about your brand, your current challenges, or what you&apos;re trying to unlock next. You&apos;ll get a thoughtful response from someone who understands this space — not a generic sales reply.
+            Share a bit about your brand, your current challenges, or what you&apos;re trying to unlock next. You&apos;ll get a thoughtful response from someone who understands this space - not a generic sales reply.
           </p>
 
           <Link
@@ -108,7 +108,13 @@ const Footer = () => {
 
           <div className="flex items-center gap-2">
             {/* Instagram Icon */}
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            <a
+              href="https://www.instagram.com/echoverse.360/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hover:opacity-70 transition-opacity"
+            >
               <svg
                 width="20"
                 height="20"
@@ -124,8 +130,14 @@ const Footer = () => {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            {/* TikTok Icon */}
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            {/* Facebook Icon */}
+            <a
+              href="https://www.facebook.com/EchoVerse.360/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="hover:opacity-70 transition-opacity"
+            >
               <svg
                 width="20"
                 height="20"
@@ -136,26 +148,17 @@ const Footer = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v7a6 6 0 1 1-6-6v3a3 3 0 0 0 3 3z"></path>
-              </svg>
-            </a>
-            {/* Pinterest Icon */}
-            <a href="#" className="hover:opacity-70 transition-opacity">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.65 8 6.55 9.42-.09-.79-.17-2.01.04-2.88.19-.8 1.25-5.3 1.25-5.3s-.32-.64-.32-1.58c0-1.48.86-2.59 1.93-2.59.91 0 1.34.68 1.34 1.5 0 .91-.58 2.27-.88 3.53-.25 1.05.53 1.9 1.56 1.9 1.88 0 3.32-1.98 3.32-4.85 0-2.54-1.83-4.32-4.45-4.32-3.04 0-4.83 2.28-4.83 4.64 0 .91.35 1.89.79 2.42.09.1.1.2.07.31-.09.38-.3 1.22-.34 1.39-.05.18-.16.22-.35.13-1.3-.61-2.11-2.52-2.11-4.06 0-3.31 2.4-6.35 6.93-6.35 3.65 0 6.49 2.6 6.49 6.07 0 3.63-2.29 6.54-5.46 6.54-1.07 0-2.07-.56-2.42-1.21l-.66 2.5c-.24.93-.89 2.1-1.32 2.82 1.04.32 2.14.49 3.28.49 5.52 0 10-4.48 10-10S17.52 2 12 2z"></path>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
             {/* LinkedIn Icon */}
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            <a
+              href="https://www.facebook.com/EchoVerse.360/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="hover:opacity-70 transition-opacity"
+            >
               <svg
                 width="20"
                 height="20"

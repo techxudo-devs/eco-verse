@@ -12,22 +12,22 @@ type TeamMember = {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Fahad Bashir Bhura",
+    name: "Fahad Bashir",
     role: "Co-Founder & CEO",
     image: "/team-2.jpeg",
-    bio: "After leading commercial strategy across WPP and GroupM in Pakistan, Indonesia, and Australia — working with brands like Unilever, Pepsi, and Gillette — Fahad saw exactly where creator marketing breaks down at the execution level. EchoVerse is built from that experience: a system where influence stops being an activity and starts being a measurable business outcome.",
+    bio: "After leading commercial strategy across WPP and GroupM in Pakistan, Indonesia, and Australia - working with brands like Unilever, Gillette, and GSK - Fahad saw exactly where creator marketing breaks down at the execution level. EchoVerse is built from that experience: a system where influence stops being an activity and starts being a measurable business outcome.",
   },
   {
     name: "Shoaib Hussain",
-    role: "CEO",
+    role: "Director & Head of Operations",
     image: "/team.webp",
-    bio: "Shoaib spent years on the inside of Pakistan's biggest media properties — HUM TV, GEO, ARY — understanding what actually captures attention and what converts it into commercial results. Now he's focused on building creator-led campaigns that connect storytelling to sales, not just screens.",
+    bio: "With 10 years of media experience across HUM TV, GEO, and ARY, Shoaib has worked at the center of how audience attention is built, monetized, and scaled. He now applies that operational depth to build creator-led systems that deliver measurable outcomes across clients in Pakistan.",
   },
   {
     name: "Ovais Ilyas",
-    role: "Co-Founder & Country Lead",
+    role: "Country Lead",
     image: "/team-4.png",
-    bio: "Two decades across WPP Media, Spark Foundry, and Carat managing portfolios for Unilever, Coca-Cola, and Jazz gave Ovais a rare view of what great strategy looks like — and where most agencies lose it in execution. He's now bringing that discipline and accountability back to how Pakistani brands grow through creators.",
+    bio: "Two decades across WPP Media, Spark Foundry, and Carat managing portfolios for Unilever, Coca-Cola, and Jazz gave Ovais a rare view of what great strategy looks like - and where most agencies lose it in execution. He's now bringing that discipline and accountability back to how Pakistani brands grow through creators.",
   },
 ];
 
@@ -48,7 +48,7 @@ const TeamPartners = () => {
               </span>
             </h2>
             <p className="font-clash text-sm md:text-base text-foreground/50 mt-4 max-w-md leading-relaxed">
-              Now rebuilding it with intent — combining global experience with a focused vision for Pakistan&apos;s creator economy.
+              Now rebuilding it with intent - combining global experience with a focused vision for Pakistan&apos;s creator economy.
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ const TeamPartners = () => {
                   </h3>
                 </div>
 
-                {/* Bio — scrollable */}
+                {/* Bio - scrollable */}
                 <div className="relative z-10 flex-1 overflow-y-auto pr-1  [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-green/40 [&::-webkit-scrollbar-track]:bg-transparent">
                   <p className="font-clash text-[1.1rem] leading-[2] text-foreground/50">
                     {member.bio}
@@ -132,7 +132,7 @@ const TeamPartners = () => {
             </div>
           </div>
 
-          {/* Selector — stacked on desktop only */}
+          {/* Selector - stacked on desktop only */}
           <div className="flex flex-row gap-3 lg:flex-col lg:gap-4">
             {teamMembers.map((m, i) => (
               <button

@@ -41,7 +41,7 @@ const Hero = () => {
           TURN CREATOR <br /> <span className="text-orange-300">MARKETING INTO REVENUE</span>
         </h1>
         <p className="font-clash text-sm sm:text-base font-medium text-white opacity-80 mt-4 max-w-[480px] leading-snug">
-          Most brands are busy chasing reach. We build creator systems that convert attention into demand — and demand into measurable business growth you can actually track.
+          Most brands are busy chasing reach. We build creator systems that convert attention into demand - and demand into measurable business growth you can actually track.
         </p>
       </div>
 

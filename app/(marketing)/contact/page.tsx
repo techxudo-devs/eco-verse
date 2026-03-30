@@ -12,6 +12,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { FaFacebookF } from "react-icons/fa";
 
 /* ─── Quiz steps ─────────────────────────────────────────────────────────── */
 const quizSteps = [
@@ -265,7 +266,7 @@ export default function ContactPage() {
 
       {/* ── Main grid ── */}
       <section className="mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-14 lg:grid lg:grid-cols-[300px_1fr] lg:gap-8 lg:px-16 lg:py-16 xl:grid-cols-[340px_1fr] 2xl:grid-cols-[380px_1fr] 2xl:gap-12 2xl:px-24">
-        {/* ── Left panel — info + step nav ── */}
+        {/* ── Left panel - info + step nav ── */}
         <aside className="mb-8 lg:mb-0">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
@@ -300,7 +301,7 @@ export default function ContactPage() {
                       Location
                     </p>
                     <p className="font-clash text-sm font-semibold text-white/80">
-                      Remote — Worldwide
+                      Remote - Worldwide
                     </p>
                   </div>
                 </li>
@@ -308,13 +309,28 @@ export default function ContactPage() {
 
               <div className="mt-5 flex gap-3 border-t border-white/5 pt-5">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/echoverse.360/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
                   className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-white/40 transition-all hover:border-orange-500/40 hover:text-orange-400"
                 >
                   <Instagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/EchoVerse.360/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-white/40 transition-all hover:border-orange-500/40 hover:text-orange-400"
+                >
+                  <FaFacebookF className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://www.facebook.com/EchoVerse.360/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
                   className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-white/40 transition-all hover:border-orange-500/40 hover:text-orange-400"
                 >
                   <Linkedin className="h-4 w-4" />
@@ -402,7 +418,7 @@ export default function ContactPage() {
           </motion.div>
         </aside>
 
-        {/* ── Right panel — form ── */}
+        {/* ── Right panel - form ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

@@ -117,7 +117,7 @@ const Social = ({ blogs = [] }: { blogs?: SocialBlog[] }) => {
               <span className="block">STORIES</span>
             </h2>
             <p className="font-clash text-white/75 text-sm sm:text-base font-medium leading-snug mt-5 max-w-[320px]">
-              This is a working layer of insight, not content for the sake of visibility. We share what&apos;s actually shaping the creator economy — grounded in real campaigns, real performance data, and real decisions being made.
+              This is a working layer of insight, not content for the sake of visibility. We share what&apos;s actually shaping the creator economy - grounded in real campaigns, real performance data, and real decisions being made.
             </p>
 
             {/* Avatars Row */}

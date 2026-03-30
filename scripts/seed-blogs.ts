@@ -21,7 +21,7 @@ This case study breaks down the exact social media playbook we used to transform
       heading: "Understanding the Foundation",
       content: `Before launching any campaign, we spent two weeks immersed in the cafe experience. We interviewed the owners about their vision, talked to regular customers about what they loved, and analyzed the competitive landscape. This research revealed three core differentiators that would become our content pillars.
 
-First, their sourcing story was compelling—direct relationships with coffee farmers, seasonal bean rotations, and a commitment to ethical practices. Second, the cafe had become an unofficial community hub where freelancers, students, and creatives naturally gathered. Third, their pastry chef created Instagram-worthy desserts that tasted as good as they looked.
+First, their sourcing story was compelling-direct relationships with coffee farmers, seasonal bean rotations, and a commitment to ethical practices. Second, the cafe had become an unofficial community hub where freelancers, students, and creatives naturally gathered. Third, their pastry chef created Instagram-worthy desserts that tasted as good as they looked.
 
 These insights shaped our entire content strategy. We weren't just selling coffee; we were telling the story of a community, celebrating craftsmanship, and showcasing the artistry behind every cup and pastry.`,
       embeds: [],
@@ -31,11 +31,11 @@ These insights shaped our entire content strategy. We weren't just selling coffe
       heading: "Building the Content Pillars",
       content: `We structured content around three pillars: Menu Stories, People & Community, and Place & Atmosphere. Each pillar served a specific purpose in the customer journey while maintaining aesthetic consistency.
 
-Menu Stories focused on the products themselves—close-ups of latte art, videos of brewing processes, and narratives about ingredient sourcing. These posts satisfied curiosity and showcased quality, often featuring educational captions that taught followers about coffee varieties and brewing methods.
+Menu Stories focused on the products themselves-close-ups of latte art, videos of brewing processes, and narratives about ingredient sourcing. These posts satisfied curiosity and showcased quality, often featuring educational captions that taught followers about coffee varieties and brewing methods.
 
 People & Community content highlighted customers, staff, and the relationships formed within the cafe walls. We featured regular customers (with permission), shared barista profiles, and documented community events. This pillar humanized the brand and made followers feel part of something bigger than a transaction.
 
-Place & Atmosphere posts captured the cafe's aesthetic—morning light streaming through windows, cozy corner nooks, and the warm ambiance that made the space special. These posts tapped into aspirational lifestyle content while remaining authentic to the cafe's genuine character.`,
+Place & Atmosphere posts captured the cafe's aesthetic-morning light streaming through windows, cozy corner nooks, and the warm ambiance that made the space special. These posts tapped into aspirational lifestyle content while remaining authentic to the cafe's genuine character.`,
       embeds: [],
       images: [],
     },
@@ -43,11 +43,11 @@ Place & Atmosphere posts captured the cafe's aesthetic—morning light streaming
       heading: "The Power of Consistent Reels",
       content: `While static posts built the aesthetic foundation, Reels drove exponential growth. We committed to posting three Reels per week, each serving a distinct purpose in our content ecosystem.
 
-Tutorial Reels taught followers something valuable—how to create latte art at home, coffee brewing techniques, or the story behind specialty beans. These performed exceptionally well because they provided genuine value beyond promotional content. People saved and shared them, extending our organic reach.
+Tutorial Reels taught followers something valuable-how to create latte art at home, coffee brewing techniques, or the story behind specialty beans. These performed exceptionally well because they provided genuine value beyond promotional content. People saved and shared them, extending our organic reach.
 
-Behind-the-Scenes Reels satisfied curiosity about cafe operations—early morning prep routines, pastry creation processes, and the choreography of busy weekend service. These authentic glimpses built connection and trust while showcasing the hard work behind every cup.
+Behind-the-Scenes Reels satisfied curiosity about cafe operations-early morning prep routines, pastry creation processes, and the choreography of busy weekend service. These authentic glimpses built connection and trust while showcasing the hard work behind every cup.
 
-Entertainment Reels tapped into trending audio and formats while staying true to brand identity. We didn't follow every trend, but when we found trends that aligned with cafe culture—relaxed weekend vibes, coffee addiction humor, or aesthetic food content—we adapted them creatively.`,
+Entertainment Reels tapped into trending audio and formats while staying true to brand identity. We didn't follow every trend, but when we found trends that aligned with cafe culture-relaxed weekend vibes, coffee addiction humor, or aesthetic food content-we adapted them creatively.`,
       embeds: [],
       images: ["/assets/choose2.avif"],
     },
@@ -69,7 +69,7 @@ The results were remarkable. Each creator collaboration introduced the cafe to n
 
 Each Feature Friday was announced with a teaser on Wednesday and revealed on Friday morning, creating a mini-event that drove both social engagement and foot traffic. The offers ranged from seasonal drink launches to "bring a friend" discounts, always encouraging sharing and community building.
 
-We tracked which offers drove the most engagement and foot traffic, refining our approach based on data. Surprisingly, experiential offers—like "Meet the Roaster" events or latte art workshops—often outperformed pure discounts in terms of community building and long-term customer value.`,
+We tracked which offers drove the most engagement and foot traffic, refining our approach based on data. Surprisingly, experiential offers-like "Meet the Roaster" events or latte art workshops-often outperformed pure discounts in terms of community building and long-term customer value.`,
       embeds: [],
       images: ["/assets/choose3.avif"],
     },
@@ -87,7 +87,7 @@ The ROI extended beyond immediate revenue. The cafe's social presence became a r
     },
     {
       heading: "Lessons Learned and Key Takeaways",
-      content: `This campaign reinforced that authenticity outperforms polish in local business marketing. Followers connected with real moments—messy morning rushes, staff laughing during prep, and genuine customer interactions—more than staged, perfect content.
+      content: `This campaign reinforced that authenticity outperforms polish in local business marketing. Followers connected with real moments-messy morning rushes, staff laughing during prep, and genuine customer interactions-more than staged, perfect content.
 
 Consistency mattered more than production value. Our most successful content often came from iPhone videos shot during natural moments rather than elaborate productions. The key was maintaining a consistent posting rhythm and aesthetic cohesion.
 
@@ -99,13 +99,13 @@ For small businesses with limited budgets, creator collaborations and community-
     },
     {
       heading: "Implementing This Playbook for Your Business",
-      content: `Start by identifying your unique differentiators—what makes your business special beyond the products or services you offer. These differentiators become your content pillars and messaging foundation.
+      content: `Start by identifying your unique differentiators-what makes your business special beyond the products or services you offer. These differentiators become your content pillars and messaging foundation.
 
 Commit to consistency over perfection. Three high-quality posts per week outperform daily mediocre content. Find a rhythm that's sustainable for your team and stick to it.
 
 Invest in relationships rather than advertisements. Build connections with local creators, engage authentically with your community, and create content that serves your audience's interests beyond just promoting your business.
 
-Track what matters. Monitor metrics that correlate with business outcomes—foot traffic, customer acquisition sources, and engagement quality—rather than vanity metrics that don't impact your bottom line.
+Track what matters. Monitor metrics that correlate with business outcomes-foot traffic, customer acquisition sources, and engagement quality-rather than vanity metrics that don't impact your bottom line.
 
 Most importantly, remember that social media success for local businesses is about building community, not just building followers. Focus on creating genuine connections, and growth will follow naturally.`,
       embeds: [],

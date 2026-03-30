@@ -19,15 +19,15 @@ const FAQS = () => {
     const faqs = [
         {
             question: "How is this different from a typical influencer agency?",
-            answer: "Most agencies focus on getting creators and posting content. We focus on what happens after that. Every campaign is structured, tracked, and optimized so it actually contributes to business growth — not just visibility."
+            answer: "Most agencies focus on getting creators and posting content. We focus on what happens after that. Every campaign is structured, tracked, and optimized so it actually contributes to business growth - not just visibility."
         },
         {
             question: "Will I be able to see what's going on in my campaign?",
-            answer: "Yes. You'll have access to a live dashboard where you can track creators, content performance, and campaign progress — without waiting for reports or updates."
+            answer: "Yes. You'll have access to a live dashboard where you can track creators, content performance, and campaign progress - without waiting for reports or updates."
         },
         {
             question: "How do you measure success?",
-            answer: "We define success before we start. Depending on your goal, that could be engagement quality, response, conversions, or overall campaign impact. Everything is tracked against that — not generic metrics."
+            answer: "We define success before we start. Depending on your goal, that could be engagement quality, response, conversions, or overall campaign impact. Everything is tracked against that - not generic metrics."
         },
         {
             question: "Do you only work with large brands?",

@@ -132,7 +132,7 @@ function ConceptA() {
         </div>
       </div>
 
-      {/* Body — two-column */}
+      {/* Body - two-column */}
       <div className="mx-auto max-w-6xl px-8 py-12 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
         {/* Left: description + highlights */}
         <div className="space-y-10">
@@ -430,7 +430,7 @@ function ConceptC() {
         <div className="flex items-start gap-6">
           <div className="flex-1">
             <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-zinc-300 mb-5">
-              Project — 2025/2026
+              Project - 2025/2026
             </p>
             <h1 className="text-7xl font-black leading-[0.9] tracking-tight text-zinc-900 mb-6">
               {MOCK.title}
@@ -470,7 +470,7 @@ function ConceptC() {
         {/* Description */}
         <section className="grid lg:grid-cols-[200px_1fr] gap-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-300 pt-1">
-            01 — Overview
+            01 - Overview
           </p>
           <div className="space-y-4 text-zinc-600 leading-relaxed">
             {MOCK.description.split("\n\n").map((p, i) => (
@@ -482,7 +482,7 @@ function ConceptC() {
         {/* Highlights */}
         <section className="grid lg:grid-cols-[200px_1fr] gap-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-300 pt-1">
-            02 — Highlights
+            02 - Highlights
           </p>
           <div className="grid sm:grid-cols-2 gap-px bg-zinc-100 border border-zinc-100 rounded-2xl overflow-hidden">
             {MOCK.highlights.map(({ icon: Icon, label, desc }) => (
@@ -498,7 +498,7 @@ function ConceptC() {
         {/* Mosaic Gallery */}
         <section className="grid lg:grid-cols-[200px_1fr] gap-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-300 pt-1">
-            03 — Gallery
+            03 - Gallery
           </p>
           <div>
             <div className="grid grid-cols-3 gap-2">
@@ -537,7 +537,7 @@ function ConceptC() {
         {/* Timeline */}
         <section className="grid lg:grid-cols-[200px_1fr] gap-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-300 pt-1">
-            04 — Timeline
+            04 - Timeline
           </p>
           <div className="space-y-0">
             {MOCK.timeline.map(({ phase, date, status }, i) => (
@@ -579,12 +579,12 @@ function ConceptC() {
 }
 
 // ──────────────────────────────────────────────
-// Tabbed switcher — main export
+// Tabbed switcher - main export
 // ──────────────────────────────────────────────
 const CONCEPTS = [
-  { id: "a", label: "A — Editorial Dark", component: ConceptA },
-  { id: "b", label: "B — Magazine Bento", component: ConceptB },
-  { id: "c", label: "C — Minimalist Studio", component: ConceptC },
+  { id: "a", label: "A - Editorial Dark", component: ConceptA },
+  { id: "b", label: "B - Magazine Bento", component: ConceptB },
+  { id: "c", label: "C - Minimalist Studio", component: ConceptC },
 ];
 
 export default function MockLayoutsPage() {

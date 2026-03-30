@@ -57,7 +57,7 @@ const CardsStack = () => {
             id: "01",
             title: "LISTEN FIRST",
             desc: "Every strong partnership starts with understanding",
-            details: "We begin by learning about your brand, your ambition, and the real challenge behind the brief — so the work starts from insight, not assumption.",
+            details: "We begin by learning about your brand, your ambition, and the real challenge behind the brief - so the work starts from insight, not assumption.",
             color: "bg-[#F97316]", // orange-400
             rotation: 0 // straight
         },
@@ -81,7 +81,7 @@ const CardsStack = () => {
             id: "04",
             title: "STAY CONNECTED",
             desc: "A process that keeps you close, not confused",
-            details: "You stay informed throughout the journey with clear visibility, open communication, and a team that works with you — not around you.",
+            details: "You stay informed throughout the journey with clear visibility, open communication, and a team that works with you - not around you.",
             color: "bg-[#00522D]", // orange-700 (green as per your code)
             rotation: 5 // tilt right
         },
@@ -166,9 +166,7 @@ const CardsStack = () => {
                         {/* --- RIGHT TEXT SECTION --- */}
                         <div className="w-1/3 flex justify-start pl-14 z-40">
                             <div className="w-full max-w-[340px]">
-                                <h4 className="font-clash font-bold text-orange-600 text-[16px] mb-4 leading-5">
-                                    More than a service <br /> a working partnership
-                                </h4>
+                                
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeCard.id}
@@ -225,11 +223,7 @@ const CardsStack = () => {
                         <span className="text-orange-500 block">THIS ORDER.</span>
                     </h2>
 
-                    <div className="mt-8 flex flex-col gap-4">
-                        <h4 className="font-clash font-bold text-orange-600 text-[15px] sm:text-[16px] leading-tight px-4">
-                            More than a service a working partnership
-                        </h4>
-                    </div>
+                    
                 </div>
 
                 {/* --- HORIZONTAL CAROUSEL (1.5 Cards) --- */}

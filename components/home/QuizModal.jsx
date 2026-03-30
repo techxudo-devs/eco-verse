@@ -294,7 +294,7 @@ export default function QuizModal({
                 <X className="h-5 w-5" />
               </button>
 
-              {/* Scrollable content area — always scrollable, not just on lg */}
+              {/* Scrollable content area - always scrollable, not just on lg */}
               <div className="min-h-0 flex-1 overflow-y-auto pb-2 pt-10 sm:pt-12 lg:pr-1">
                 {isComplete ? (
                   <motion.div
@@ -451,7 +451,7 @@ export default function QuizModal({
                 )}
               </div>
 
-              {/* Footer nav — always pinned outside scroll area so it never gets hidden */}
+              {/* Footer nav - always pinned outside scroll area so it never gets hidden */}
               {!isComplete && (
                 <div className="mt-4 flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-emerald-900/5 pt-4 sm:flex-nowrap lg:mt-5 lg:pt-5">
                   <button
