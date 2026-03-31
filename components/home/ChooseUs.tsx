@@ -140,7 +140,7 @@ const ChooseUs = () => {
               <div className="flex justify-center w-full mt-2 mb-6">
                 {card.icon}
               </div>
-              <h3 className="font-beni font-black text-[32px] text-center uppercase leading-[0.85] w-full mb-4">
+              <h3 className="font-beni font-black text-[32px] text-center tracking-wide uppercase leading-[0.85] w-full mb-4">
                 {card.title}
               </h3>
               <p className="font-clash text-center text-[15px] font-medium leading-5 w-[95%]">

@@ -115,11 +115,11 @@ export default function TeamPartners() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background py-24 md:py-36 overflow-hidden"
+      className="relative bg-background py-10 md:py-10 overflow-hidden"
     >
       <div className="mx-auto w-full container px-6 lg:px-8">
         {/* Section header */}
-        <div className="mb-16 md:mb-24">
+        <div className="mb-10">
           <h2
             ref={headlineRef}
             className="font-beni font-black uppercase leading-[0.9] overflow-hidden"
@@ -127,7 +127,7 @@ export default function TeamPartners() {
             <span className="block text-foreground text-[3rem] md:text-[4.8rem] lg:text-[6.5rem]">
               Built by people who&apos;ve
             </span>
-            <span className="block text-orange text-[3.5rem] md:text-[5.8rem] lg:text-[8rem]">
+            <span className="block md:-mt-4 text-orange text-[3.5rem] md:text-[5.8rem] lg:text-[8rem]">
               run the system
             </span>
           </h2>
