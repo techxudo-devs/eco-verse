@@ -8,13 +8,13 @@ import DashboardAnimation from "@/components/home/DashboardAnimation";
 // Image imports
 import smileImg from "@/public/assets/smile.svg";
 import bulbImg from "@/public/assets/bulb.svg";
-import blackTag from "@/public/assets/blackTag.svg";
 import whiteTag from "@/public/assets/whiteTag.svg";
 
 const Hero2 = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const smileRef = useRef<HTMLImageElement>(null);
   const bulbRef = useRef<HTMLImageElement>(null);
+  const scrollCueRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // GSAP Animation: Elements move away from the cursor
@@ -61,6 +61,46 @@ const Hero2 = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const scrollCue = scrollCueRef.current;
+
+    if (!scrollCue) {
+      return;
+    }
+
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+
+    if (!mobileQuery.matches) {
+      gsap.set(scrollCue, { clearProps: "all" });
+      return;
+    }
+
+    let isHidden = false;
+
+    const hideScrollCue = () => {
+      if (isHidden || window.scrollY <= 12) {
+        return;
+      }
+
+      isHidden = true;
+      gsap.to(scrollCue, {
+        autoAlpha: 0,
+        y: 16,
+        duration: 0.35,
+        ease: "power2.out",
+        pointerEvents: "none",
+      });
+    };
+
+    gsap.set(scrollCue, { autoAlpha: 1, y: 0 });
+    window.addEventListener("scroll", hideScrollCue, { passive: true });
+    hideScrollCue();
+
+    return () => {
+      window.removeEventListener("scroll", hideScrollCue);
+    };
   }, []);
 
   return (
@@ -138,7 +178,10 @@ const Hero2 = () => {
           </div>
         </button>
 
-        <div className="mt-8 flex flex-col items-center gap-2 text-orange-500 md:hidden">
+        <div
+          ref={scrollCueRef}
+          className="mt-8 flex flex-col items-center gap-2 text-orange-500 md:hidden"
+        >
           <span className="font-clash text-[11px] font-medium uppercase tracking-[0.28em]">
             Scroll
           </span>
