@@ -180,12 +180,12 @@ const Hero2 = () => {
 
         <div
           ref={scrollCueRef}
-          className="mt-8 flex flex-col items-center gap-2 text-orange-500 md:hidden"
+          className="mt-4 flex flex-col items-center gap-2 text-orange-500 md:hidden"
         >
           <span className="font-clash text-[11px] font-medium uppercase tracking-[0.28em]">
             Scroll
           </span>
-          <div className="flex h-10 w-6 justify-center rounded-full border border-orange-300/80 p-1">
+          <div className="flex h-10 w-4 justify-center rounded-full border border-orange-300/80 p-1">
             <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-orange-500" />
           </div>
         </div>
