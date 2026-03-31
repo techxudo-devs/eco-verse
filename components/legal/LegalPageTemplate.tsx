@@ -45,7 +45,10 @@ export default function LegalPageTemplate({
           >
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="transition-colors hover:text-orange-500">
+                <Link
+                  href="/"
+                  className="transition-colors hover:text-orange-500"
+                >
                   Home
                 </Link>
               </li>
@@ -58,10 +61,7 @@ export default function LegalPageTemplate({
 
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
             <div className="max-w-4xl">
-              <span className="inline-flex rounded-full border border-[#00522D]/10 bg-white/70 px-4 py-2 font-clash text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-500 backdrop-blur">
-                {eyebrow}
-              </span>
-              <h1 className="mt-5 max-w-4xl font-beni text-5xl leading-[0.92] text-[#00522D] sm:text-6xl lg:text-8xl">
+              <h1 className="mt-5 max-w-4xl font-beni font-bold font-bold text-5xl text-[#00522D] sm:text-6xl lg:text-8xl">
                 {title}
               </h1>
               <p className="mt-6 max-w-3xl font-clash text-base leading-7 text-[#00522D]/75 sm:text-lg sm:leading-8">
@@ -69,7 +69,7 @@ export default function LegalPageTemplate({
               </p>
             </div>
 
-            <div className="rounded-[30px] border border-[#00522D]/10 bg-white/80 p-6 shadow-[0_20px_60px_rgba(0,82,45,0.08)] backdrop-blur">
+            <div className="rounded-[30px] border border-[#00522D]/10 bg-white/80 p-6  backdrop-blur">
               <p className="font-clash text-[11px] font-semibold uppercase tracking-[0.24em] text-[#00522D]/45">
                 Quick Access
               </p>
@@ -130,7 +130,7 @@ export default function LegalPageTemplate({
                 className="rounded-[32px] border border-[#00522D]/10 bg-white px-6 py-8 shadow-[0_18px_50px_rgba(0,82,45,0.05)] sm:px-8 sm:py-10"
               >
                 <div className="max-w-4xl">
-                  <h2 className="font-beni text-3xl leading-tight text-[#00522D] sm:text-4xl">
+                  <h2 className="font-beni font-bold text-3xl text-[#00522D] sm:text-4xl">
                     {section.title}
                   </h2>
                   <p className="mt-3 font-clash text-sm uppercase tracking-[0.18em] text-orange-500">
@@ -165,7 +165,7 @@ export default function LegalPageTemplate({
                       key={subsection.title}
                       className="mt-8 rounded-[28px] bg-[#FFF8F6] p-6"
                     >
-                      <h3 className="font-beni text-2xl leading-tight text-[#00522D]">
+                      <h3 className="font-beni font-bold text-2xl text-[#00522D]">
                         {subsection.title}
                       </h3>
                       {subsection.paragraphs.map((paragraph) => (
@@ -200,13 +200,13 @@ export default function LegalPageTemplate({
               <p className="font-clash text-[11px] uppercase tracking-[0.24em] text-white/65">
                 Need Clarification?
               </p>
-              <h2 className="mt-3 font-beni text-3xl leading-tight sm:text-4xl">
+              <h2 className="mt-3 font-beni font-bold text-3xl sm:text-4xl">
                 If anything here feels unclear, ask before you rely on it.
               </h2>
               <p className="mt-4 max-w-3xl font-clash text-base leading-8 text-white/75">
                 The fastest route is our contact page. We can explain how these
-                terms or privacy commitments apply to your relationship with Echo
-                Verse.
+                terms or privacy commitments apply to your relationship with
+                Echo Verse.
               </p>
               <div className="mt-6">
                 <Link
