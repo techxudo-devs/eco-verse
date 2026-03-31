@@ -413,7 +413,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
             : { x: "-25vw", y: "-209vh", rotation: 10, scale: 1, ease: "none" };
 
       const card3From = isMobile
-        ? { x: "-7vw", y: "-185vh", rotation: 13, scale: 1, ease: "none" }
+        ? { x: "-7vw", y: "-188vh", rotation: 13, scale: 1, ease: "none" }
         : is2xl
           ? { x: "2vw", y: "-190vh", rotation: -13, scale: 1, ease: "none" }
           : is1080
@@ -421,7 +421,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
             : { x: "2vw", y: "-205vh", rotation: -13, scale: 1, ease: "none" };
 
       const card4From = isMobile
-        ? { x: "-60vw", y: "-168vh", rotation: 13, scale: 1, ease: "none" }
+        ? { x: "-60vw", y: "-175vh", rotation: 13, scale: 1, ease: "none" }
         : is2xl
           ? { x: "55vw", y: "-190vh", rotation: 13, scale: 1, ease: "none" }
           : is1080

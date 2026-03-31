@@ -37,7 +37,7 @@ const MobileExpertiseCard = ({ src, index, progress }) => {
 
   return (
     <motion.div
-      className="shrink-0 h-[280px] "
+      className="shrink-0 w-[72vw] max-w-[280px] h-[220px] xs:h-[260px] sm:w-[280px] sm:h-[280px]"
       style={{
         x,
         scale,
@@ -45,7 +45,8 @@ const MobileExpertiseCard = ({ src, index, progress }) => {
         willChange: "transform, opacity",
         transformOrigin: "center center",
         WebkitBackfaceVisibility: "hidden", // Helps with flickering on iOS
-        transform: "translateZ(0)",
+        WebkitTransform: "translate3d(0,0,0)",
+        transform: "translate3d(0,0,0)",
       }}
     >
       <img
@@ -247,6 +248,12 @@ const Expertise = () => {
               ))}
             </div>
           </div>
+
+          <div className="absolute bottom-8 left-9 z-50">
+            <span className="text-white font-clash font-regular tracking-wide uppercase text-sm border-b border-white pb-1">
+              Expertise & Strategy
+            </span>
+          </div>
         </div>
       </div>
 
@@ -256,6 +263,12 @@ const Expertise = () => {
         className="block lg:hidden relative h-[300vh] bg-orange"
       >
         <div className="sticky top-0 min-h-screen flex flex-col justify-start overflow-hidden py-8 px-6">
+          <div className="mb-4">
+            <span className="text-white font-clash font-regular tracking-wide uppercase text-sm border-b border-white pb-1">
+              Expertise & Strategy
+            </span>
+          </div>
+
           <div className="relative z-10 mb-6">
             <h1 className="text-[2.8rem] xs:text-[3.5rem] leading-[0.8] font-beni font-black uppercase text-[#00522D]">
               BUILT TO <br />
@@ -264,7 +277,7 @@ const Expertise = () => {
             </h1>
           </div>
 
-          <div className="relative w-full overflow-visible my-4 h-[250px] xs:h-[310px]">
+          <div className="relative w-full overflow-visible -mt-3 my-4 h-[230px] xs:h-[290px]">
             <div
               ref={mobileTrackViewportRef}
               className="w-full overflow-hidden"
@@ -272,7 +285,7 @@ const Expertise = () => {
               <motion.div
                 ref={mobileTrackRef}
                 style={{ x: mobileTrackX, willChange: "transform" }}
-                className="flex items-center gap-6 [transform:translate3d(0,0,0)]"
+                className="flex items-center gap-4 xs:gap-6 [transform:translate3d(0,0,0)]"
               >
                 {images.map((src, i) => (
                   <MobileExpertiseCard

@@ -58,7 +58,7 @@ const VideosStack = () => {
           <div
             className="video-card"
             key={video.id}
-            style={{ width: video.width, height: video.height }}
+            style={{ width: "min(100%, " + video.width + ")", height: video.height }}
           >
             <div className="video-thumbnail">
               <video
@@ -67,6 +67,8 @@ const VideosStack = () => {
                 autoPlay
                 muted
                 loop
+                playsInline
+                preload="metadata"
                 className="video-element"
               ></video>
 
