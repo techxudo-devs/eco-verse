@@ -3,7 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MenuIcon, X, Phone } from "lucide-react";
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 import qrImage from "@/public/assets/qr.avif";
 import Image from "next/image";
 
@@ -98,8 +103,17 @@ const Navbar = () => {
       href: "https://www.facebook.com/EchoVerse.360/",
       label: "LinkedIn",
       x: -60,
-      y: -15,
+      y: -32,
       delay: 0.15,
+    },
+    {
+      id: 4,
+      icon: <FaWhatsapp size={18} />,
+      href: "https://www.whatsapp.com/",
+      label: "WhatsApp",
+      x: -60,
+      y: 14,
+      delay: 0.2,
     },
   ];
 

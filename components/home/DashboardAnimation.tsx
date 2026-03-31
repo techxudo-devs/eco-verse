@@ -397,7 +397,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
       ).matches;
 
       const card1From = isMobile
-        ? { x: "55vw", y: "-170vh", rotation: -15, scale: 1, ease: "none" }
+        ? { x: "55vw", y: "-178vh", rotation: -15, scale: 1, ease: "none" }
         : is2xl
           ? { x: "88vw", y: "-205vh", rotation: -15, scale: 1, ease: "none" }
           : is1080
@@ -405,7 +405,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
             : { x: "95vw", y: "-205vh", rotation: -15, scale: 1, ease: "none" };
 
       const card2From = isMobile
-        ? { x: "0vw", y: "-155vh", rotation: -10, scale: 1, ease: "none" }
+        ? { x: "0vw", y: "-165vh", rotation: -10, scale: 1, ease: "none" }
         : is2xl
           ? { x: "-30vw", y: "-212vh", rotation: -10, scale: 1, ease: "none" }
           : is1080
@@ -413,7 +413,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
             : { x: "-25vw", y: "-209vh", rotation: 10, scale: 1, ease: "none" };
 
       const card3From = isMobile
-        ? { x: "-7vw", y: "-188vh", rotation: 13, scale: 1, ease: "none" }
+        ? { x: "-7vw", y: "-198vh", rotation: 13, scale: 1, ease: "none" }
         : is2xl
           ? { x: "2vw", y: "-190vh", rotation: -13, scale: 1, ease: "none" }
           : is1080
@@ -421,7 +421,7 @@ const DashboardAnimation = ({ scrollSectionRef }: DashboardAnimationProps) => {
             : { x: "2vw", y: "-205vh", rotation: -13, scale: 1, ease: "none" };
 
       const card4From = isMobile
-        ? { x: "-60vw", y: "-175vh", rotation: 13, scale: 1, ease: "none" }
+        ? { x: "-60vw", y: "-184vh", rotation: 13, scale: 1, ease: "none" }
         : is2xl
           ? { x: "55vw", y: "-190vh", rotation: 13, scale: 1, ease: "none" }
           : is1080
