@@ -155,7 +155,8 @@ const Expertise = () => {
     updateMobileTrackDistance();
     window.addEventListener("resize", updateMobileTrackDistance);
 
-    return () => window.removeEventListener("resize", updateMobileTrackDistance);
+    return () =>
+      window.removeEventListener("resize", updateMobileTrackDistance);
   }, []);
 
   // Faster spring with less drag for a quicker response on mobile.
@@ -203,9 +204,6 @@ const Expertise = () => {
                 <span className="text-white block">DRIVE</span>
                 <span className="block text-[#00522D]">RESULTS.</span>
               </h1>
-              <p className="font-clash text-orange-500 mt-5 text-lg font-semibold w-[85%]">
-                Echo Verse Expertise
-              </p>
             </div>
             <div className="relative w-[250px] h-[400px] flex-shrink-0 mx-8">
               {images.map((src, index) => (
@@ -260,14 +258,17 @@ const Expertise = () => {
         <div className="sticky top-0 min-h-screen flex flex-col justify-start overflow-hidden py-8 px-6">
           <div className="relative z-10 mb-6">
             <h1 className="text-[2.8rem] xs:text-[3.5rem] leading-[0.8] font-beni font-black uppercase text-[#00522D]">
-              REASONING <br />
-              TO BETTER: <br />
-              <span className="text-orange-300">RESONATING.</span>
+              BUILT TO <br />
+              DRIVE <br />
+              <span className="text-orange-300">RESULT.</span>
             </h1>
           </div>
 
           <div className="relative w-full overflow-visible my-4 h-[250px] xs:h-[310px]">
-            <div ref={mobileTrackViewportRef} className="w-full overflow-hidden">
+            <div
+              ref={mobileTrackViewportRef}
+              className="w-full overflow-hidden"
+            >
               <motion.div
                 ref={mobileTrackRef}
                 style={{ x: mobileTrackX, willChange: "transform" }}
