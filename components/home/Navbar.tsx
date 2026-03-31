@@ -3,11 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MenuIcon, X, Phone } from "lucide-react";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import qrImage from "@/public/assets/qr.avif";
 import Image from "next/image";
 
@@ -16,7 +12,12 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const HOME_SECTION_KEY = "echoverse-home-section";
-const HOME_SECTIONS = ["home", "our-services", "faqs", "blogs-preview"] as const;
+const HOME_SECTIONS = [
+  "home",
+  "our-services",
+  "faqs",
+  "blogs-preview",
+] as const;
 const menuLinks = [
   { name: "HOME", type: "section", target: "home" },
   { name: "OUR SERVICES", type: "section", target: "our-services" },
@@ -41,9 +42,7 @@ const getInitialActiveSection = (): (typeof HOME_SECTIONS)[number] => {
 
   const hashSection = window.location.hash.replace("#", "");
 
-  if (
-    HOME_SECTIONS.includes(hashSection as (typeof HOME_SECTIONS)[number])
-  ) {
+  if (HOME_SECTIONS.includes(hashSection as (typeof HOME_SECTIONS)[number])) {
     return hashSection as (typeof HOME_SECTIONS)[number];
   }
 
@@ -89,7 +88,7 @@ const Navbar = () => {
       icon: <FaFacebookF size={18} />,
       href: "https://www.facebook.com/EchoVerse.360/",
       label: "Facebook",
-      x: -20,
+      x: -28,
       y: -65,
       delay: 0.1,
     },
@@ -232,7 +231,9 @@ const Navbar = () => {
     const currentPath = normalizePath(pathname);
     const targetPath = normalizePath(target);
 
-    return currentPath === targetPath || currentPath.startsWith(`${targetPath}/`);
+    return (
+      currentPath === targetPath || currentPath.startsWith(`${targetPath}/`)
+    );
   };
 
   const handleMenuNavigation = (target: string, type: "section" | "route") => {
