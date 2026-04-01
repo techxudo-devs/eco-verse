@@ -30,6 +30,19 @@ export async function generateMetadata({
   return {
     title: blog.title,
     description: blog.description ?? undefined,
+    openGraph: {
+      title: blog.title,
+      description: blog.description ?? undefined,
+      url: `/blog/${blog.slug}`,
+      type: "article",
+      images: blog.coverImage ? [{ url: blog.coverImage, width: 1200, height: 630, alt: blog.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description ?? undefined,
+      images: blog.coverImage ? [blog.coverImage] : undefined,
+    },
   };
 }
 

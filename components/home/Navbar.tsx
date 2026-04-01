@@ -84,7 +84,7 @@ const Navbar = () => {
       icon: <FaInstagram size={18} />,
       href: "https://www.instagram.com/echoverse.360/",
       label: "Instagram",
-      x: 25,
+      x: 19,
       y: -60,
       delay: 0.05,
     },

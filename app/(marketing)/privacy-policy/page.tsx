@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import LegalPageTemplate from "@/components/legal/LegalPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Eco Verse",
+  title: "Privacy Policy",
   description:
-    "Learn how Eco Verse collects, uses, and protects personal information.",
+    "Learn how EchoVerse360 collects, uses, and protects your personal information.",
+  openGraph: {
+    title: "Privacy Policy | EchoVerse360",
+    description: "Learn how EchoVerse360 collects, uses, and protects your personal information.",
+    url: "/privacy-policy",
+    type: "website",
+  },
 };
 
 const sections = [

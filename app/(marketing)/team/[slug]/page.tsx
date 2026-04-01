@@ -69,8 +69,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${member.name} — ${member.role} | EcoVerse`,
+    title: `${member.name} — ${member.role}`,
     description: member.bio.slice(0, 155) + "…",
+    openGraph: {
+      title: `${member.name} — ${member.role} | EchoVerse360`,
+      description: member.bio.slice(0, 155) + "…",
+      url: `/team/${member.slug}`,
+      type: "profile",
+      images: [{ url: member.image, width: 800, height: 800, alt: member.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${member.name} — ${member.role} | EchoVerse360`,
+      description: member.bio.slice(0, 155) + "…",
+      images: [member.image],
+    },
   };
 }
 

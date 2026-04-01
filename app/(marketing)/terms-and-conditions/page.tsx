@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import LegalPageTemplate from "@/components/legal/LegalPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Eco Verse",
+  title: "Terms & Conditions",
   description:
-    "Read the terms and conditions that govern the use of the Eco Verse website and services.",
+    "Read the terms and conditions that govern the use of the EchoVerse360 website and services.",
+  openGraph: {
+    title: "Terms & Conditions | EchoVerse360",
+    description: "Read the terms and conditions that govern the use of the EchoVerse360 website and services.",
+    url: "/terms-and-conditions",
+    type: "website",
+  },
 };
 
 const sections = [

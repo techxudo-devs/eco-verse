@@ -90,8 +90,41 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Eco Verse",
-  description: "Eco Verse | We Built Verses For You",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://echoverse360.com"),
+  title: {
+    template: "%s | EchoVerse360",
+    default: "EchoVerse360 — Growth Marketing Agency",
+  },
+  description:
+    "EchoVerse360 is a growth marketing agency that turns creator influence into measurable business outcomes through Campaign Systems, Content Strategy, and scalable growth.",
+  keywords: [
+    "growth marketing",
+    "growth marketing agency",
+    "campaign systems",
+    "content strategy",
+    "creator marketing",
+    "digital marketing agency",
+    "EchoVerse360",
+  ],
+  authors: [{ name: "EchoVerse360" }],
+  creator: "EchoVerse360",
+  publisher: "EchoVerse360",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "EchoVerse360",
+    locale: "en_US",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "EchoVerse360" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@echoverse360",
+    images: ["/og-default.png"],
+  },
 };
 
 export default function RootLayout({
