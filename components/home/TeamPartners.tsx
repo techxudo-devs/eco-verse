@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
     image: "/team-2.jpeg",
     bio: "After leading commercial strategy across WPP and GroupM in Pakistan, Indonesia, and Australia - working with brands like Unilever, Gillette, and GSK - Fahad saw exactly where creator marketing breaks down at the execution level. EchoVerse is built from that experience: a system where influence stops being an activity and starts being a measurable business outcome.",
     expertise: ["Commercial Strategy", "Creator Marketing", "Brand Growth"],
-    experience: "15+ years",
+    experience: "25+ years",
     location: "Pakistan / Australia",
   },
   {
